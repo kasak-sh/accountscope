@@ -32,3 +32,19 @@ def test_identify_relay_without_reply_to_slugs_display_name():
 def test_identify_missing_sender():
     ident = identify("", "", "", load_relays())
     assert ident.key == "unknown"
+
+
+def test_identify_relay_with_unsluggable_display_name_uses_the_sender_address():
+    ident = identify("bounce@mcsv.net", "साप्ताहिक समाचार", "", load_relays())
+    assert ident.key == "bounce@mcsv.net" and ident.via_relay is True
+    assert ident.name == "साप्ताहिक समाचार"
+
+
+def test_identify_relay_without_a_display_name_uses_the_sender_address():
+    ident = identify("bounce-42@em1234.sendgrid.net", "", "", load_relays())
+    assert ident.key == "bounce-42@em1234.sendgrid.net" and ident.via_relay is True
+
+
+def test_identify_relay_reply_to_that_is_also_a_relay_falls_back():
+    ident = identify("bounce@mcsv.net", "Weekly Digest!", "reply@rsgsv.net", load_relays())
+    assert ident.key == "weekly-digest"

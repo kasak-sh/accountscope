@@ -68,7 +68,8 @@ class OrgIdentity:
 
 
 def _slug(name: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-") or "unknown"
+    """A display name reduced to an ASCII key, or "" when nothing survives."""
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
 
 
 def _domain_of(address: str) -> str:
@@ -81,6 +82,9 @@ def identify(sender: str, sender_name: str, reply_to: str, relays: frozenset[str
         reply_domain = _domain_of(reply_to)
         if reply_domain and reply_domain not in relays:
             return OrgIdentity(reply_domain, sender_name or reply_domain, True)
-        return OrgIdentity(_slug(sender_name) if sender_name else domain, sender_name or domain, True)
+        # A name that slugs to nothing (Devanagari, punctuation only, or no name at
+        # all) must not collapse every such relay sender under one key.
+        key = _slug(sender_name) or sender
+        return OrgIdentity(key, sender_name or key, True)
     key = domain or "unknown"
     return OrgIdentity(key, sender_name or key, False)

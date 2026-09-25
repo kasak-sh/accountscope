@@ -108,3 +108,36 @@ def test_terminal_truncates_newsletters_after_eight():
     term = render_terminal(rows, "email", "old@isp.net", None)
     assert "newsletters (10):" in term
     assert term.endswith("...")
+
+
+def slug_row_data():
+    return {"organisations": [{
+        "key": "weekly-digest", "name": "Weekly Digest", "sender_addresses": ["b@mcsv.net"],
+        "types": {"receipt": 2}, "marketing_only": False, "first_seen": "2024-01-01", "last_seen": "2024-06-01",
+        "writes_to": [{"address": "old@isp.net", "last": "2024-06-01", "count": 2}],
+        "holds": [], "delete": None, "category": "other", "via_relay": True}]}
+
+
+def test_link_is_empty_for_a_key_that_is_not_a_domain():
+    rows = build_checklist(slug_row_data(), "email", "old@isp.net")
+    assert rows[0].link == ""
+
+
+def test_renderers_say_no_link_when_there_is_none():
+    rows = build_checklist(slug_row_data(), "email", "old@isp.net")
+    md = render_markdown(rows, "email", "old@isp.net", None)
+    assert "no link; search your mail for Weekly Digest" in md
+    assert "https://weekly-digest" not in md
+    term = render_terminal(rows, "email", "old@isp.net", None)
+    assert "no link; search your mail for Weekly Digest" in term
+    assert "https://weekly-digest" not in term
+
+
+def test_newsletter_rows_say_no_link_too():
+    data = slug_row_data()
+    data["organisations"][0]["marketing_only"] = True
+    data["organisations"][0]["types"] = {"marketing": 2}
+    rows = build_checklist(data, "email", "old@isp.net")
+    md = render_markdown(rows, "email", "old@isp.net", None)
+    assert "no link; search your mail for Weekly Digest" in md
+    assert "](" not in md.split("## newsletters")[1]

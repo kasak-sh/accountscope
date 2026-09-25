@@ -34,8 +34,18 @@ def _tier(category: str) -> int:
 
 
 def _link(org: dict) -> str:
+    """The JustDeleteMe URL, else the key as a domain — but only when the key is one.
+    A relay slug such as "weekly-digest" is not a host, so it gets no link at all."""
     delete = org.get("delete") or {}
-    return delete.get("url") or f"https://{org['key']}"
+    url = delete.get("url")
+    if url:
+        return url
+    key = org["key"]
+    return f"https://{key}" if "." in key else ""
+
+
+def _where(row: "Row") -> str:
+    return row.link or f"no link; search your mail for {row.name}"
 
 
 def _row(org: dict, last: str | None, reason: str) -> Row:
@@ -92,12 +102,14 @@ def render_markdown(rows: list[Row], kind: str, old: str | None, new: str | None
             tier = r.tier
             lines.append({1: "## First: money and government", 2: "## Then: utilities, health, telecom, travel", 3: "## Everything else"}[tier])
         holds = f" · holds {', '.join(r.holds)}" if r.holds else ""
-        lines.append(f"- [ ] **{r.name}** ({r.key}) · last {r.last or 'undated'} · {r.reason}{holds} · [change it here]({r.link})")
+        where = f"[change it here]({r.link})" if r.link else _where(r)
+        lines.append(f"- [ ] **{r.name}** ({r.key}) · last {r.last or 'undated'} · {r.reason}{holds} · {where}")
     if newsletters:
         lines.append("")
         lines.append(f"## newsletters ({len(newsletters)})")
         for r in newsletters:
-            lines.append(f"- [ ] {r.name} ({r.key}) · [unsubscribe or update]({r.link})")
+            where = f"[unsubscribe or update]({r.link})" if r.link else _where(r)
+            lines.append(f"- [ ] {r.name} ({r.key}) · {where}")
     return "\n".join(lines) + "\n"
 
 
@@ -108,7 +120,7 @@ def render_terminal(rows: list[Row], kind: str, old: str | None, new: str | None
     for r in main:
         holds = f" · holds {', '.join(r.holds)}" if r.holds else ""
         lines.append(f"  {r.tier:<4} {r.last or '-':<11} {r.name[:33]:<34} {r.reason}{holds}")
-        lines.append(f"       {'':<11} {'':<34} {r.link}")
+        lines.append(f"       {'':<11} {'':<34} {_where(r)}")
     if newsletters:
         lines.append(f"  newsletters ({len(newsletters)}): " + ", ".join(r.name for r in newsletters[:8]) + (" ..." if len(newsletters) > 8 else ""))
     return "\n".join(lines)
