@@ -18,7 +18,7 @@
   ],
   "translations": {
     "otp": ["código", "codigo", "कोड", "ओटीपी", "verifizierung", "code de vérification"],
-    "verify": ["confirme", "confirmez", "bestätigen", "verifique", "सत्यापित"],
+    "verify": ["confirmez", "bestätigen", "verifique", "सत्यापित"],
     "reset": ["contraseña", "senha", "passwort", "mot de passe", "पासवर्ड"],
     "signup": ["bienvenido", "bem-vindo", "willkommen", "bienvenue", "स्वागत"],
     "receipt": ["recibo", "pedido", "rechnung", "reçu", "commande", "रसीद", "ऑर्डर"],
