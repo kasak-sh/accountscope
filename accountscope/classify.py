@@ -17,7 +17,7 @@ def load_rules() -> dict:
 
 
 def classify(subject: str, has_list_unsubscribe: bool, rules: dict | None = None) -> str:
-    rules = rules or load_rules()
+    rules = rules if rules is not None else load_rules()
     text = subject.lower()
     translations = rules.get("translations", {})
     for rule in rules["types"]:

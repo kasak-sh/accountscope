@@ -37,3 +37,13 @@ def test_transactional_set():
 def test_rules_load_and_are_ordered():
     rules = load_rules()
     assert [r["type"] for r in rules["types"]] == ["otp", "verify", "reset", "signup", "notice", "receipt", "statement"]
+
+
+def test_classify_with_empty_rules_returns_other():
+    empty_rules = {"types": [], "translations": {}}
+    assert classify("Verify your email address", False, rules=empty_rules) == "other"
+
+
+def test_classify_with_empty_rules_and_unsubscribe_returns_marketing():
+    empty_rules = {"types": [], "translations": {}}
+    assert classify("Verify your email address", True, rules=empty_rules) == "marketing"
