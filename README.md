@@ -89,8 +89,10 @@ accountscope opens no network connection. The public-suffix list and the
 [JustDeleteMe](https://justdeleteme.xyz) data it uses are bundled at release
 time. The test suite makes `socket.socket` raise, so any change that opens a
 connection fails the tests (`tests/conftest.py`). The JSON it writes contains
-no message bodies, no subjects and no third-party addresses. The HTML viewer
-embeds that same JSON once, inside a `<script type="application/json">` tag
+no full message bodies, no subjects and no third-party addresses. Each held
+fact carries one evidence snippet of at most 120 characters from the message
+that established it, so you can check the fact; nothing else from a body is
+kept. The HTML viewer embeds that same JSON once, inside a `<script type="application/json">` tag
 with `<`, `>` and `&` escaped the way Django's `json_script` template filter
 does it, so nothing in an organisation name, holds value or address line can
 break out of the tag. Its address filter is a plain selector over your own
