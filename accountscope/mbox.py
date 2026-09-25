@@ -109,6 +109,9 @@ def iter_messages(path: Path, stats: MboxStats) -> Iterator[Message]:
             except Exception:
                 stats.skipped += 1
                 continue
+            if message.sender == "":
+                stats.skipped += 1
+                continue
             if not message.recipients:
                 stats.no_recipients += 1
             yield message

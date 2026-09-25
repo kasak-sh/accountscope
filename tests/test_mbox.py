@@ -83,3 +83,81 @@ def test_body_reader_prefers_plain_and_falls_back_to_html(tmp_path):
         assert reader.text("9999") == ""
     finally:
         reader.close()
+
+
+def test_iter_messages_counts_sender_less_messages_as_skipped(tmp_path):
+    path = make_mbox(tmp_path, [MALFORMED])
+    stats = MboxStats()
+    msgs = list(iter_messages(path, stats))
+    assert stats.total == 1
+    assert stats.skipped == 1
+    assert stats.no_recipients == 0
+    assert len(msgs) == 0
+
+
+def test_iter_messages_handles_naive_date_without_timezone(tmp_path):
+    naive_date = (
+        "From: sender@example.com\n"
+        "To: recipient@example.com\n"
+        "Date: Tue, 03 Sep 2024 10:15:00\n"
+        "Subject: Test naive date\n"
+        "Content-Type: text/plain\n"
+        "\n"
+        "Body\n"
+    )
+    path = make_mbox(tmp_path, [naive_date])
+    stats = MboxStats()
+    msgs = list(iter_messages(path, stats))
+    assert len(msgs) == 1
+    assert msgs[0].date is not None
+    assert msgs[0].date.tzinfo == timezone.utc
+    assert msgs[0].date.isoformat() == "2024-09-03T10:15:00+00:00"
+
+
+def test_body_reader_skips_attachment_parts(tmp_path):
+    multipart = (
+        "From: sender@example.com\n"
+        "To: recipient@example.com\n"
+        "Subject: Test multipart\n"
+        "MIME-Version: 1.0\n"
+        "Content-Type: multipart/mixed; boundary=\"boundary123\"\n"
+        "\n"
+        "--boundary123\n"
+        "Content-Type: text/plain; charset=utf-8\n"
+        "Content-Disposition: inline\n"
+        "\n"
+        "This is the main body\n"
+        "\n"
+        "--boundary123\n"
+        "Content-Type: text/plain; charset=utf-8\n"
+        "Content-Disposition: attachment; filename=\"x.txt\"\n"
+        "\n"
+        "SECRET-ATTACHMENT\n"
+        "--boundary123--\n"
+    )
+    path = make_mbox(tmp_path, [multipart])
+    stats = MboxStats()
+    keys = [m.key for m in iter_messages(path, stats)]
+    reader = BodyReader(path)
+    try:
+        body = reader.text(keys[0])
+        assert "This is the main body" in body
+        assert "SECRET-ATTACHMENT" not in body
+    finally:
+        reader.close()
+
+
+def test_iter_messages_has_list_unsubscribe_false_when_missing(tmp_path):
+    no_unsub = (
+        "From: sender@example.com\n"
+        "To: recipient@example.com\n"
+        "Subject: Test no unsubscribe\n"
+        "Content-Type: text/plain\n"
+        "\n"
+        "Body\n"
+    )
+    path = make_mbox(tmp_path, [no_unsub])
+    stats = MboxStats()
+    msgs = list(iter_messages(path, stats))
+    assert len(msgs) == 1
+    assert msgs[0].has_list_unsubscribe is False
