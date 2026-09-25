@@ -81,3 +81,19 @@ def test_change_rejects_short_card_value(tmp_path, capsys):
     err = capsys.readouterr().err
     assert "accountscope:" in err
     assert "4 digits" in err
+
+
+def test_change_rejects_non_object_inventory(tmp_path, capsys):
+    inv = tmp_path / "inv.json"
+    inv.write_text("[]")
+    code = main(["change", "email", "old@isp.net", str(inv)])
+    assert code == 2
+    assert "unsupported inventory" in capsys.readouterr().err
+
+
+def test_change_rejects_corrupt_inventory(tmp_path, capsys):
+    inv = tmp_path / "inv.json"
+    inv.write_text("{not json")
+    code = main(["change", "email", "old@isp.net", str(inv)])
+    assert code == 2
+    assert "cannot read inventory" in capsys.readouterr().err

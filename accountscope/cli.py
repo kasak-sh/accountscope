@@ -106,6 +106,9 @@ def run_change(args: argparse.Namespace) -> int:
     except (OSError, ValueError) as exc:
         _err(f"cannot read inventory {inv_path}: {exc}")
         return 2
+    if not isinstance(data, dict):
+        _err(f"unsupported inventory {inv_path}: expected a JSON object with a schema field")
+        return 2
     schema = str(data.get("schema", ""))
     if not schema.startswith("accountscope/1"):
         _err(f"unsupported inventory schema {schema!r}; expected accountscope/1")
