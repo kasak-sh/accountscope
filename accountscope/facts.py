@@ -11,12 +11,12 @@ from accountscope.inventory import Fact
 EVIDENCE_WIDTH = 120
 
 CARD = re.compile(
-    r"(?:card|visa|mastercard|amex|debit|credit)[^.\n]{0,40}?"
+    r"\b(?:card|visa|mastercard|amex|debit|credit)\b[^.\n]{0,40}?"
     r"(?:ending(?: in)?|last (?:4|four) digits)[^0-9\n]{0,10}(\d{4})",
     re.IGNORECASE,
 )
 PHONE = re.compile(
-    r"(?:code|text|sms|message)[^.\n]{0,60}?(?:phone|mobile|number)[^0-9*x•\n]{0,20}([0-9*x•]{6,})",
+    r"\b(?:code|text|sms|message)\b[^.\n]{0,60}?(?:phone|mobile|number)[^0-9*x•\n]{0,20}([0-9*x•]{6,})",
     re.IGNORECASE,
 )
 ADDRESS_CUE = re.compile(r"(?:ship(?:ping)?|deliver(?:y)?|billing)\s+address\s*:?", re.IGNORECASE)
@@ -57,10 +57,18 @@ def extract_facts(text: str, seen: str) -> list[FactHit]:
     for m in ADDRESS_CUE.finditer(text):
         window = text[m.end(): m.end() + 300]
         lines = [line.strip() for line in window.splitlines() if line.strip()][:4]
+        match_line = None
         for line in lines:
-            if len(line) < 80 and POSTCODE.search(line) and re.search(r"[A-Za-z]", line):
-                hits.append(FactHit("address", line, _snippet(text, m.start(), m.start() + len(line)), seen))
-                break
+            if len(line) >= 80 or not re.search(r"[A-Za-z]", line):
+                continue
+            pm = POSTCODE.search(line)
+            if not pm:
+                continue
+            if pm.group(0).isdigit() and len(pm.group(0)) == 4 and re.match(r"\d{4}\b", line):
+                continue  # bare 4-digit token at the start of the line: a street number, not a postcode
+            match_line = line
+        if match_line:
+            hits.append(FactHit("address", match_line, _snippet(text, m.start(), m.start() + len(match_line)), seen))
     return hits
 
 

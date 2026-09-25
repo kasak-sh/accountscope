@@ -34,6 +34,19 @@ def test_evidence_is_capped():
     assert len(hits[0].evidence) <= EVIDENCE_WIDTH
 
 
+def test_trigger_words_are_whole_words():
+    assert extract_facts("Your cardio class starts, ending in 1234 minutes.", "2024-06-06") == []
+    assert extract_facts("We encode your favorite number 123456 for stats.", "2024-06-06") == []
+    hits = extract_facts("Your card ending 1234", "2024-06-06")
+    assert hits[0].fact == "card" and hits[0].value == "ending 1234"
+
+
+def test_address_prefers_town_postcode_line_over_street_number():
+    text = "Thanks for your order!\nShipping address:\n1234 Main St\nSpringfield IL 62704\nUSA\n"
+    hits = extract_facts(text, "2024-07-07")
+    assert hits[0].fact == "address" and hits[0].value == "Springfield IL 62704"
+
+
 def test_merge_confidence_by_distinct_dates():
     hits = [
         FactHit("card", "ending 4421", "e1", "2024-01-01"),
