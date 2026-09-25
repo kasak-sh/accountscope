@@ -60,6 +60,8 @@ def build_checklist(data: dict, kind: str, old: str | None, new: str | None = No
                 rows.append(_row(org, hit["last"], f"writes to {target}"))
     else:
         tail = _tail(old)
+        if old and kind in ("phone", "card") and len(tail) < 4:
+            raise ValueError(f"{kind} change needs at least the last 4 digits of the old value")
         for org in data["organisations"]:
             facts = [h for h in org["holds"] if h["fact"] == kind]
             if old:
@@ -104,7 +106,8 @@ def render_terminal(rows: list[Row], kind: str, old: str | None, new: str | None
     lines = [f"change {kind}: {old or 'any'}" + (f" -> {new}" if new else ""), ""]
     lines.append(f"  {'tier':<4} {'last':<11} {'organisation':<34} reason")
     for r in main:
-        lines.append(f"  {r.tier:<4} {r.last or '-':<11} {r.name[:33]:<34} {r.reason}")
+        holds = f" · holds {', '.join(r.holds)}" if r.holds else ""
+        lines.append(f"  {r.tier:<4} {r.last or '-':<11} {r.name[:33]:<34} {r.reason}{holds}")
         lines.append(f"       {'':<11} {'':<34} {r.link}")
     if newsletters:
         lines.append(f"  newsletters ({len(newsletters)}): " + ", ".join(r.name for r in newsletters[:8]) + (" ..." if len(newsletters) > 8 else ""))
