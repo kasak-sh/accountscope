@@ -9,6 +9,8 @@ from typing import Iterable
 from accountscope.inventory import Fact
 
 EVIDENCE_WIDTH = 120
+MIN_TAIL_DIGITS = 4
+LONG_DIGIT_RUN = re.compile(r"\d{7,}")
 
 CARD = re.compile(
     r"\b(?:card|visa|mastercard|amex|debit|credit)\b[^.\n]{0,40}?"
@@ -41,13 +43,19 @@ class FactHit:
     seen: str
 
 
+def _mask_digits(text: str) -> str:
+    """Keep the last four digits of any run of seven or more. An evidence snippet is
+    there to let you recognise a fact, never to carry a full number out of a body."""
+    return LONG_DIGIT_RUN.sub(lambda m: "*" * (len(m.group(0)) - 4) + m.group(0)[-4:], text)
+
+
 def _snippet(text: str, start: int, end: int) -> str:
     dot = text.rfind(". ", 0, start)
     nl = text.rfind("\n", 0, start)
     sent_start = max(dot + 2 if dot >= 0 else 0, nl + 1 if nl >= 0 else 0)
     window = text[sent_start:sent_start + EVIDENCE_WIDTH]
     window = re.sub(r"\s+", " ", window.replace("\n", " ")).strip()
-    return window[:EVIDENCE_WIDTH]
+    return _mask_digits(window[:EVIDENCE_WIDTH])
 
 
 def extract_facts(text: str, seen: str) -> list[FactHit]:
@@ -56,7 +64,7 @@ def extract_facts(text: str, seen: str) -> list[FactHit]:
         hits.append(FactHit("card", f"ending {m.group(1)}", _snippet(text, m.start(), m.end()), seen))
     for m in PHONE.finditer(text):
         digits = re.sub(r"\D", "", m.group(1))
-        if len(digits) < 2:
+        if len(digits) < MIN_TAIL_DIGITS:
             continue
         hits.append(FactHit("phone", f"ending {digits[-4:]}", _snippet(text, m.start(), m.end()), seen))
     for m in ADDRESS_CUE.finditer(text):

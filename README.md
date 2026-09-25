@@ -70,7 +70,9 @@ as whole words, so "cardiff" or "postcode" never fire one by mistake. An
 address line is kept only when it carries a recognisable postcode: a UK
 postcode, a US ZIP or an Indian PIN wins first, and a bare four-digit postcode
 (Australia, New Zealand, and several other European formats) is used only if
-none of those match. Full numbers are never reconstructed.
+none of those match. A phone hit is kept only when the message left at least
+four digits of the tail visible; "ending 12" identifies nothing, so it is
+dropped. Full numbers are never reconstructed.
 
 `accountscope change card <old>` and `accountscope change phone <old>` both
 need at least the last four digits of the value you're changing from; give it

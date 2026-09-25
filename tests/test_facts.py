@@ -72,3 +72,31 @@ def test_merge_confidence_by_distinct_dates():
     assert facts[("card", "ending 4421")].evidence == "e2" and facts[("card", "ending 4421")].seen == "2024-06-01"
     assert facts[("card", "ending 9999")].confidence == "medium"
     assert facts[("phone", "ending 1234")].confidence == "medium"   # same date twice
+
+
+def test_evidence_masks_long_digit_runs():
+    hits = extract_facts("We texted a code to your phone number +447700900123 just now.", "2024-09-09")
+    assert hits[0].fact == "phone" and hits[0].value == "ending 0123"
+    assert "*******0123" in hits[0].evidence
+    assert "447700900123" not in hits[0].evidence
+
+
+def test_evidence_masks_a_long_run_that_is_not_the_matched_value():
+    hits = extract_facts("Your card ending 4421 was used. Reference 987654321098 applies.", "2024-09-09")
+    assert hits[0].fact == "card"
+    assert "987654321098" not in hits[0].evidence
+    assert "********1098" in hits[0].evidence
+    assert "4421" in hits[0].evidence          # a four-digit run is left alone
+
+
+def test_evidence_leaves_short_digit_runs_alone():
+    hits = extract_facts("Your card ending 4421 was charged 123456 rupees.", "2024-09-09")
+    assert "123456" in hits[0].evidence        # six digits: below the masking floor
+
+
+def test_phone_hit_with_fewer_than_four_tail_digits_is_dropped():
+    assert extract_facts("We sent a code to your phone number ********12.", "2024-09-09") == []
+    hits = extract_facts("We sent a code to your phone number *******123.", "2024-09-09")
+    assert hits == []
+    hits = extract_facts("We sent a code to your phone number ******1234.", "2024-09-09")
+    assert hits[0].value == "ending 1234"
