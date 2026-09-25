@@ -112,3 +112,31 @@ def test_scan_drops_personal_mail_senders(tmp_path, capsys):
     assert "gmail.com" not in [o["key"] for o in data["organisations"]]
     assert "jordan@gmail.com" not in json.dumps(data)
     assert data["source"]["personal_senders_skipped"] == 1
+
+
+def test_change_email_warns_when_the_old_address_was_not_scanned(tmp_path, capsys):
+    path = build(tmp_path)
+    assert main(["scan", str(path), "--me", "old@isp.net", "--no-html"]) == 0
+    capsys.readouterr()
+    code = main(["change", "email", "ancient+tag@Isp.NET", str(tmp_path / "accountscope.json")])
+    assert code == 0
+    err = capsys.readouterr().err
+    assert "accountscope: warning:" in err
+    assert "ancient@isp.net is not among the scanned self addresses" in err
+    assert "--me ancient@isp.net" in err
+
+
+def test_change_email_does_not_warn_for_a_scanned_address(tmp_path, capsys):
+    path = build(tmp_path)
+    assert main(["scan", str(path), "--me", "old@isp.net", "--no-html"]) == 0
+    capsys.readouterr()
+    assert main(["change", "email", "old@isp.net", str(tmp_path / "accountscope.json")]) == 0
+    assert "warning" not in capsys.readouterr().err
+
+
+def test_change_card_does_not_warn_about_self_addresses(tmp_path, capsys):
+    path = build(tmp_path)
+    assert main(["scan", str(path), "--me", "old@isp.net", "--no-html"]) == 0
+    capsys.readouterr()
+    assert main(["change", "card", str(tmp_path / "accountscope.json")]) == 0
+    assert "warning" not in capsys.readouterr().err

@@ -10,7 +10,7 @@ from accountscope import __version__
 from accountscope.change import KINDS, build_checklist, render_markdown, render_terminal
 from accountscope.classify import classify, load_rules
 from accountscope.facts import extract_facts, merge_facts
-from accountscope.identity import SelfDetector
+from accountscope.identity import SelfDetector, canonical
 from accountscope.inventory import Aggregator
 from accountscope.mbox import BodyReader, MboxStats, NotAnMbox, check_mbox, iter_messages
 from accountscope.orgs import identify, load_relays
@@ -114,6 +114,11 @@ def run_change(args: argparse.Namespace) -> int:
     if not schema.startswith("accountscope/1"):
         _err(f"unsupported inventory schema {schema!r}; expected accountscope/1")
         return 2
+    if args.kind == "email" and args.old:
+        old = canonical(args.old)
+        if old not in {s.get("address") for s in data.get("self", [])}:
+            _err(f"warning: {old} is not among the scanned self addresses; "
+                 f"rescan with --me {old} for a complete list")
     try:
         rows = build_checklist(data, args.kind, args.old, args.new)
     except ValueError as exc:

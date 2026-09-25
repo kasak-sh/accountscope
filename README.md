@@ -127,6 +127,20 @@ shows only the organisations that still write to it.
   folder → mbox. Thunderbird can also pull an IMAP account down first, which is
   the route for Outlook.com, Yahoo and most ISP mailboxes.
 
+**Name every address you have ever used, at scan time.** Pass each one with its
+own `--me`:
+
+```
+$ accountscope scan takeout.mbox --me me@gmail.com --me old@isp.net --me me@university.edu
+```
+
+accountscope infers your own addresses from how much mail they received, so an
+address you abandoned years ago can fall below that threshold and be treated as
+someone else's — and every organisation that still writes to it then drops out
+of the `change email` checklist, which is the one list you needed it for.
+`accountscope change email <old>` warns on stderr when `<old>` is not among the
+addresses the scan recorded.
+
 ## Install
 
 ```
