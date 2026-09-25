@@ -17,6 +17,10 @@ NEWS = (
     "From: Deals <deals@shop.example>\nTo: me@gmail.com\nDate: Mon, 01 Jan 2024 00:00:00 +0000\n"
     "Subject: Big sale\nList-Unsubscribe: <mailto:u@shop.example>\nContent-Type: text/plain\n\nSale!\n"
 )
+FRIEND = (
+    "From: Jordan <jordan@gmail.com>\nTo: me@gmail.com\nDate: Wed, 05 Mar 2025 09:00:00 +0000\n"
+    "Subject: Your receipt from the pub\nContent-Type: text/plain\n\nYou owe me a pint.\n"
+)
 
 
 def build(tmp_path):
@@ -97,3 +101,14 @@ def test_change_rejects_corrupt_inventory(tmp_path, capsys):
     code = main(["change", "email", "old@isp.net", str(inv)])
     assert code == 2
     assert "cannot read inventory" in capsys.readouterr().err
+
+
+def test_scan_drops_personal_mail_senders(tmp_path, capsys):
+    path = make_mbox(tmp_path, [BANK] * 3 + [BANK_OLD] + [NEWS] * 2 + [FRIEND])
+    assert main(["scan", str(path), "--me", "old@isp.net", "--no-html"]) == 0
+    out = capsys.readouterr().out
+    assert "1 personal-mail senders" in out
+    data = json.loads((tmp_path / "accountscope.json").read_text())
+    assert "gmail.com" not in [o["key"] for o in data["organisations"]]
+    assert "jordan@gmail.com" not in json.dumps(data)
+    assert data["source"]["personal_senders_skipped"] == 1

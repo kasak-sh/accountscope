@@ -89,10 +89,22 @@ accountscope opens no network connection. The public-suffix list and the
 [JustDeleteMe](https://justdeleteme.xyz) data it uses are bundled at release
 time. The test suite makes `socket.socket` raise, so any change that opens a
 connection fails the tests (`tests/conftest.py`). The JSON it writes contains
-no full message bodies, no subjects and no third-party addresses. Each held
-fact carries one evidence snippet of at most 120 characters from the message
-that established it, so you can check the fact; nothing else from a body is
-kept. The HTML viewer embeds that same JSON once, inside a `<script type="application/json">` tag
+no full message bodies, no subjects and no third-party addresses.
+
+Mail from a personal-mail provider — gmail.com, outlook.com, yahoo.com,
+icloud.com, proton.me and the rest of the list in `data/rules.json` — is
+excluded from the inventory entirely, so your friends and family never become
+"organisations" and their addresses are never written to disk. The summary line
+reports how many such senders were dropped. The known cost: a small business
+that mails you from a free-mail address is missed along with them.
+
+For the organisations that remain, at most the five most frequent sender
+addresses are recorded, so a domain that mails you from hundreds of per-ticket
+or per-customer addresses does not turn the record into an address book. Each
+held fact carries one evidence snippet of at most 120 characters from the
+message that established it, so you can check the fact; digit runs of seven or
+more in that snippet are masked to their last four characters, and nothing else
+from a body is kept. The HTML viewer embeds that same JSON once, inside a `<script type="application/json">` tag
 with `<`, `>` and `&` escaped the way Django's `json_script` template filter
 does it, so nothing in an organisation name, holds value or address line can
 break out of the tag. Its address filter is a plain selector over your own

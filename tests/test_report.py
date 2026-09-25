@@ -8,7 +8,8 @@ from accountscope.report import render_summary, write_csv, write_json
 DATA = {
     "schema": "accountscope/1",
     "generated_at": "2026-10-02T09:14:00+00:00",
-    "source": {"path": "takeout.mbox", "messages": 1000, "skipped": 3, "date_range": ["2014-03-02", "2026-09-30"]},
+    "source": {"path": "takeout.mbox", "messages": 1000, "skipped": 3, "date_range": ["2014-03-02", "2026-09-30"],
+               "personal_senders_skipped": 12},
     "self": [{"address": "me@gmail.com", "aliases": ["me+shop@gmail.com"], "messages": 990, "declared": False}],
     "organisations": [
         {"key": "example.com", "name": "Example Bank", "sender_addresses": ["alerts@example.com"],
@@ -68,3 +69,15 @@ def test_render_summary_mentions_key_facts(tmp_path):
     assert "Example Bank" in text
     assert "skipped" in text and "3" in text
     assert "a.json" in text and "a.html" in text
+
+
+def test_render_summary_reports_personal_senders_skipped(tmp_path):
+    text = render_summary(DATA, {"skipped": 3, "no_recipients": 0, "body_failures": 1}, [tmp_path / "a.json"])
+    assert "12 personal-mail senders" in text
+
+
+def test_render_summary_without_the_personal_sender_count(tmp_path):
+    data = json.loads(json.dumps(DATA))
+    del data["source"]["personal_senders_skipped"]
+    text = render_summary(data, {"skipped": 0, "no_recipients": 0, "body_failures": 0}, [tmp_path / "a.json"])
+    assert "0 personal-mail senders" in text

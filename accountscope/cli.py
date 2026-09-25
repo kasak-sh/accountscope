@@ -60,7 +60,8 @@ def run_scan(args: argparse.Namespace) -> int:
         return 2
 
     source = {"path": str(path), "messages": stats.total, "skipped": stats.skipped,
-              "date_range": [first_day, last_day] if first_day else None}
+              "date_range": [first_day, last_day] if first_day else None,
+              "personal_senders_skipped": 0}
     inventory = aggregator.finish(source, self_addresses)
 
     body_failures = 0

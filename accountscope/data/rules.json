@@ -7,6 +7,12 @@
     "customeriomail.com", "mandrillapp.com", "intercom-mail.com", "mailjet.com", "sendpulse.com",
     "emailsrvr.com", "mailanyone.net", "e.customeriomail.com"
   ],
+  "personal_mail_domains": [
+    "gmail.com", "googlemail.com", "outlook.com", "hotmail.com", "live.com", "yahoo.com",
+    "yahoo.co.uk", "yahoo.co.in", "ymail.com", "icloud.com", "me.com", "mac.com", "aol.com",
+    "proton.me", "protonmail.com", "gmx.com", "gmx.de", "web.de", "mail.com", "zoho.com",
+    "rediffmail.com", "fastmail.com", "hey.com"
+  ],
   "types": [
     {"type": "otp", "any": ["code", "otp", "verification", "verify", "passcode", "one-time", "one time"], "needs_digits": true},
     {"type": "verify", "any": ["verify", "verification", "confirm your", "activate", "validate", "confirm email"]},

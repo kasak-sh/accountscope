@@ -37,7 +37,7 @@ class Organisation:
     key: str
     via_relay: bool = False
     names: Counter = field(default_factory=Counter)
-    sender_addresses: set = field(default_factory=set)
+    sender_addresses: Counter = field(default_factory=Counter)
     types: Counter = field(default_factory=Counter)
     first_seen: str | None = None
     last_seen: str | None = None
@@ -64,7 +64,7 @@ class Organisation:
         return {
             "key": self.key,
             "name": self.name,
-            "sender_addresses": sorted(self.sender_addresses),
+            "sender_addresses": top_senders(self.sender_addresses),
             "types": dict(sorted(self.types.items())),
             "marketing_only": self.marketing_only,
             "first_seen": self.first_seen,
@@ -98,6 +98,21 @@ class Inventory:
         return org.transactional_count
 
 
+SENDER_ADDRESS_CAP = 5
+
+
+def top_senders(counts: Counter) -> list[str]:
+    """The most frequent sender addresses only: enough to recognise the organisation,
+    not a transcript of everyone who wrote from that domain."""
+    ranked = sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))
+    return [address for address, _ in ranked[:SENDER_ADDRESS_CAP]]
+
+
+@lru_cache(maxsize=1)
+def load_personal_mail_domains() -> frozenset[str]:
+    return frozenset(load_rules().get("personal_mail_domains", []))
+
+
 @lru_cache(maxsize=1)
 def load_justdeleteme() -> dict:
     text = resources.files("accountscope.data").joinpath("justdeleteme.json").read_text(encoding="utf-8")
@@ -125,7 +140,7 @@ class Aggregator:
         if identity.name:
             org.names[identity.name] += 1
         if message.sender:
-            org.sender_addresses.add(message.sender)
+            org.sender_addresses[message.sender] += 1
         org.types[msg_type] += 1
         day = message.date.date().isoformat() if message.date else None
         if day:
@@ -145,7 +160,12 @@ class Aggregator:
     def finish(self, source: dict, self_addresses: list[SelfAddress]) -> Inventory:
         self_set = {s.address for s in self_addresses}
         categories = load_rules().get("categories", {})
+        personal = load_personal_mail_domains()
         jdm = load_justdeleteme()
+        skipped = [key for key in self.orgs if key in personal]
+        for key in skipped:
+            del self.orgs[key]
+        source["personal_senders_skipped"] = source.get("personal_senders_skipped", 0) + len(skipped)
         for org in self.orgs.values():
             org.writes_to = {a: w for a, w in org.recipients.items() if a in self_set}
             org.recipients = {}

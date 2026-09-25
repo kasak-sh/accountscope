@@ -51,7 +51,8 @@ def render_summary(data: dict, stats_extra: dict, outputs: list[Path]) -> str:
     orgs = data["organisations"]
     lines = []
     lines.append(f"messages: {src['messages']:,}   skipped: {src.get('skipped', 0):,} malformed, "
-                 f"{stats_extra.get('no_recipients', 0):,} without recipients, {stats_extra.get('body_failures', 0):,} bodies unreadable")
+                 f"{stats_extra.get('no_recipients', 0):,} without recipients, {stats_extra.get('body_failures', 0):,} bodies unreadable, "
+                 f"{src.get('personal_senders_skipped', 0):,} personal-mail senders")
     if src.get("date_range"):
         lines.append(f"dates:    {src['date_range'][0]} to {src['date_range'][1]}")
     lines.append("")

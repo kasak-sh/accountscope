@@ -21,7 +21,7 @@ def test_aggregator_builds_writes_to_only_for_self_addresses():
     inv = agg.finish({"path": "x"}, [SelfAddress("me@gmail.com", ["me+bank@gmail.com"], 2, False), SelfAddress("old@isp.net", [], 1, True)])
     org = inv.organisations[0]
     assert org.key == "example.com" and org.name == "Example Bank"
-    assert org.sender_addresses == {"alerts@example.com", "news@example.com"}
+    assert set(org.sender_addresses) == {"alerts@example.com", "news@example.com"}
     assert org.types == {"statement": 2, "marketing": 1}
     assert org.first_seen == "2019-01-04" and org.last_seen == "2024-09-05"
     assert org.writes_to == {
@@ -81,3 +81,43 @@ def test_to_dict_shape_and_no_third_party_data():
                                "seen": "2024-09-03", "confidence": "medium", "inferred": True}
     assert "friend@x.org" not in str(data)
     assert "Statement" not in str(data)
+
+
+def test_personal_mail_senders_are_dropped_and_counted():
+    agg = Aggregator()
+    agg.add(msg(1, "alerts@example.com", "Example Bank", "Statement", (2024, 9, 3), {"me@gmail.com"}),
+            OrgIdentity("example.com", "Example Bank", False), "statement")
+    agg.add(msg(2, "jordan@gmail.com", "Jordan", "Lunch?", (2024, 9, 4), {"me@gmail.com"}),
+            OrgIdentity("gmail.com", "Jordan", False), "other")
+    agg.add(msg(3, "sam@proton.me", "Sam", "Re: keys", (2024, 9, 5), {"me@gmail.com"}),
+            OrgIdentity("proton.me", "Sam", False), "other")
+    source = {"path": "t.mbox", "messages": 3, "personal_senders_skipped": 0}
+    inv = agg.finish(source, [SelfAddress("me@gmail.com", [], 3, False)])
+    data = inv.to_dict()
+    assert [o["key"] for o in data["organisations"]] == ["example.com"]
+    assert data["source"]["personal_senders_skipped"] == 2
+    assert "jordan@gmail.com" not in str(data)
+    assert "sam@proton.me" not in str(data)
+
+
+def test_to_dict_emits_only_the_five_most_frequent_sender_addresses():
+    agg = Aggregator()
+    ident = OrgIdentity("shop.example", "Shop", False)
+    # eight distinct senders; "a0@" is seen most often, "a7@" least.
+    for i in range(8):
+        for _ in range(8 - i):
+            agg.add(msg(f"{i}", f"a{i}@shop.example", "Shop", "Receipt", (2024, 1, 1 + i), {"me@gmail.com"}), ident, "receipt")
+    inv = agg.finish({}, [SelfAddress("me@gmail.com", [], 36, False)])
+    emitted = inv.to_dict()["organisations"][0]["sender_addresses"]
+    assert emitted == ["a0@shop.example", "a1@shop.example", "a2@shop.example",
+                       "a3@shop.example", "a4@shop.example"]
+
+
+def test_sender_addresses_with_equal_counts_tie_break_on_address():
+    agg = Aggregator()
+    ident = OrgIdentity("shop.example", "Shop", False)
+    for name in ("z@shop.example", "m@shop.example", "a@shop.example"):
+        agg.add(msg(name, name, "Shop", "Receipt", (2024, 1, 1), {"me@gmail.com"}), ident, "receipt")
+    inv = agg.finish({}, [SelfAddress("me@gmail.com", [], 3, False)])
+    assert inv.to_dict()["organisations"][0]["sender_addresses"] == [
+        "a@shop.example", "m@shop.example", "z@shop.example"]
