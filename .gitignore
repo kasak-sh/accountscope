@@ -7,3 +7,4 @@ dist/
 *.tmp
 accountscope.json
 accountscope.html
+.venv/
