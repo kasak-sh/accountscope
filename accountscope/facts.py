@@ -26,6 +26,11 @@ POSTCODE = re.compile(
     r"|\d{6}"                                     # Indian PIN
     r"|\d{4})\b"                                  # 4-digit (AU, NZ, AT, CH, BE, DK...)
 )
+STRONG_POSTCODE = re.compile(
+    r"\b(?:[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}"      # UK
+    r"|\d{5}(?:-\d{4})?"                          # US ZIP
+    r"|\d{6})\b"                                  # Indian PIN
+)
 
 
 @dataclass(frozen=True)
@@ -57,16 +62,15 @@ def extract_facts(text: str, seen: str) -> list[FactHit]:
     for m in ADDRESS_CUE.finditer(text):
         window = text[m.end(): m.end() + 300]
         lines = [line.strip() for line in window.splitlines() if line.strip()][:4]
-        match_line = None
-        for line in lines:
-            if len(line) >= 80 or not re.search(r"[A-Za-z]", line):
-                continue
-            pm = POSTCODE.search(line)
-            if not pm:
-                continue
-            if pm.group(0).isdigit() and len(pm.group(0)) == 4 and re.match(r"\d{4}\b", line):
-                continue  # bare 4-digit token at the start of the line: a street number, not a postcode
-            match_line = line
+        candidates = [line for line in lines if len(line) < 80 and re.search(r"[A-Za-z]", line)]
+        strong_line = None
+        weak_line = None
+        for line in candidates:
+            if STRONG_POSTCODE.search(line):
+                strong_line = line
+            if POSTCODE.search(line):
+                weak_line = line
+        match_line = strong_line if strong_line is not None else weak_line
         if match_line:
             hits.append(FactHit("address", match_line, _snippet(text, m.start(), m.start() + len(match_line)), seen))
     return hits

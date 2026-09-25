@@ -47,6 +47,18 @@ def test_address_prefers_town_postcode_line_over_street_number():
     assert hits[0].fact == "address" and hits[0].value == "Springfield IL 62704"
 
 
+def test_address_postcode_first_line():
+    text = "Shipping address:\n1010 Wien\nAustria\n"
+    hits = extract_facts(text, "2024-08-08")
+    assert hits[0].fact == "address" and hits[0].value == "1010 Wien"
+
+
+def test_address_trailing_four_digit_postcode():
+    text = "Shipping address:\n12 Smith St\nSydney NSW 2000\nAustralia\n"
+    hits = extract_facts(text, "2024-08-09")
+    assert hits[0].fact == "address" and hits[0].value == "Sydney NSW 2000"
+
+
 def test_merge_confidence_by_distinct_dates():
     hits = [
         FactHit("card", "ending 4421", "e1", "2024-01-01"),
