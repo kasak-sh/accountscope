@@ -11,15 +11,15 @@ network.
 ```
 $ accountscope scan takeout.mbox
 
-messages: 25   skipped: 0 malformed, 0 without recipients, 0 bodies unreadable
+messages: 25   skipped: 0 malformed, 0 without recipients, 0 bodies unreadable, 1 personal-mail senders
 dates:    2019-01-04 to 2026-08-18
 
 your addresses (inferred from recipient headers; fix with --me / --not-me):
   me@gmail.com                                   20 messages  aliases: me+bank@gmail.com
   old@isp.net                                     5 messages
 
-organisations: 7   (1 newsletters only)
-  other: 2   finance: 1   shopping: 1   utilities: 1   travel: 1   government: 1
+organisations: 6   (1 newsletters only)
+  finance: 1   shopping: 1   utilities: 1   travel: 1   government: 1   other: 1
 
 most active accounts (transactional mail)
   messages  last seen   holds                  organisation
@@ -29,7 +29,6 @@ most active accounts (transactional mail)
          2  2025-08-20  -                      GoTrip Travel (gotrip.example)
          2  2025-03-06  -                      Tax Office (gov.example)
          0  2025-02-01  -                      Weekly Deals (weeklydeals.example)
-         0  2025-08-12  -                      Jordan (example.net)
 
 written:
   accountscope.json
@@ -37,7 +36,9 @@ written:
 ```
 
 (Real output from a 25-message sample mailbox with fictional senders and
-addresses — the shape is the same at 184,000 messages, just with more rows.)
+addresses — the shape is the same at 184,000 messages, just with more rows. The
+25th message is from a friend on gmail.com; that is the one personal-mail sender
+counted on the first line and left out of the inventory.)
 
 ## What it records that nothing else does
 
