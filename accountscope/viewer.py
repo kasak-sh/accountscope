@@ -64,7 +64,7 @@ def _rows(orgs: list[dict]) -> str:
             f'<tr data-key="{_esc(o["key"])}" data-holds="{_esc(" ".join(h["fact"] for h in o["holds"]))}" '
             f'data-marketing="{1 if o["marketing_only"] else 0}" data-writes="{_esc("|".join(w["address"] for w in o["writes_to"]))}">'
             f'<td><strong>{_esc(o["name"])}</strong><br><span class="dim">{_esc(o["key"])}</span></td>'
-            f'<td>{writes}</td><td>{holds or "<span class=dim>-</span>"}</td>'
+            f'<td>{writes}</td><td>{holds or "<span class=\"dim\">-</span>"}</td>'
             f'<td class="dim">{types}</td><td>{_esc(o["first_seen"] or "")} to {_esc(o["last_seen"] or "")}</td><td>{link}</td></tr>'
         )
     return "\n".join(out)
@@ -88,7 +88,8 @@ def _sections(orgs: list[dict]) -> str:
 
 
 def render_html(data: dict) -> str:
-    payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    payload = (json.dumps(data, ensure_ascii=False)
+               .replace("&", "\\u0026").replace("<", "\\u003c").replace(">", "\\u003e"))
     self_options = "".join(f'<option value="{_esc(s["address"])}">{_esc(s["address"])}</option>' for s in data["self"])
     src = data["source"]
     body_sections = _sections(data["organisations"])

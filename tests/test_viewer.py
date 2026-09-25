@@ -22,10 +22,13 @@ def test_html_has_no_external_resources():
 
 def test_json_embedding_escapes_script_close():
     data = json.loads(json.dumps(DATA))
-    data["organisations"][0]["name"] = "Evil </script><script>alert(1)</script>"
+    data["organisations"][0]["name"] = "Evil <!--<script>alert(1)</script>-->"
     html = render_html(data)
+    m = re.search(r'<script id="inventory" type="application/json">(.*?)</script>', html, re.S)
+    payload = m.group(1)
+    assert "<" not in payload and "&" not in payload
+    assert json.loads(payload)["organisations"][0]["name"] == "Evil <!--<script>alert(1)</script>-->"
     assert "</script><script>alert" not in html
-    assert "<\\/script>" in html
 
 
 def test_write_html(tmp_path):
