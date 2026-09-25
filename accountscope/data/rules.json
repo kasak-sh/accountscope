@@ -14,7 +14,7 @@
     "rediffmail.com", "fastmail.com", "hey.com"
   ],
   "types": [
-    {"type": "otp", "any": ["code", "otp", "verification", "verify", "passcode", "one-time", "one time"], "needs_digits": true},
+    {"type": "otp", "any": ["code", "otp", "verification", "verify", "passcode", "one-time", "one time"], "needs_digits": true, "never_with_unsubscribe": true},
     {"type": "verify", "any": ["verify", "verification", "confirm your", "activate", "validate", "confirm email"]},
     {"type": "reset", "any": ["reset", "forgot", "new password", "change your password"]},
     {"type": "signup", "any": ["welcome", "thanks for signing up", "thank you for signing up", "account created", "you're in", "get started", "registration"]},

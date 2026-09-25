@@ -83,7 +83,12 @@ Message types come from a small ordered rule set, tried in this order: `otp`,
 `verify`, `reset`, `signup`, `notice`, `receipt`, `statement` — the first rule
 whose words appear in the subject line wins (a one-time code is always typed
 `otp`, even though its subject also says "verification"), with `marketing`
-and `other` as the fallback for everything the rules don't recognise.
+and `other` as the fallback for everything the rules don't recognise. `otp`
+additionally needs a 4-8 digit token close to the trigger word — within 30
+characters after it, or opening the subject as in "483920 is your OTP" — and
+never fires on a message that carries a List-Unsubscribe header, so
+"Order 12345678 shipped, use code later" is a `notice` and "use code SAVE20
+before 2026 ends" is a newsletter.
 
 ## Privacy
 

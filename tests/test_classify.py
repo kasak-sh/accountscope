@@ -47,3 +47,23 @@ def test_classify_with_empty_rules_returns_other():
 def test_classify_with_empty_rules_and_unsubscribe_returns_marketing():
     empty_rules = {"types": [], "translations": {}}
     assert classify("Verify your email address", True, rules=empty_rules) == "marketing"
+
+
+@pytest.mark.parametrize(
+    "subject,unsub,expected",
+    [
+        ("Use code SAVE20 before 2026 ends", True, "marketing"),
+        ("Your code is 483920", False, "otp"),
+        ("Order 12345678 shipped, use code later", False, "notice"),
+        ("Order 12345678 confirmed", False, "receipt"),
+        ("Save 20% in 2026 with code SPRING", False, "other"),
+        ("483920 is your login code", False, "otp"),
+    ],
+)
+def test_otp_does_not_fire_on_far_away_digits_or_newsletters(subject, unsub, expected):
+    assert classify(subject, unsub) == expected
+
+
+def test_otp_never_fires_on_a_message_with_list_unsubscribe():
+    assert classify("Your verification code is 483920", False) == "otp"
+    assert classify("Your verification code is 483920", True) == "verify"
