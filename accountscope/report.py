@@ -10,9 +10,13 @@ from pathlib import Path
 
 def write_json(data: dict, path: Path) -> None:
     tmp = path.with_name(path.name + ".tmp")
-    with open(tmp, "w", encoding="utf-8") as fh:
-        json.dump(data, fh, indent=1, ensure_ascii=False)
-        fh.write("\n")
+    try:
+        with open(tmp, "w", encoding="utf-8") as fh:
+            json.dump(data, fh, indent=1, ensure_ascii=False)
+            fh.write("\n")
+    except Exception:
+        tmp.unlink(missing_ok=True)
+        raise
     os.replace(tmp, path)
 
 

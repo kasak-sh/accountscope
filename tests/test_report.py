@@ -1,6 +1,8 @@
 import csv
 import json
 
+import pytest
+
 from accountscope.report import render_summary, write_csv, write_json
 
 DATA = {
@@ -29,6 +31,22 @@ def test_write_json_is_atomic_and_round_trips(tmp_path):
     write_json(DATA, out)
     assert json.loads(out.read_text()) == DATA
     assert not (tmp_path / "accountscope.json.tmp").exists()
+
+
+def test_write_json_failure_leaves_no_partial_target(tmp_path):
+    out = tmp_path / "accountscope.json"
+    # Test 1: non-serializable data fails without creating target or temp
+    with pytest.raises(TypeError):
+        write_json({"x": object()}, out)
+    assert not out.exists()
+    assert not (tmp_path / "accountscope.json.tmp").exists()
+
+    # Test 2: pre-existing good file is untouched by failed rewrite
+    write_json({"good": "data"}, out)
+    original_content = out.read_text()
+    with pytest.raises(TypeError):
+        write_json({"x": object()}, out)
+    assert out.read_text() == original_content
 
 
 def test_write_csv_flattens(tmp_path):
