@@ -141,3 +141,24 @@ def test_newsletter_rows_say_no_link_too():
     md = render_markdown(rows, "email", "old@isp.net", None)
     assert "no link; search your mail for Weekly Digest" in md
     assert "](" not in md.split("## newsletters")[1]
+
+
+def test_holds_suffix_does_not_repeat_the_fact_in_the_reason():
+    rows = build_checklist(make_data(), "card", None)
+    card = next(r for r in rows if r.key == "example.com")
+    assert card.reason == "holds card ending 4421"
+    term = render_terminal(rows, "card", None, None)
+    md = render_markdown(rows, "card", None, None)
+    assert "holds card ending 4421 · holds card ending 4421" not in term
+    assert "holds card ending 4421 · holds card ending 4421" not in md
+    assert "holds card ending 4421" in term and "holds card ending 4421" in md
+
+
+def test_holds_suffix_still_lists_facts_the_reason_does_not_name():
+    data = make_data()
+    bank = next(o for o in data["organisations"] if o["key"] == "example.com")
+    bank["holds"].append({"fact": "phone", "value": "ending 7788", "evidence": "e",
+                          "seen": "2026-09-01", "confidence": "medium", "inferred": True})
+    rows = build_checklist(data, "card", None)
+    term = render_terminal(rows, "card", None, None)
+    assert "holds card ending 4421 · holds phone ending 7788" in term

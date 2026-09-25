@@ -24,13 +24,22 @@ CSV_FIELDS = ["key", "name", "category", "first_seen", "last_seen", "marketing_o
               "types", "writes_to", "holds", "delete_url", "delete_difficulty", "sender_addresses"]
 
 
+FORMULA_LEADERS = ("=", "+", "-", "@", "\t", "\r")
+
+
+def _safe(value: str) -> str:
+    """A spreadsheet reads a leading =, +, -, @, tab or CR as the start of a formula.
+    An organisation name comes from a mail header, so it is attacker-controlled text."""
+    return "'" + value if value[:1] in FORMULA_LEADERS else value
+
+
 def write_csv(data: dict, path: Path) -> None:
     with open(path, "w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=CSV_FIELDS)
         writer.writeheader()
         for org in data["organisations"]:
             delete = org.get("delete") or {}
-            writer.writerow({
+            writer.writerow({field: _safe(value) for field, value in {
                 "key": org["key"],
                 "name": org["name"],
                 "category": org["category"],
@@ -43,7 +52,7 @@ def write_csv(data: dict, path: Path) -> None:
                 "delete_url": delete.get("url", ""),
                 "delete_difficulty": delete.get("difficulty", ""),
                 "sender_addresses": "; ".join(org["sender_addresses"]),
-            })
+            }.items()})
 
 
 def render_summary(data: dict, stats_extra: dict, outputs: list[Path]) -> str:

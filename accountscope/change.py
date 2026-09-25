@@ -48,6 +48,13 @@ def _where(row: "Row") -> str:
     return row.link or f"no link; search your mail for {row.name}"
 
 
+def _holds(row: "Row") -> str:
+    """Only the facts the reason has not already named: a card row selected *because*
+    of a card fact must not read "holds card ending 4421 · holds card ending 4421"."""
+    rest = [h for h in row.holds if h not in row.reason]
+    return f" · holds {', '.join(rest)}" if rest else ""
+
+
 def _row(org: dict, last: str | None, reason: str) -> Row:
     return Row(name=org["name"], key=org["key"], category=org["category"], tier=_tier(org["category"]), last=last,
                holds=[f"{h['fact']} {h['value']}" for h in org["holds"]], link=_link(org), reason=reason,
@@ -101,7 +108,7 @@ def render_markdown(rows: list[Row], kind: str, old: str | None, new: str | None
         if r.tier != tier:
             tier = r.tier
             lines.append({1: "## First: money and government", 2: "## Then: utilities, health, telecom, travel", 3: "## Everything else"}[tier])
-        holds = f" · holds {', '.join(r.holds)}" if r.holds else ""
+        holds = _holds(r)
         where = f"[change it here]({r.link})" if r.link else _where(r)
         lines.append(f"- [ ] **{r.name}** ({r.key}) · last {r.last or 'undated'} · {r.reason}{holds} · {where}")
     if newsletters:
@@ -118,7 +125,7 @@ def render_terminal(rows: list[Row], kind: str, old: str | None, new: str | None
     lines = [f"change {kind}: {old or 'any'}" + (f" -> {new}" if new else ""), ""]
     lines.append(f"  {'tier':<4} {'last':<11} {'organisation':<34} reason")
     for r in main:
-        holds = f" · holds {', '.join(r.holds)}" if r.holds else ""
+        holds = _holds(r)
         lines.append(f"  {r.tier:<4} {r.last or '-':<11} {r.name[:33]:<34} {r.reason}{holds}")
         lines.append(f"       {'':<11} {'':<34} {_where(r)}")
     if newsletters:

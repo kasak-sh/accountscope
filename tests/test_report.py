@@ -81,3 +81,27 @@ def test_render_summary_without_the_personal_sender_count(tmp_path):
     del data["source"]["personal_senders_skipped"]
     text = render_summary(data, {"skipped": 0, "no_recipients": 0, "body_failures": 0}, [tmp_path / "a.json"])
     assert "0 personal-mail senders" in text
+
+
+def test_write_csv_neutralises_formula_injection(tmp_path):
+    data = json.loads(json.dumps(DATA))
+    data["organisations"][0]["name"] = "=cmd|'/C calc'!A1"
+    data["organisations"][0]["key"] = "+evil.example"
+    data["organisations"][1]["name"] = "-2+3"
+    data["organisations"][1]["key"] = "@SUM(A1:A9)"
+    out = tmp_path / "inv.csv"
+    write_csv(data, out)
+    rows = list(csv.DictReader(out.open()))
+    assert rows[0]["name"] == "'=cmd|'/C calc'!A1"
+    assert rows[0]["key"] == "'+evil.example"
+    assert rows[1]["name"] == "'-2+3"
+    assert rows[1]["key"] == "'@SUM(A1:A9)"
+
+
+def test_write_csv_leaves_ordinary_fields_alone(tmp_path):
+    out = tmp_path / "inv.csv"
+    write_csv(DATA, out)
+    rows = list(csv.DictReader(out.open()))
+    assert rows[0]["name"] == "Example Bank"
+    assert rows[0]["first_seen"] == "2016-05-11"
+    assert rows[0]["delete_url"] == "https://example.com/close"
