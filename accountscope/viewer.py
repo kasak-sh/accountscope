@@ -47,6 +47,8 @@ document.getElementById('tools').hidden=false;
 })();
 """
 
+DASH = '<span class="dim">-</span>'
+
 
 def _esc(value) -> str:
     return html.escape("" if value is None else str(value), quote=True)
@@ -58,13 +60,13 @@ def _rows(orgs: list[dict]) -> str:
         holds = " ".join(f'<span class="tag">{_esc(h["fact"])} {_esc(h["value"])}</span>' for h in o["holds"])
         writes = "<br>".join(f'{_esc(w["address"])} <span class="dim">{_esc(w["last"] or "undated")}</span>' for w in o["writes_to"])
         delete = o.get("delete") or {}
-        link = f'<a href="{_esc(delete["url"])}" rel="noopener">delete ({_esc(delete.get("difficulty", ""))})</a>' if delete.get("url") else '<span class="dim">-</span>'
+        link = f'<a href="{_esc(delete["url"])}" rel="noopener">delete ({_esc(delete.get("difficulty", ""))})</a>' if delete.get("url") else DASH
         types = ", ".join(f"{_esc(t)} {n}" for t, n in o["types"].items())
         out.append(
             f'<tr data-key="{_esc(o["key"])}" data-holds="{_esc(" ".join(h["fact"] for h in o["holds"]))}" '
             f'data-marketing="{1 if o["marketing_only"] else 0}" data-writes="{_esc("|".join(w["address"] for w in o["writes_to"]))}">'
             f'<td><strong>{_esc(o["name"])}</strong><br><span class="dim">{_esc(o["key"])}</span></td>'
-            f'<td>{writes}</td><td>{holds or "<span class=\"dim\">-</span>"}</td>'
+            f'<td>{writes}</td><td>{holds or DASH}</td>'
             f'<td class="dim">{types}</td><td>{_esc(o["first_seen"] or "")} to {_esc(o["last_seen"] or "")}</td><td>{link}</td></tr>'
         )
     return "\n".join(out)
