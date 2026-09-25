@@ -110,9 +110,9 @@ def test_terminal_truncates_newsletters_after_eight():
     assert term.endswith("...")
 
 
-def slug_row_data():
+def slug_row_data(key="weekly-digest"):
     return {"organisations": [{
-        "key": "weekly-digest", "name": "Weekly Digest", "sender_addresses": ["b@mcsv.net"],
+        "key": key, "name": "Weekly Digest", "sender_addresses": ["b@mcsv.net"],
         "types": {"receipt": 2}, "marketing_only": False, "first_seen": "2024-01-01", "last_seen": "2024-06-01",
         "writes_to": [{"address": "old@isp.net", "last": "2024-06-01", "count": 2}],
         "holds": [], "delete": None, "category": "other", "via_relay": True}]}
@@ -131,6 +131,12 @@ def test_renderers_say_no_link_when_there_is_none():
     term = render_terminal(rows, "email", "old@isp.net", None)
     assert "no link; search your mail for Weekly Digest" in term
     assert "https://weekly-digest" not in term
+    # An unsluggable relay sender is keyed on its address, which has a dot in it but
+    # is not a host: https://bounce@mcsv.net would send you to the relay.
+    address_rows = build_checklist(slug_row_data("bounce@mcsv.net"), "email", "old@isp.net")
+    assert address_rows[0].link == ""
+    assert "no link; search your mail for Weekly Digest" in render_terminal(
+        address_rows, "email", "old@isp.net", None)
 
 
 def test_newsletter_rows_say_no_link_too():
