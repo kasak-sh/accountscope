@@ -121,3 +121,32 @@ def test_sender_addresses_with_equal_counts_tie_break_on_address():
     inv = agg.finish({}, [SelfAddress("me@gmail.com", [], 3, False)])
     assert inv.to_dict()["organisations"][0]["sender_addresses"] == [
         "a@shop.example", "m@shop.example", "z@shop.example"]
+
+
+def bundled_categories():
+    from accountscope.classify import load_rules
+    return load_rules()["categories"]
+
+
+def named(key, name):
+    org = Organisation(key=key)
+    org.names[name] += 1
+    return org
+
+
+def test_categorise_matches_whole_tokens_not_substrings():
+    cats = bundled_categories()
+    assert categorise(Organisation(key="netflix.com"), cats) != "social"        # "x.com" in "netflix.com"
+    assert categorise(Organisation(key="gitlab.com"), cats) != "health"         # "lab" in "gitlab"
+    assert categorise(Organisation(key="taxi.example"), cats) != "finance"      # "tax" in "taxi"
+    assert categorise(named("news.example", "Mastercard Newsletter"), cats) != "finance"
+
+
+def test_categorise_still_matches_real_organisations():
+    cats = bundled_categories()
+    assert categorise(Organisation(key="mybank.com"), cats) == "finance"
+    assert categorise(Organisation(key="x.com"), cats) == "social"
+    assert categorise(Organisation(key="uidai.nic.in"), cats) == "government"
+    assert categorise(Organisation(key="att.com"), cats) == "telecom"
+    assert categorise(named("billing.example", "Tata Power Ltd"), cats) == "utilities"
+    assert categorise(Organisation(key="t-mobile.com"), cats) == "telecom"
