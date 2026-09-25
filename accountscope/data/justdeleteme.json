@@ -844,6 +844,11 @@
 "name": "RLV e-boutique",
 "url": "https://eboutique-rlv.airwebpass.com/account/"
 },
+"aiskyla.com": {
+"difficulty": "hard",
+"name": "AISkyla",
+"url": "https://aiskyla.com/privacy"
+},
 "aiven.io": {
 "difficulty": "easy",
 "name": "Aiven",
@@ -1770,9 +1775,9 @@
 "url": "https://id.atlassian.com/manage/close-account"
 },
 "atlassian.net": {
-"difficulty": "hard",
-"name": "Stardock",
-"url": "https://stardock.atlassian.net/servicedesk/customer/portal/4/group/14/create/10143"
+"difficulty": "easy",
+"name": "WiseMapping",
+"url": "https://app.wisemapping.com/c/maps/"
 },
 "atom.io": {
 "difficulty": "hard",
@@ -2273,11 +2278,6 @@
 "difficulty": "hard",
 "name": "bet365",
 "url": "https://help.bet365.com/contact"
-},
-"bet6.com.br": {
-"difficulty": "hard",
-"name": "Betnacional",
-"url": "https://assets.bet6.com.br/sistemans/skins/betnacional/doc/5eef829d8f.pdf"
 },
 "betano.com": {
 "difficulty": "easy",
@@ -3049,20 +3049,10 @@
 "name": "CATME",
 "url": "https://info.catme.org/student-faq/can-i-delete-my-student-account/"
 },
-"catme.org": {
-"difficulty": "impossible",
-"name": "CATME",
-"url": "https://info.catme.org/student-faq/can-i-delete-my-student-account/"
-},
 "cbc.ca": {
 "difficulty": "hard",
 "name": "CBC",
 "url": "https://cbchelp.cbc.ca/hc/en-ca/requests/new"
-},
-"ccm.net": {
-"difficulty": "easy",
-"name": "Comment \u00e7a marche",
-"url": "https://auth.ccm.net/user/delete_account"
 },
 "ccma.cat": {
 "difficulty": "easy",
@@ -3879,11 +3869,6 @@
 "name": "Crowdcast.io",
 "url": "https://crowdcast.notion.site/Deleting-Your-Crowdcast-Account-952b7f9ff09648f7960e7d9ecfb6a1b4"
 },
-"crowdcast.notion.site": {
-"difficulty": "impossible",
-"name": "Crowdcast.io",
-"url": "https://crowdcast.notion.site/Deleting-Your-Crowdcast-Account-952b7f9ff09648f7960e7d9ecfb6a1b4"
-},
 "crowdfinder.be": {
 "difficulty": "hard",
 "name": "Crowdfinder",
@@ -4021,13 +4006,8 @@
 },
 "custhelp.com": {
 "difficulty": "hard",
-"name": "British Airways",
-"url": "https://naprepin.custhelp.com/app/answers/detail/a_id/770/~/cancelling-your-executive-club-membership"
-},
-"customerservice-bloomingdales.com": {
-"difficulty": "hard",
-"name": "Bloomingdales",
-"url": "https://customerservice-bloomingdales.com/articles/contact-us"
+"name": "Payoneer",
+"url": "https://payoneer.custhelp.com/app/ask/l_id/1/c/3753"
 },
 "cutout.pro": {
 "difficulty": "easy",
@@ -4310,9 +4290,9 @@
 "url": "https://www.dfcg.fr/politique-de-confidentialite/"
 },
 "dhl.de": {
-"difficulty": "hard",
-"name": "Deutsche Post",
-"url": "https://www.dhl.de/content/dpks/de/themenauswahl/kundenservice-formulare/f1b-datenschutz.html"
+"difficulty": "easy",
+"name": "DHL",
+"url": "https://www.dhl.de/de/privatkunden/kundenkonto/meine-daten.html"
 },
 "diabrowser.com": {
 "difficulty": "easy",
@@ -4358,11 +4338,6 @@
 "difficulty": "easy",
 "name": "Dietollemode.com",
 "url": "https://dietollemode.com/"
-},
-"difi.no": {
-"difficulty": "hard",
-"name": "MinID",
-"url": "https://eid.difi.no/en/minid/blocking-minid"
 },
 "digg.com": {
 "difficulty": "easy",
@@ -4605,11 +4580,6 @@
 "url": "https://www.donationalerts.com/dashboard/general-settings/account"
 },
 "doneo.com": {
-"difficulty": "easy",
-"name": "Doneo",
-"url": "http://www.doneo.org/2_index_membre.php?action=desinscription_membre&block=block2"
-},
-"doneo.org": {
 "difficulty": "easy",
 "name": "Doneo",
 "url": "http://www.doneo.org/2_index_membre.php?action=desinscription_membre&block=block2"
@@ -5604,11 +5574,6 @@
 "name": "Experian UK",
 "url": "https://prodmove.experian.co.uk/"
 },
-"experian.com": {
-"difficulty": "hard",
-"name": "Experian",
-"url": "https://www.experian.com"
-},
 "experiandirect.com": {
 "difficulty": "hard",
 "name": "Experian",
@@ -5703,11 +5668,6 @@
 "difficulty": "easy",
 "name": "Fancade",
 "url": "https://play.fancade.com/"
-},
-"fandango.com": {
-"difficulty": "hard",
-"name": "Rotten Tomatoes",
-"url": "https://support.fandango.com/contact/contact-us-fandango-rkksORSDO"
 },
 "fanfiction.net": {
 "difficulty": "hard",
@@ -6049,11 +6009,6 @@
 "name": "Fooducate",
 "url": "http://fooducate.com/deleteaccount"
 },
-"force.com": {
-"difficulty": "hard",
-"name": "CNET Download",
-"url": "https://cbsi.secure.force.com/CBSi/submitcase?template=template_cnet&referer=cnet.com&cfs=SFS_1"
-},
 "forevermissed.com": {
 "difficulty": "hard",
 "name": "ForeverMissed",
@@ -6063,16 +6018,6 @@
 "difficulty": "easy",
 "name": "Form.taxi",
 "url": "https://form.taxi/panel/profile"
-},
-"forms.gle": {
-"difficulty": "hard",
-"name": "Teespring",
-"url": "https://forms.gle/T8LQEYdQrwRoTa469"
-},
-"formstack.com": {
-"difficulty": "medium",
-"name": "Cointree",
-"url": "https://cointree.formstack.com/forms/account_closure_request"
 },
 "formula1.com": {
 "difficulty": "hard",
@@ -6174,11 +6119,6 @@
 "name": "Freelancer",
 "url": "https://www.freelancer.in/users/settings.php#AccountSettings"
 },
-"freelancer.in": {
-"difficulty": "easy",
-"name": "Freelancer",
-"url": "https://www.freelancer.in/users/settings.php#AccountSettings"
-},
 "freeletics.com": {
 "difficulty": "medium",
 "name": "Freeletics",
@@ -6205,9 +6145,9 @@
 "url": "https://docs.element.io/latest/element-support/matrix-account-management/deactivating-a-matrix-account"
 },
 "freshdesk.com": {
-"difficulty": "hard",
-"name": "Decathlon India",
-"url": "https://decathlononline.freshdesk.com/support/tickets/new"
+"difficulty": "easy",
+"name": "Freshdesk",
+"url": "https://freshdesk.com"
 },
 "freshping.io": {
 "difficulty": "easy",
@@ -6545,9 +6485,9 @@
 "url": "https://support.genymotion.com/hc/en-us/requests/new?ticket_form_id=360000289657"
 },
 "genymotion.com": {
-"difficulty": "hard",
-"name": "Genymotion Cloud (SaaS)",
-"url": "https://support.genymotion.com/hc/en-us/requests/new?ticket_form_id=360000289657"
+"difficulty": "easy",
+"name": "Genymotion Desktop",
+"url": "https://www-v1.genymotion.com/account/#account-info"
 },
 "geocaching.com": {
 "difficulty": "easy",
@@ -6618,11 +6558,6 @@
 "difficulty": "easy",
 "name": "Mimo",
 "url": "https://getmimo.com/settings"
-},
-"getonstream.com": {
-"difficulty": "hard",
-"name": "StreamLabs",
-"url": "https://getonstream.com/how-to-delete-a-streamlabs-account-easy-guide/"
 },
 "getpocket.com": {
 "difficulty": "easy",
@@ -6700,9 +6635,9 @@
 "url": "https://github.com/settings/admin#:~:text=Delete%20account"
 },
 "github.com": {
-"difficulty": "hard",
-"name": "Bountysource",
-"url": "https://github.com/bountysource/core/issues/409"
+"difficulty": "easy",
+"name": "GitHub",
+"url": "https://github.com/settings/admin#:~:text=Delete%20account"
 },
 "gitkraken.com": {
 "difficulty": "easy",
@@ -7145,9 +7080,9 @@
 "url": "https://security.google.com/settings/security/deleteaccount"
 },
 "google.com": {
-"difficulty": "impossible",
-"name": "Blogger",
-"url": "https://support.google.com/blogger/answer/41932"
+"difficulty": "medium",
+"name": "Gmail",
+"url": "https://myaccount.google.com/deleteservices"
 },
 "google.com.af": {
 "difficulty": "easy",
@@ -8099,11 +8034,6 @@
 "name": "GrubHub",
 "url": "https://www.grubhub.com/help/privacy/manage-your-data"
 },
-"grupocasasbahia.com.br": {
-"difficulty": "medium",
-"name": "Extra",
-"url": "https://www.grupocasasbahia.com.br/privacidade/"
-},
 "gryphline.com": {
 "difficulty": "medium",
 "name": "Gryphline",
@@ -8259,11 +8189,6 @@
 "name": "Happy Scribe",
 "url": "https://www.happyscribe.co/users/edit"
 },
-"hardwarewebwinkel.nl": {
-"difficulty": "hard",
-"name": "Hardware webwinkel",
-"url": "https://hardwarewebwinkel.nl/"
-},
 "harkaudio.com": {
 "difficulty": "hard",
 "name": "Hark Audio",
@@ -8288,11 +8213,6 @@
 "difficulty": "easy",
 "name": "Matrix",
 "url": "https://docs.element.io/latest/element-support/matrix-account-management/deactivating-a-matrix-account"
-},
-"hashicorp.com": {
-"difficulty": "hard",
-"name": "Terraform Cloud",
-"url": "https://support.hashicorp.com/hc/en-us/articles/1500002617421-Deleting-Terraform-Cloud-Accounts"
 },
 "haveibeenpwned.com": {
 "difficulty": "impossible",
@@ -8408,11 +8328,6 @@
 "difficulty": "easy",
 "name": "HelpScout",
 "url": "https://docs.helpscout.com/article/473-cancel-your-help-scout-account"
-},
-"helpscoutdocs.com": {
-"difficulty": "easy",
-"name": "Sofascore",
-"url": "https://sofascore.helpscoutdocs.com/article/55-how-to-delete-account?lng=en"
 },
 "helpshift.com": {
 "difficulty": "easy",
@@ -9304,11 +9219,6 @@
 "name": "InVideo",
 "url": "https://help.invideo.io/articles/56692-how-do-i-delete-my-account"
 },
-"invidious.io": {
-"difficulty": "easy",
-"name": "Invidious",
-"url": "https://redirect.invidious.io/preferences"
-},
 "invisalign.com": {
 "difficulty": "easy",
 "name": "My Invisalign",
@@ -9380,11 +9290,6 @@
 "url": "https://www.iubenda.com/en/account"
 },
 "iversity.com": {
-"difficulty": "easy",
-"name": "iversity",
-"url": "https://iversity.org/de/user/deactivate"
-},
-"iversity.org": {
 "difficulty": "easy",
 "name": "iversity",
 "url": "https://iversity.org/de/user/deactivate"
@@ -10483,6 +10388,11 @@
 "difficulty": "easy",
 "name": "Lime",
 "url": "https://www.li.me/"
+},
+"lib.reviews": {
+"difficulty": "impossible",
+"name": "lib.reviews",
+"url": "https://lib.reviews/"
 },
 "liberland.org": {
 "difficulty": "impossible",
@@ -11769,11 +11679,6 @@
 "name": "Moodle",
 "url": "https://moodle.org/admin/tool/dataprivacy/createdatarequest.php?type=2"
 },
-"moodle.org": {
-"difficulty": "easy",
-"name": "Moodle",
-"url": "https://moodle.org/admin/tool/dataprivacy/createdatarequest.php?type=2"
-},
 "moonpig.co.uk": {
 "difficulty": "hard",
 "name": "Moonpig",
@@ -12331,8 +12236,8 @@
 },
 "nike.com": {
 "difficulty": "easy",
-"name": "Nike",
-"url": "https://www.nike.com/pt/member/settings"
+"name": "Nike+",
+"url": "https://secure-nikeplus.nike.com/plus/settings/"
 },
 "nike.com.br": {
 "difficulty": "easy",
@@ -12553,11 +12458,6 @@
 "difficulty": "easy",
 "name": "Matrix",
 "url": "https://docs.element.io/latest/element-support/matrix-account-management/deactivating-a-matrix-account"
-},
-"obsecom.eu": {
-"difficulty": "hard",
-"name": "iFixit",
-"url": "https://forms.obsecom.eu/requests/654931-678694-057240-634891"
 },
 "obsidian.md": {
 "difficulty": "easy",
@@ -12849,11 +12749,6 @@
 "name": "Onet",
 "url": "https://konto.onet.pl/data.html"
 },
-"onetrust.com": {
-"difficulty": "hard",
-"name": "Boeing",
-"url": "https://privacyportal.onetrust.com/webform/7a02e6ee-4433-4d2d-b133-66ab66311d80/7fda90ac-fe12-4a4b-a816-4cb09137423d.html"
-},
 "online.net": {
 "difficulty": "impossible",
 "name": "Online.net",
@@ -12975,8 +12870,8 @@
 "url": "https://home.openweathermap.org/privacy/notifications#del_poll_modal"
 },
 "opera.com": {
-"difficulty": "impossible",
-"name": "Gamemaker",
+"difficulty": "easy",
+"name": "Opera",
 "url": "https://auth.opera.com/account/delete-profile"
 },
 "opodo.fr": {
@@ -13194,11 +13089,6 @@
 "name": "Papara",
 "url": "https://www.papara.com/"
 },
-"paperform.co": {
-"difficulty": "medium",
-"name": "Satispay",
-"url": "https://disattivazione-account-satispay.paperform.co/"
-},
 "paperkarma.com": {
 "difficulty": "hard",
 "name": "PaperKarma",
@@ -13270,11 +13160,6 @@
 "url": "https://passculture.app/profil/suppression"
 },
 "passdock.com": {
-"difficulty": "easy",
-"name": "PassDock",
-"url": "https://api.passdock.net/users/edit"
-},
-"passdock.net": {
 "difficulty": "easy",
 "name": "PassDock",
 "url": "https://api.passdock.net/users/edit"
@@ -13839,11 +13724,6 @@
 "name": "postimage",
 "url": "https://postimg.cc/profile/delete"
 },
-"postman.co": {
-"difficulty": "easy",
-"name": "Postman",
-"url": "https://web.postman.co/settings/me/delete"
-},
 "postmates.com": {
 "difficulty": "medium",
 "name": "Postmates",
@@ -13905,11 +13785,6 @@
 "url": "https://account.presearch.com/privacy-policy"
 },
 "prestashop.com": {
-"difficulty": "easy",
-"name": "PrestaShop",
-"url": "https://accounts.distribution.prestashop.net/settings/delete-account"
-},
-"prestashop.net": {
 "difficulty": "easy",
 "name": "PrestaShop",
 "url": "https://accounts.distribution.prestashop.net/settings/delete-account"
@@ -14499,11 +14374,6 @@
 "name": "Reg.ru",
 "url": "https://help.reg.ru/support/#request"
 },
-"relyance.ai": {
-"difficulty": "medium",
-"name": "Athletic Greens",
-"url": "https://ag-privacy.relyance.ai/?mockData=false"
-},
 "rememberthemilk.com": {
 "difficulty": "easy",
 "name": "Remember The Milk",
@@ -15004,11 +14874,6 @@
 "name": "SalahClock",
 "url": "https://salahclock.app/dashboard/account"
 },
-"salesforce.com": {
-"difficulty": "hard",
-"name": "Quip",
-"url": "https://www.salesforce.com/company/legal/privacy/data-subject-request/?d=afx"
-},
 "sammobile.com": {
 "difficulty": "medium",
 "name": "SamMobile",
@@ -15181,7 +15046,7 @@
 },
 "scribd.com": {
 "difficulty": "easy",
-"name": "Everand",
+"name": "Scribd",
 "url": "https://support.scribd.com/hc/en-us/articles/360000894843-Deleting-your-account#h_01HBVYCPRH4GEMX24PD473BHP8"
 },
 "scribe.com": {
@@ -15368,11 +15233,6 @@
 "difficulty": "hard",
 "name": "Car2Go",
 "url": "https://www.car2go.com/US/en/contact"
-},
-"sharelatex.com": {
-"difficulty": "medium",
-"name": "Shopee",
-"url": "https://www.sharelatex.com/user/settings"
 },
 "sharesome.com": {
 "difficulty": "easy",
@@ -15589,11 +15449,6 @@
 "name": "Stardock",
 "url": "https://stardock.atlassian.net/servicedesk/customer/portal/4/group/14/create/10143"
 },
-"site.com": {
-"difficulty": "medium",
-"name": "Cengage",
-"url": "https://cengage.my.site.com/s/rtbf"
-},
 "sitepoint.com": {
 "difficulty": "impossible",
 "name": "SitePoint",
@@ -15803,11 +15658,6 @@
 "difficulty": "easy",
 "name": "Snov.io",
 "url": "https://app.snov.io/account#/security-settings"
-},
-"snssdk.com": {
-"difficulty": "medium",
-"name": "Douyin",
-"url": "https://aweme.snssdk.com/ucenter_web/app/aweme/delete-account-notice?_theme=light&hide_nav_bar=1&title=%E6%8A%96%E9%9F%B3%E6%B3%A8%E9%94%80%E9%A1%BB%E7%9F%A5&hide_status_bar=0&disable_auto_expose=1&font_scale=1.0"
 },
 "socialblade.com": {
 "difficulty": "easy",
@@ -16104,11 +15954,6 @@
 "name": "South Plus",
 "url": "https://south-plus.net/"
 },
-"sp-prod.net": {
-"difficulty": "hard",
-"name": "AV Club",
-"url": "https://notice.sp-prod.net/sar/index.html?message_id=539278&account_id=1195&ccpa_type=delete"
-},
 "spacehey.com": {
 "difficulty": "easy",
 "name": "SpaceHey",
@@ -16204,11 +16049,6 @@
 "name": "SpotAngels",
 "url": "https://spotangels.notion.site/How-can-I-delete-my-account-a0066146a3c04c6f8262c1bbc366838c"
 },
-"spotangels.notion.site": {
-"difficulty": "easy",
-"name": "SpotAngels",
-"url": "https://spotangels.notion.site/How-can-I-delete-my-account-a0066146a3c04c6f8262c1bbc366838c"
-},
 "spotify.com": {
 "difficulty": "medium",
 "name": "Spotify",
@@ -16218,11 +16058,6 @@
 "difficulty": "easy",
 "name": "Spreadshirt",
 "url": "https://my.spreadshirt.com/account/contact"
-},
-"sprinklr.com": {
-"difficulty": "easy",
-"name": "Z\u00e9 Delivery",
-"url": "https://faq-consumidor-zedelivery.sprinklr.com/articles/conta-e-privacidade/como-deletar-minha-conta/621889ac3df9251d7ed0da18"
 },
 "spusu.co.uk": {
 "difficulty": "hard",
@@ -16253,11 +16088,6 @@
 "difficulty": "easy",
 "name": "StackBlitz",
 "url": "https://stackblitz.com/settings/profile"
-},
-"stackcommerce.com": {
-"difficulty": "hard",
-"name": "Mashable",
-"url": "https://support.stackcommerce.com/hc/en-us/requests/"
 },
 "stackhero.io": {
 "difficulty": "hard",
@@ -16391,7 +16221,7 @@
 },
 "steelseries.com": {
 "difficulty": "easy",
-"name": "3D Aim Trainer",
+"name": "SteelSeries",
 "url": "https://steelseries.com/dashboard/profile"
 },
 "stepmap.de": {
@@ -16473,6 +16303,11 @@
 "difficulty": "easy",
 "name": "StreamYard",
 "url": "https://streamyard.com/account/settings"
+},
+"stremio.com": {
+"difficulty": "easy",
+"name": "Stremio",
+"url": "https://www.stremio.com/acc-settings"
 },
 "stripe.com": {
 "difficulty": "easy",
@@ -16673,11 +16508,6 @@
 "difficulty": "easy",
 "name": "StumbleUpon",
 "url": "https://www.stumbleupon.com/settings/delete-account"
-},
-"stuttgarter-nachrichten.de": {
-"difficulty": "medium",
-"name": "Zave it",
-"url": "https://www.stuttgarter-nachrichten.de/inhalt.zave-it-account-loeschen-mhsd.6a51e46c-5c2b-4faf-9942-22056e1f9dc4.html"
 },
 "subaru-maps.com": {
 "difficulty": "easy",
@@ -17634,11 +17464,6 @@
 "name": "TripAdvisor",
 "url": "https://www.tripadvisorsupport.com/hc/en-us/articles/200615117"
 },
-"tripadvisorsupport.com": {
-"difficulty": "easy",
-"name": "TripAdvisor",
-"url": "https://www.tripadvisorsupport.com/hc/en-us/articles/200615117"
-},
 "tripit.com": {
 "difficulty": "easy",
 "name": "TripIt",
@@ -17814,11 +17639,6 @@
 "name": "Twilio",
 "url": "https://support.twilio.com/hc/en-us/requests/new"
 },
-"twitch.com": {
-"difficulty": "hard",
-"name": "Twitch services (RPG...)",
-"url": "https://legal.twitch.com/en/legal/privacy-notice/#data-subject-rights-and-your-choices"
-},
 "twitch.tv": {
 "difficulty": "easy",
 "name": "Twitch",
@@ -17899,11 +17719,6 @@
 "name": "Udemy",
 "url": "https://www.udemy.com/user/close-account/"
 },
-"ufc.com": {
-"difficulty": "hard",
-"name": "UFC Fight Pass",
-"url": "https://www.ufc.com/faq-ufctv-ufcfightpass"
-},
 "ufcfightpass.com": {
 "difficulty": "hard",
 "name": "UFC Fight Pass",
@@ -17915,11 +17730,6 @@
 "url": "https://www.ugc.fr/aide.html?question=supprimer-compte-ugc"
 },
 "ugc.com": {
-"difficulty": "easy",
-"name": "UGC",
-"url": "https://www.ugc.fr/aide.html?question=supprimer-compte-ugc"
-},
-"ugc.fr": {
 "difficulty": "easy",
 "name": "UGC",
 "url": "https://www.ugc.fr/aide.html?question=supprimer-compte-ugc"
@@ -18589,11 +18399,6 @@
 "name": "VTech",
 "url": "https://www.vtechkids.com/support/support_form/"
 },
-"vtechkids.com": {
-"difficulty": "hard",
-"name": "VTech",
-"url": "https://www.vtechkids.com/support/support_form/"
-},
 "vueling.com": {
 "difficulty": "easy",
 "name": "Vueling",
@@ -19115,9 +18920,9 @@
 "url": "https://wordfeud.com/"
 },
 "wordpress.com": {
-"difficulty": "hard",
-"name": "Cheezburger",
-"url": "https://cheezburgernetwork.wordpress.com/faq/#q14"
+"difficulty": "medium",
+"name": "WordPress.com",
+"url": "https://wordpress.com/me/account"
 },
 "wordpress.net": {
 "difficulty": "easy",
@@ -19138,11 +18943,6 @@
 "difficulty": "impossible",
 "name": "RecargaPay",
 "url": "https://recargapay.com.br/user/close-account"
-},
-"workday.com": {
-"difficulty": "limited",
-"name": "Myworkdayjobs.com",
-"url": "https://www.workday.com/en-us/privacy.html"
 },
 "workupload.com": {
 "difficulty": "hard",
@@ -19178,11 +18978,6 @@
 "difficulty": "impossible",
 "name": "WT.Social",
 "url": "https://wt.social/myaccount/deactivate-account"
-},
-"www.gov.br": {
-"difficulty": "hard",
-"name": "Gov.br",
-"url": "https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/exclusao-da-conta-gov.br"
 },
 "wyzecam.com": {
 "difficulty": "hard",
@@ -19504,11 +19299,6 @@
 "name": "Zalando",
 "url": "https://www.zalando.co.uk/myaccount/privacy/"
 },
-"zamnesia.com": {
-"difficulty": "hard",
-"name": "Zamnesia",
-"url": "https://www.zamnesia.com/contact-us"
-},
 "zamnesia.nl": {
 "difficulty": "hard",
 "name": "Zamnesia",
@@ -19596,8 +19386,8 @@
 },
 "zendesk.com": {
 "difficulty": "hard",
-"name": "Addicting Games",
-"url": "https://addictinggameshelp.zendesk.com/hc/en-us/requests/new"
+"name": "BeMyEye",
+"url": "https://bemyeye.zendesk.com/hc/en-us/articles/360009596613-How-do-I-delete-my-account-"
 },
 "zendesk.com.br": {
 "difficulty": "easy",
