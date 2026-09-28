@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "accountscope"
+version = "0.1.0"
+description = "Inventory every organisation that holds an account for you from a mailbox export, tagged with which of your addresses each one uses. Zero network."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Kinnari Sharma", email = "kasaksharma15@gmail.com" }]
+keywords = ["accounts", "mbox", "privacy", "email", "inventory", "cli"]
+classifiers = [
+  "Environment :: Console",
+  "Programming Language :: Python :: 3",
+  "Topic :: Communications :: Email",
+]
+
+[project.scripts]
+accountscope = "accountscope.cli:main"
+
+[project.urls]
+Repository = "https://github.com/kasak-sh/accountscope"
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+include = ["accountscope*"]
+
+[tool.setuptools.package-data]
+accountscope = ["data/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

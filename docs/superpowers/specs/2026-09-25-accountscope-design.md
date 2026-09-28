@@ -123,7 +123,10 @@ Rules for the record:
 - `category` ∈ {finance, government, utilities, health, telecom, travel, shopping,
   social, work, other}; rule-based from message mix and a keyword list in `rules.json`.
 - `delete` is present only when the JustDeleteMe dataset has an entry for the domain.
-- The file never contains message bodies, subjects, or third-party addresses.
+- The file never contains full message bodies, subjects, or third-party recipient
+  addresses; for each organisation at most the five most frequent sender addresses
+  are kept. The only body-derived text is the ≤120-character evidence snippet on
+  each held fact.
 - Field additions bump the minor schema id (`accountscope/1` → `accountscope/1.1`);
   removals or renames bump the major and the HTML viewer refuses older majors.
 
@@ -141,16 +144,21 @@ Marketing Cloud, Campaign Monitor, Sendinblue/Brevo, ActiveCampaign, Customer.io
 Mandrill, Zendesk, Intercom, Freshdesk and others listed in `rules.json`), use the
 registrable domain of Reply-To if present, else a slug of the display name, and mark
 `via_relay: true`. Display name is the human label; the key stays the domain.
+A sender whose registrable domain is a personal-mail provider (gmail.com,
+outlook.com, yahoo.com, icloud.com, proton.me and the rest of `personal_mail_domains`
+in `rules.json`) is not an organisation and is excluded from the inventory entirely,
+counted only as `source.personal_senders_skipped`.
 
 **Message type.** Ordered rules over subject and headers, first match wins:
-1. `otp`: subject contains a 4-8 digit token and a word from {code, OTP, verification,
-   verify, passcode, one-time} — or their listed translations.
+1. `otp`: subject contains a word from {code, OTP, verification, verify, passcode,
+   one-time} — or their listed translations — with a 4-8 digit token within 30
+   characters after it, or opening the subject; never on a List-Unsubscribe message.
 2. `verify`: {verify, confirm your, activate, validate} without a digit token.
 3. `reset`: {reset, forgot, new password, change your password}.
 4. `signup`: {welcome, thanks for signing up, account created, you're in, get started}.
-5. `receipt`: {receipt, order, invoice #, payment received, thank you for your purchase}.
-6. `statement`: {statement, bill is ready, e-statement, monthly summary, payslip}.
-7. `notice`: {shipped, delivery, on its way, billing update, autopay, payment due}.
+5. `notice`: {shipped, delivery, on its way, billing update, autopay, payment due}.
+6. `receipt`: {receipt, order, invoice #, payment received, thank you for your purchase}.
+7. `statement`: {statement, bill is ready, e-statement, monthly summary, payslip}.
 8. `marketing`: List-Unsubscribe header present and no earlier match.
 9. `other`: none of the above.
 Types 1-7 are "transactional" and eligible for pass 2. An organisation with only

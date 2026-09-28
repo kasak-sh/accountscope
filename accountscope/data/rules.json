@@ -1,0 +1,45 @@
+{
+  "relays": [
+    "sendgrid.net", "mailchimp.com", "mcsv.net", "rsgsv.net", "mailgun.org", "mailgun.net",
+    "amazonses.com", "postmarkapp.com", "sparkpostmail.com", "constantcontact.com",
+    "hubspotemail.net", "klaviyomail.com", "braze.com", "iterable.com", "exacttarget.com",
+    "cmail19.com", "cmail20.com", "sendinblue.com", "brevo.com", "activehosted.com",
+    "customeriomail.com", "mandrillapp.com", "intercom-mail.com", "mailjet.com", "sendpulse.com",
+    "emailsrvr.com", "mailanyone.net", "e.customeriomail.com"
+  ],
+  "personal_mail_domains": [
+    "gmail.com", "googlemail.com", "outlook.com", "hotmail.com", "live.com", "yahoo.com",
+    "yahoo.co.uk", "yahoo.co.in", "ymail.com", "icloud.com", "me.com", "mac.com", "aol.com",
+    "proton.me", "protonmail.com", "gmx.com", "gmx.de", "web.de", "mail.com", "zoho.com",
+    "rediffmail.com", "fastmail.com", "hey.com"
+  ],
+  "types": [
+    {"type": "otp", "any": ["code", "otp", "verification", "verify", "passcode", "one-time", "one time"], "needs_digits": true, "never_with_unsubscribe": true},
+    {"type": "verify", "any": ["verify", "verification", "confirm your", "activate", "validate", "confirm email"]},
+    {"type": "reset", "any": ["reset", "forgot", "new password", "change your password"]},
+    {"type": "signup", "any": ["welcome", "thanks for signing up", "thank you for signing up", "account created", "you're in", "get started", "registration"]},
+    {"type": "notice", "any": ["shipped", "delivery", "on its way", "billing update", "autopay", "payment due", "renewal", "subscription", "delivered"]},
+    {"type": "receipt", "any": ["receipt", "order", "invoice", "payment received", "thank you for your purchase", "your purchase", "payment confirmation"]},
+    {"type": "statement", "any": ["statement", "bill is ready", "e-statement", "monthly summary", "payslip", "your bill"]}
+  ],
+  "translations": {
+    "otp": ["código", "codigo", "कोड", "ओटीपी", "verifizierung", "code de vérification"],
+    "verify": ["confirmez", "bestätigen", "verifique", "सत्यापित"],
+    "reset": ["contraseña", "senha", "passwort", "mot de passe", "पासवर्ड"],
+    "signup": ["bienvenido", "bem-vindo", "willkommen", "bienvenue", "स्वागत"],
+    "receipt": ["recibo", "pedido", "rechnung", "reçu", "commande", "रसीद", "ऑर्डर"],
+    "statement": ["extracto", "extrato", "kontoauszug", "relevé", "स्टेटमेंट"],
+    "notice": ["enviado", "livraison", "versand", "entrega", "डिलीवरी"]
+  },
+  "categories": {
+    "government": ["gov", "nic.in", "hmrc", "irs.", "passport", "council", "dmv", "electoral", "municipal", "uidai", "incometax"],
+    "finance": ["bank", "card", "credit", "pay", "wallet", "invest", "fund", "insurance", "loan", "upi", "capital", "finance", "mutual", "pension", "tax", "zerodha", "groww", "paytm", "phonepe", "paypal", "razorpay", "payu", "stripe", "payoneer", "wise"],
+    "health": ["health", "clinic", "hospital", "pharmacy", "doctor", "dental", "medical", "lab", "apollo", "practo"],
+    "utilities": ["electric", "power", "gas", "water", "energy", "broadband", "fiber", "utility", "bescom", "tata power"],
+    "telecom": ["mobile", "telecom", "airtel", "jio", "vodafone", "verizon", "t-mobile", "att.com", "sim", "vi.com"],
+    "travel": ["airline", "airways", "flight", "hotel", "booking", "rail", "train", "travel", "uber", "ola", "irctc", "makemytrip", "indigo"],
+    "work": ["payroll", "workday", "slack", "github", "atlassian", "jira", "notion", "zoom", "deel", "linkedin"],
+    "social": ["facebook", "instagram", "twitter", "x.com", "reddit", "discord", "meta", "snapchat", "tiktok"],
+    "shopping": ["shop", "store", "amazon", "flipkart", "market", "mall", "cart", "myntra", "swiggy", "zomato", "bigbasket"]
+  }
+}

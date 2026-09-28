@@ -1,0 +1,10 @@
+.superpowers/
+__pycache__/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+*.tmp
+accountscope.json
+accountscope.html
+.venv/

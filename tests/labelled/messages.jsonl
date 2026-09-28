@@ -1,0 +1,16 @@
+{"subject": "Your verification code is 483920", "list_unsubscribe": false, "body": "Use code 483920 to sign in. It expires in 10 minutes.", "type": "otp", "facts": []}
+{"subject": "Verify your email address", "list_unsubscribe": false, "body": "Click the link to verify your email.", "type": "verify", "facts": []}
+{"subject": "Reset your password", "list_unsubscribe": false, "body": "We received a request to reset your password.", "type": "reset", "facts": []}
+{"subject": "Welcome to Example!", "list_unsubscribe": false, "body": "Thanks for signing up. Get started here.", "type": "signup", "facts": []}
+{"subject": "Your receipt from Example Store", "list_unsubscribe": false, "body": "Paid with card ending 4421. Total $12.00.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 4421"}]}
+{"subject": "Order #4521 confirmed", "list_unsubscribe": false, "body": "Shipping address:\nA Person\n12 High St\nLondon SW1A 1AA", "type": "receipt", "facts": [{"fact": "address", "value": "London SW1A 1AA"}]}
+{"subject": "Your statement is ready", "list_unsubscribe": false, "body": "Your September statement is available online.", "type": "statement", "facts": []}
+{"subject": "Your order has shipped", "list_unsubscribe": false, "body": "Delivery address:\nA Person\n221B Baker Street\nLondon NW1 6XE", "type": "notice", "facts": [{"fact": "address", "value": "London NW1 6XE"}]}
+{"subject": "Autopay reminder", "list_unsubscribe": false, "body": "Your autopay of $40 is scheduled from the card ending in 9876.", "type": "notice", "facts": [{"fact": "card", "value": "ending 9876"}]}
+{"subject": "123456 is your OTP", "list_unsubscribe": false, "body": "We sent a code to your phone number ******1234.", "type": "otp", "facts": [{"fact": "phone", "value": "ending 1234"}]}
+{"subject": "Big spring sale!", "list_unsubscribe": true, "body": "Get 20% off with code SAVE20 on orders over $50.", "type": "marketing", "facts": []}
+{"subject": "Weekly digest", "list_unsubscribe": true, "body": "Top stories this week.", "type": "marketing", "facts": []}
+{"subject": "Su código es 998877", "list_unsubscribe": false, "body": "Su código de verificación es 998877.", "type": "otp", "facts": []}
+{"subject": "Bem-vindo à Loja", "list_unsubscribe": false, "body": "Obrigado por se registar.", "type": "signup", "facts": []}
+{"subject": "Ihre Rechnung", "list_unsubscribe": false, "body": "Vielen Dank für Ihre Bestellung.", "type": "receipt", "facts": []}
+{"subject": "Re: lunch tomorrow?", "list_unsubscribe": false, "body": "Sure, 1pm works. See you at the usual place.", "type": "other", "facts": []}
