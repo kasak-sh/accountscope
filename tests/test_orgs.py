@@ -34,15 +34,18 @@ def test_identify_missing_sender():
     assert ident.key == "unknown"
 
 
-def test_identify_relay_with_unsluggable_display_name_uses_the_sender_address():
+def test_identify_relay_with_unsluggable_display_name_uses_a_relay_domain_key():
     ident = identify("bounce@mcsv.net", "साप्ताहिक समाचार", "", load_relays())
-    assert ident.key == "bounce@mcsv.net" and ident.via_relay is True
-    assert ident.name == "साप्ताहिक समाचार"
+    assert ident.key == "relay:mcsv.net" and ident.via_relay is True
+    assert ident.name == "relay:mcsv.net"
+    assert "@" not in ident.key and "@" not in ident.name
 
 
-def test_identify_relay_without_a_display_name_uses_the_sender_address():
+def test_identify_relay_without_a_display_name_uses_a_relay_domain_key():
     ident = identify("bounce-42@em1234.sendgrid.net", "", "", load_relays())
-    assert ident.key == "bounce-42@em1234.sendgrid.net" and ident.via_relay is True
+    assert ident.key == "relay:sendgrid.net" and ident.via_relay is True
+    assert ident.name == "relay:sendgrid.net"
+    assert "@" not in ident.key and "@" not in ident.name
 
 
 def test_identify_relay_reply_to_that_is_also_a_relay_falls_back():

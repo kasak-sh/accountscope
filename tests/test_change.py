@@ -131,12 +131,12 @@ def test_renderers_say_no_link_when_there_is_none():
     term = render_terminal(rows, "email", "old@isp.net", None)
     assert "no link; search your mail for Weekly Digest" in term
     assert "https://weekly-digest" not in term
-    # An unsluggable relay sender is keyed on its address, which has a dot in it but
-    # is not a host: https://bounce@mcsv.net would send you to the relay.
-    address_rows = build_checklist(slug_row_data("bounce@mcsv.net"), "email", "old@isp.net")
-    assert address_rows[0].link == ""
+    # An unsluggable relay sender is keyed "relay:<domain>", which has a dot in it
+    # but is not a host: https://relay:mcsv.net would send you to the relay.
+    relay_rows = build_checklist(slug_row_data("relay:mcsv.net"), "email", "old@isp.net")
+    assert relay_rows[0].link == ""
     assert "no link; search your mail for Weekly Digest" in render_terminal(
-        address_rows, "email", "old@isp.net", None)
+        relay_rows, "email", "old@isp.net", None)
 
 
 def test_newsletter_rows_say_no_link_too():

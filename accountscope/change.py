@@ -35,14 +35,18 @@ def _tier(category: str) -> int:
 
 def _link(org: dict) -> str:
     """The JustDeleteMe URL, else the key as a domain — but only when the key is one.
-    A relay slug such as "weekly-digest" is not a host, and an address-shaped key such
-    as "bounce@mcsv.net" would only link to the relay, so both get no link at all."""
+    A relay slug such as "weekly-digest" is not a host, an address-shaped key such
+    as "bounce@mcsv.net" would only link to the relay, and a "relay:<domain>" key
+    (also a dotted string, but not a host) would do the same, so all three get no
+    link at all."""
     delete = org.get("delete") or {}
     url = delete.get("url")
     if url:
         return url
     key = org["key"]
-    return f"https://{key}" if "." in key and "@" not in key else ""
+    if "@" in key or key.startswith("relay:"):
+        return ""
+    return f"https://{key}" if "." in key else ""
 
 
 def _where(row: "Row") -> str:

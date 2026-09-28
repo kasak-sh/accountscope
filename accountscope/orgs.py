@@ -82,9 +82,13 @@ def identify(sender: str, sender_name: str, reply_to: str, relays: frozenset[str
         reply_domain = _domain_of(reply_to)
         if reply_domain and reply_domain not in relays:
             return OrgIdentity(reply_domain, sender_name or reply_domain, True)
+        slug = _slug(sender_name)
+        if slug:
+            return OrgIdentity(slug, sender_name, True)
         # A name that slugs to nothing (Devanagari, punctuation only, or no name at
-        # all) must not collapse every such relay sender under one key.
-        key = _slug(sender_name) or sender
-        return OrgIdentity(key, sender_name or key, True)
+        # all) must not collapse every such relay sender under one key — but it must
+        # also never surface the raw envelope address as the key or name.
+        key = f"relay:{domain}"
+        return OrgIdentity(key, key, True)
     key = domain or "unknown"
     return OrgIdentity(key, sender_name or key, False)
