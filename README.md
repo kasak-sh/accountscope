@@ -97,7 +97,9 @@ accountscope opens no network connection. The public-suffix list and the
 [JustDeleteMe](https://justdeleteme.xyz) data it uses are bundled at release
 time. The test suite makes `socket.socket` raise, so any change that opens a
 connection fails the tests (`tests/conftest.py`). The JSON it writes contains
-no full message bodies, no subjects and no third-party addresses.
+no full message bodies, no subjects and no third-party recipient addresses;
+for each organisation at most the five most frequent sender addresses are
+kept.
 
 Mail from a personal-mail provider — gmail.com, outlook.com, yahoo.com,
 icloud.com, proton.me and the rest of the list in `data/rules.json` — is

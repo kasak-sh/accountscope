@@ -123,8 +123,10 @@ Rules for the record:
 - `category` ∈ {finance, government, utilities, health, telecom, travel, shopping,
   social, work, other}; rule-based from message mix and a keyword list in `rules.json`.
 - `delete` is present only when the JustDeleteMe dataset has an entry for the domain.
-- The file never contains full message bodies, subjects, or third-party addresses;
-  the only body-derived text is the ≤120-character evidence snippet on each held fact.
+- The file never contains full message bodies, subjects, or third-party recipient
+  addresses; for each organisation at most the five most frequent sender addresses
+  are kept. The only body-derived text is the ≤120-character evidence snippet on
+  each held fact.
 - Field additions bump the minor schema id (`accountscope/1` → `accountscope/1.1`);
   removals or renames bump the major and the HTML viewer refuses older majors.
 
