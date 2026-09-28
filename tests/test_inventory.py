@@ -160,3 +160,10 @@ def test_categorise_still_matches_real_organisations():
     assert categorise(Organisation(key="att.com"), cats) == "telecom"
     assert categorise(named("billing.example", "Tata Power Ltd"), cats) == "utilities"
     assert categorise(Organisation(key="t-mobile.com"), cats) == "telecom"
+
+
+def test_categorise_matches_payment_processors_as_finance():
+    from accountscope.classify import load_rules
+    assert categorise(Organisation(key="paypal.com"), load_rules()["categories"]) == "finance"
+    assert categorise(Organisation(key="razorpay.com"), load_rules()["categories"]) == "finance"
+    assert categorise(Organisation(key="taxi.example"), load_rules()["categories"]) != "finance"
