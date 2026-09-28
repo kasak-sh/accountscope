@@ -100,6 +100,16 @@ def test_personal_mail_senders_are_dropped_and_counted():
     assert "sam@proton.me" not in str(data)
 
 
+def test_personal_senders_skipped_counts_distinct_senders_not_domains():
+    agg = Aggregator()
+    for i, sender in enumerate(("a@gmail.com", "b@gmail.com", "c@gmail.com", "d@outlook.com")):
+        agg.add(msg(i, sender, "Friend", "Hi", (2024, 9, 1 + i), {"me@gmail.com"}),
+                OrgIdentity("gmail.com" if sender.endswith("gmail.com") else "outlook.com", "Friend", False), "other")
+    source = {"path": "t.mbox", "messages": 4, "personal_senders_skipped": 0}
+    inv = agg.finish(source, [SelfAddress("me@gmail.com", [], 4, False)])
+    assert inv.to_dict()["source"]["personal_senders_skipped"] == 4
+
+
 def test_to_dict_emits_only_the_five_most_frequent_sender_addresses():
     agg = Aggregator()
     ident = OrgIdentity("shop.example", "Shop", False)

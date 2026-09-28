@@ -194,9 +194,10 @@ class Aggregator:
         personal = load_personal_mail_domains()
         jdm = load_justdeleteme()
         skipped = [key for key in self.orgs if key in personal]
+        skipped_senders = sum(len(self.orgs[key].sender_addresses) for key in skipped)
         for key in skipped:
             del self.orgs[key]
-        source["personal_senders_skipped"] = source.get("personal_senders_skipped", 0) + len(skipped)
+        source["personal_senders_skipped"] = source.get("personal_senders_skipped", 0) + skipped_senders
         for org in self.orgs.values():
             org.writes_to = {a: w for a, w in org.recipients.items() if a in self_set}
             org.recipients = {}
