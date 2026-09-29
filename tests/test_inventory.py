@@ -54,6 +54,12 @@ def test_marketing_only_and_name_by_frequency():
     assert org.marketing_only is True and org.name == "The Newsletter" and org.pass2 == []
 
 
+def test_fact_inferred_defaults_to_false():
+    fact = Fact("card", "ending 4421", "your card ending 4421", "2024-09-03", "medium")
+    assert fact.inferred is False
+    assert fact.to_dict()["inferred"] is False
+
+
 def test_categorise_prefers_government_then_finance():
     cats = {"government": ["gov"], "finance": ["bank"], "shopping": ["shop"]}
     assert categorise(Organisation(key="tax.gov.in"), cats) == "government"
@@ -78,7 +84,7 @@ def test_to_dict_shape_and_no_third_party_data():
                         "writes_to", "holds", "delete", "category", "via_relay"}
     assert org["writes_to"] == [{"address": "me@gmail.com", "last": "2024-09-03", "count": 1}]
     assert org["holds"][0] == {"fact": "card", "value": "ending 4421", "evidence": "your card ending 4421",
-                               "seen": "2024-09-03", "confidence": "medium", "inferred": True}
+                               "seen": "2024-09-03", "confidence": "medium", "inferred": False}
     assert "friend@x.org" not in str(data)
     assert "Statement" not in str(data)
 

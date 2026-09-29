@@ -73,7 +73,9 @@ postcode, a US ZIP or an Indian PIN wins first, and a bare four-digit postcode
 (Australia, New Zealand, and several other European formats) is used only if
 none of those match. A phone hit is kept only when the message left at least
 four digits of the tail visible; "ending 12" identifies nothing, so it is
-dropped. Full numbers are never reconstructed.
+dropped. Full numbers are never reconstructed. Facts of a type whose measured
+precision falls below 70 percent are marked inferred and left out of the
+checklist, though the JSON and HTML keep showing them.
 
 `accountscope change card <old>` and `accountscope change phone <old>` both
 need at least the last four digits of the value you're changing from; give it

@@ -59,6 +59,26 @@ def test_address_trailing_four_digit_postcode():
     assert hits[0].fact == "address" and hits[0].value == "Sydney NSW 2000"
 
 
+def test_merge_facts_marks_inferred_from_trust_map():
+    hits = [
+        FactHit("card", "ending 4421", "e1", "2024-01-01"),
+        FactHit("phone", "ending 1234", "e2", "2024-01-01"),
+    ]
+    facts = {(f.fact, f.value): f for f in merge_facts(hits, trust={"card": "inferred", "phone": "trusted"})}
+    assert facts[("card", "ending 4421")].inferred is True
+    assert facts[("phone", "ending 1234")].inferred is False
+
+
+def test_merge_facts_default_trust_uses_bundled_rules():
+    hits = [
+        FactHit("card", "ending 4421", "e1", "2024-01-01"),
+        FactHit("phone", "ending 1234", "e2", "2024-01-01"),
+        FactHit("address", "London SW1A 1AA", "e3", "2024-01-01"),
+    ]
+    facts = merge_facts(hits)
+    assert all(f.inferred is False for f in facts)
+
+
 def test_merge_confidence_by_distinct_dates():
     hits = [
         FactHit("card", "ending 4421", "e1", "2024-01-01"),

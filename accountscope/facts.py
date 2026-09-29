@@ -6,6 +6,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from typing import Iterable
 
+from accountscope.classify import load_rules
 from accountscope.inventory import Fact
 
 EVIDENCE_WIDTH = 120
@@ -84,7 +85,8 @@ def extract_facts(text: str, seen: str) -> list[FactHit]:
     return hits
 
 
-def merge_facts(hits: Iterable[FactHit]) -> list[Fact]:
+def merge_facts(hits: Iterable[FactHit], trust: dict | None = None) -> list[Fact]:
+    trust = trust if trust is not None else load_rules()["fact_trust"]
     grouped: dict[tuple[str, str], list[FactHit]] = defaultdict(list)
     for hit in hits:
         grouped[(hit.fact, hit.value)].append(hit)
@@ -93,6 +95,7 @@ def merge_facts(hits: Iterable[FactHit]) -> list[Fact]:
         latest = max(group, key=lambda h: h.seen)
         distinct_dates = {h.seen for h in group}
         confidence = "high" if len(distinct_dates) >= 2 else "medium"
-        facts.append(Fact(fact, value, latest.evidence, latest.seen, confidence))
+        inferred = trust.get(fact, "trusted") == "inferred"
+        facts.append(Fact(fact, value, latest.evidence, latest.seen, confidence, inferred))
     facts.sort(key=lambda f: (f.fact, f.value))
     return facts

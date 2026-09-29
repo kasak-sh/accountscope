@@ -16,7 +16,7 @@ DATA = {
          "types": {"otp": 42, "statement": 96, "marketing": 12}, "marketing_only": False,
          "first_seen": "2016-05-11", "last_seen": "2026-09-28",
          "writes_to": [{"address": "me@gmail.com", "last": "2026-09-28", "count": 150}],
-         "holds": [{"fact": "card", "value": "ending 4421", "evidence": "e", "seen": "2026-09-01", "confidence": "high", "inferred": True}],
+         "holds": [{"fact": "card", "value": "ending 4421", "evidence": "e", "seen": "2026-09-01", "confidence": "high", "inferred": False}],
          "delete": {"name": "Example", "url": "https://example.com/close", "difficulty": "hard"},
          "category": "finance", "via_relay": False},
         {"key": "news.example", "name": "Newsletter", "sender_addresses": ["n@news.example"],

@@ -12,7 +12,7 @@ def make_data():
         "key": "power.example", "name": "City Power", "sender_addresses": ["bills@power.example"],
         "types": {"statement": 20}, "marketing_only": False, "first_seen": "2018-01-01", "last_seen": "2025-12-01",
         "writes_to": [{"address": "old@isp.net", "last": "2025-12-01", "count": 20}],
-        "holds": [{"fact": "phone", "value": "ending 1234", "evidence": "e", "seen": "2025-11-01", "confidence": "medium", "inferred": True}],
+        "holds": [{"fact": "phone", "value": "ending 1234", "evidence": "e", "seen": "2025-11-01", "confidence": "medium", "inferred": False}],
         "delete": None, "category": "utilities", "via_relay": False})
     data["organisations"].append({
         "key": "gov.example", "name": "Tax Office", "sender_addresses": ["no-reply@gov.example"],
@@ -24,7 +24,7 @@ def make_data():
         "key": "shop.example", "name": "Online Shop", "sender_addresses": ["orders@shop.example"],
         "types": {"receipt": 10}, "marketing_only": False, "first_seen": "2019-01-01", "last_seen": "2024-06-01",
         "writes_to": [{"address": "me@gmail.com", "last": "2024-06-01", "count": 10}],
-        "holds": [{"fact": "address", "value": "London SW1A 1AA", "evidence": "e", "seen": "2024-06-01", "confidence": "medium", "inferred": True}],
+        "holds": [{"fact": "address", "value": "London SW1A 1AA", "evidence": "e", "seen": "2024-06-01", "confidence": "medium", "inferred": False}],
         "delete": None, "category": "shopping", "via_relay": False})
     return data
 
@@ -160,11 +160,39 @@ def test_holds_suffix_does_not_repeat_the_fact_in_the_reason():
     assert "holds card ending 4421" in term and "holds card ending 4421" in md
 
 
+def inferred_card_org_data():
+    return {"organisations": [{
+        "key": "lender.example", "name": "Lender Inc", "sender_addresses": ["billing@lender.example"],
+        "types": {"statement": 4}, "marketing_only": False, "first_seen": "2022-01-01", "last_seen": "2026-08-01",
+        "writes_to": [{"address": "old@isp.net", "last": "2026-08-01", "count": 4}],
+        "holds": [{"fact": "card", "value": "ending 4421", "evidence": "e", "seen": "2026-08-01",
+                   "confidence": "medium", "inferred": True}],
+        "delete": None, "category": "finance", "via_relay": False}]}
+
+
+def test_inferred_fact_is_not_selected_when_old_is_given():
+    rows = build_checklist(inferred_card_org_data(), "card", "4421")
+    assert rows == []
+
+
+def test_inferred_only_org_falls_through_to_check_row_when_old_is_omitted():
+    rows = build_checklist(inferred_card_org_data(), "card", None)
+    assert [r.key for r in rows] == ["lender.example"]
+    assert rows[0].reason == "check: finance organisations commonly hold a card"
+
+
+def test_row_holds_suffixes_inferred_facts():
+    rows = build_checklist(inferred_card_org_data(), "card", None)
+    assert rows[0].holds == ["card ending 4421 (inferred)"]
+    term = render_terminal(rows, "card", None, None)
+    assert "card ending 4421 (inferred)" in term
+
+
 def test_holds_suffix_still_lists_facts_the_reason_does_not_name():
     data = make_data()
     bank = next(o for o in data["organisations"] if o["key"] == "example.com")
     bank["holds"].append({"fact": "phone", "value": "ending 7788", "evidence": "e",
-                          "seen": "2026-09-01", "confidence": "medium", "inferred": True})
+                          "seen": "2026-09-01", "confidence": "medium", "inferred": False})
     rows = build_checklist(data, "card", None)
     term = render_terminal(rows, "card", None, None)
     assert "holds card ending 4421 · holds phone ending 7788" in term

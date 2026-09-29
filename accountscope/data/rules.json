@@ -31,6 +31,7 @@
     "statement": ["extracto", "extrato", "kontoauszug", "relevé", "स्टेटमेंट"],
     "notice": ["enviado", "livraison", "versand", "entrega", "डिलीवरी"]
   },
+  "fact_trust": {"card": "trusted", "phone": "trusted", "address": "trusted"},
   "categories": {
     "government": ["gov", "nic.in", "hmrc", "irs.", "passport", "council", "dmv", "electoral", "municipal", "uidai", "incometax"],
     "finance": ["bank", "card", "credit", "pay", "wallet", "invest", "fund", "insurance", "loan", "upi", "capital", "finance", "mutual", "pension", "tax", "zerodha", "groww", "paytm", "phonepe", "paypal", "razorpay", "payu", "stripe", "payoneer", "wise"],

@@ -29,7 +29,7 @@ class Fact:
     evidence: str
     seen: str
     confidence: str
-    inferred: bool = True
+    inferred: bool = False
 
     def to_dict(self) -> dict:
         return {"fact": self.fact, "value": self.value, "evidence": self.evidence,

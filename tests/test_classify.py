@@ -39,6 +39,12 @@ def test_rules_load_and_are_ordered():
     assert [r["type"] for r in rules["types"]] == ["otp", "verify", "reset", "signup", "notice", "receipt", "statement"]
 
 
+def test_fact_trust_defaults_all_three_fact_types_to_trusted():
+    fact_trust = load_rules()["fact_trust"]
+    assert set(fact_trust) == {"card", "phone", "address"}
+    assert all(v == "trusted" for v in fact_trust.values())
+
+
 def test_classify_with_empty_rules_returns_other():
     empty_rules = {"types": [], "translations": {}}
     assert classify("Verify your email address", False, rules=empty_rules) == "other"
