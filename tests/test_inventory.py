@@ -198,3 +198,43 @@ def test_categorise_restored_three_letter_tokens():
     assert categorise(Organisation(key="x.com"), cats) == "social"
     assert categorise(Organisation(key="citylab.example"), cats) != "health"  # "lab" is exact, not a stem
     assert categorise(Organisation(key="lab.example"), cats) == "health"      # exact whole label still matches
+
+
+def test_categorise_power_health_and_booking_are_stems():
+    """Real organisations glue these onto a prefix: tatapower.com, myhealth.example,
+    ebooking.example. As exact tokens they only matched a whole label, so every one of
+    those fell through to "other"."""
+    cats = bundled_categories()
+    assert categorise(Organisation(key="tatapower.com"), cats) == "utilities"
+    assert categorise(Organisation(key="myhealth.example"), cats) == "health"
+    assert categorise(Organisation(key="ebooking.example"), cats) == "travel"
+    # Whole-label matches still work.
+    assert categorise(Organisation(key="power.example"), cats) == "utilities"
+    assert categorise(Organisation(key="health.example"), cats) == "health"
+    assert categorise(Organisation(key="booking.com"), cats) == "travel"
+
+
+def test_categorise_power_stem_over_tags_empower():
+    """The accepted trade for the stem above: "empower" ends in "power", so an
+    empower.com lands in utilities. A wrong category on one lookalike is cheaper than
+    losing every real "<something>power" utility, and the category is only a grouping
+    heading — nothing is deleted or skipped because of it."""
+    cats = bundled_categories()
+    assert categorise(Organisation(key="empower.com"), cats) == "utilities"
+
+
+def test_categorise_irs_is_matched_on_its_real_host():
+    """"irs." could never match: a keyword with a dot is compared against the whole
+    registrable domain, and no key is ever "irs." or ends in ".irs."."""
+    cats = bundled_categories()
+    assert categorise(Organisation(key="irs.gov"), cats) == "government"
+    assert categorise(Organisation(key="eftps.irs.gov"), cats) == "government"
+
+
+def test_no_category_keyword_is_a_dangling_host_fragment():
+    """A keyword with a dot is compared against the whole registrable domain, so one
+    that ends in a dot ("irs.") can never match anything. Catch the next one."""
+    cats = bundled_categories()
+    dangling = [k for tokens in cats.values() for role in ("exact", "stem")
+                for k in tokens.get(role, []) if k.startswith(".") or k.endswith(".")]
+    assert dangling == []

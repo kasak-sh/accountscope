@@ -38,7 +38,7 @@
   "fact_trust": {"card": "trusted", "phone": "trusted", "address": "trusted"},
   "categories": {
     "government": {
-      "exact": ["gov", "nic.in", "hmrc", "irs.", "passport", "council", "dmv", "electoral", "municipal", "uidai", "incometax"],
+      "exact": ["gov", "nic.in", "hmrc", "irs.gov", "passport", "council", "dmv", "electoral", "municipal", "uidai", "incometax"],
       "stem": []
     },
     "finance": {
@@ -46,20 +46,20 @@
       "stem": ["bank", "card", "credit", "wallet", "invest", "insurance", "finance", "pension"]
     },
     "health": {
-      "exact": ["health", "doctor", "lab", "apollo", "practo"],
-      "stem": ["clinic", "hospital", "pharmacy", "dental", "medical"]
+      "exact": ["doctor", "lab", "apollo", "practo"],
+      "stem": ["health", "clinic", "hospital", "pharmacy", "dental", "medical"]
     },
     "utilities": {
-      "exact": ["power", "gas", "water", "fiber", "utility", "bescom", "tata power"],
-      "stem": ["electric", "energy", "broadband"]
+      "exact": ["gas", "water", "fiber", "utility", "bescom", "tata power"],
+      "stem": ["power", "electric", "energy", "broadband"]
     },
     "telecom": {
       "exact": ["airtel", "jio", "vodafone", "verizon", "t-mobile", "att.com", "sim", "vi.com"],
       "stem": ["mobile", "telecom"]
     },
     "travel": {
-      "exact": ["booking", "rail", "train", "uber", "ola", "irctc", "makemytrip", "indigo"],
-      "stem": ["airline", "airways", "flight", "hotel", "travel"]
+      "exact": ["rail", "train", "uber", "ola", "irctc", "makemytrip", "indigo"],
+      "stem": ["booking", "airline", "airways", "flight", "hotel", "travel"]
     },
     "work": {
       "exact": ["payroll", "workday", "slack", "github", "atlassian", "jira", "notion", "zoom", "deel", "linkedin"],
