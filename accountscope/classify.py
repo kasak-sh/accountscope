@@ -10,16 +10,14 @@ TRANSACTIONAL = frozenset({"otp", "verify", "reset", "signup", "receipt", "state
 _DIGITS = re.compile(r"(?<!\d)\d{4,8}(?!\d)")
 DIGIT_WINDOW = 30
 
-# rules objects are compiled to word-boundary patterns once and cached here, keyed by
-# id(rules). A cache keyed on id() alone is unsafe: once an object is garbage
-# collected, Python can hand its id to a brand-new, unrelated object, which would then
-# silently hit someone else's cache entry. Storing the rules object itself alongside
-# its compiled patterns keeps it alive for as long as the cache entry exists, so that
-# id can never be recycled underneath us. In practice load_rules() is itself memoized
-# to a single long-lived object, so the common path compiles exactly once per process;
-# this still does the right (if uncached-per-call) thing for the ad-hoc rules dicts
-# tests pass in directly.
-_pattern_cache: dict[int, tuple[dict, dict[str, list[re.Pattern]]]] = {}
+# Compiled trigger patterns for the one rules object that is worth caching: the single
+# memoized load_rules() dict, which lives for the whole process and is never mutated.
+# The bundled path therefore compiles exactly once. Every other rules dict — the ad-hoc
+# ones callers and tests build — is compiled on the fly instead, because caching those
+# would be both unbounded (one entry per caller, never evicted) and stale-prone (a
+# caller that edits its own dict between calls would keep getting the old patterns).
+_BUNDLED = "bundled"
+_pattern_cache: dict[str, dict[str, list[re.Pattern]]] = {}
 
 
 @lru_cache(maxsize=1)
@@ -53,11 +51,14 @@ def _trigger_pattern(word: str, stem_words: frozenset[str]) -> re.Pattern:
 def _compiled(rules: dict) -> dict[str, list[re.Pattern]]:
     """Trigger regexes for every rule type (its own "any" list plus its translations).
 
-    Compiled once per distinct rules object.
+    Only the memoized load_rules() object is cached, identified with `is`; see the
+    _pattern_cache comment above for why nothing else is.
     """
-    cached = _pattern_cache.get(id(rules))
-    if cached is not None and cached[0] is rules:
-        return cached[1]
+    is_bundled = rules is load_rules()
+    if is_bundled:
+        cached = _pattern_cache.get(_BUNDLED)
+        if cached is not None:
+            return cached
     stem_words = frozenset(rules.get("stem_words", []))
     translations = rules.get("translations", {})
     patterns = {
@@ -65,7 +66,8 @@ def _compiled(rules: dict) -> dict[str, list[re.Pattern]]:
                        for word in list(rule["any"]) + list(translations.get(rule["type"], []))]
         for rule in rules.get("types", [])
     }
-    _pattern_cache[id(rules)] = (rules, patterns)
+    if is_bundled:
+        _pattern_cache[_BUNDLED] = patterns
     return patterns
 
 

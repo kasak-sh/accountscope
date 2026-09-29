@@ -115,3 +115,33 @@ def test_stem_words_are_all_real_triggers():
     triggers = {word for rule in rules["types"] for word in rule["any"]}
     triggers |= {word for words in rules["translations"].values() for word in words}
     assert set(rules["stem_words"]) <= triggers
+
+
+def test_custom_rules_are_not_cached_so_a_mutation_is_picked_up():
+    """An ad-hoc rules dict is compiled on the fly: mutate it and the next call obeys
+    the new rules, rather than a stale set of patterns keyed on the dict's identity."""
+    rules = {"types": [{"type": "verify", "any": ["verify"]}], "translations": {}}
+    assert classify("Verify your email address", False, rules=rules) == "verify"
+    rules["types"][0]["any"] = ["activate"]
+    assert classify("Verify your email address", False, rules=rules) == "other"
+    assert classify("Activate your account", False, rules=rules) == "verify"
+
+
+def test_module_cache_does_not_grow_with_ad_hoc_rules_dicts():
+    from accountscope import classify as classify_module
+
+    classify("Verify your email address", False)  # warm the bundled entry
+    before = len(classify_module._pattern_cache)
+    for i in range(50):
+        rules = {"types": [{"type": "verify", "any": [f"token{i}"]}], "translations": {}}
+        classify(f"Please token{i} now", False, rules=rules)
+    assert len(classify_module._pattern_cache) == before
+
+
+def test_bundled_rules_compile_once():
+    from accountscope import classify as classify_module
+
+    classify("Verify your email address", False)
+    first = classify_module._compiled(load_rules())
+    second = classify_module._compiled(load_rules())
+    assert first is second
