@@ -161,7 +161,9 @@ Python 3.10 or newer. No dependencies.
 | (run docs/precision.md before the first release) | 0.1.0 | – | – | 100 orgs of one 10-year mailbox |
 
 See `docs/precision.md` for the method, and `tests/test_precision.py` for the
-labelled-set gate that runs on every commit.
+labelled-set gate that runs on every commit, checked against a real, hand-labelled
+set of 360 messages (`tests/labelled/messages.jsonl`) spanning all nine message
+types and six languages.
 
 ## Not in v1
 
