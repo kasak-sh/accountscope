@@ -156,9 +156,17 @@ additionally match the tail of a domain label (the stem "bank" tags "mybank.com"
 the exact token "wise" does not tag "otherwise.com").
 
 **Message type.** Ordered rules over subject and headers, first match wins; each
-trigger word or phrase is matched on Unicode-aware word boundaries, never as a raw
-substring (so "reset" no longer fires inside "unresettable", and "confirme" no longer
-fires inside "confirmed"):
+trigger word or phrase is matched on a word boundary, never as a raw substring (so
+"reset" no longer fires inside "unresettable", and "confirme" no longer fires inside
+"confirmed"). The boundary is `\w`-based — `(?<!\w)trigger(?!\w)` — which has two
+consequences worth stating plainly. Devanagari matras and virama are combining marks,
+not `\w`, so `\w` does not separate them from the letters they attach to and a Hindi
+trigger effectively behaves as a prefix: `रसीद` matches the inflected `रसीदें`, though
+not the compound `कोडवर्ड`. And German (with some Spanish, Portuguese and French)
+compounds the trigger with the following noun, which no boundary rule can recover, so
+the triggers those compounds are built on are listed in `rules.json` `stem_words` and
+compile with the leading boundary only — `(?<!\w)versand` matches
+"Versandbestätigung". Everything not in `stem_words` keeps both boundaries:
 1. `otp`: subject contains a word from {code, OTP, verification, verify, passcode,
    one-time} — or their listed translations — with a 4-8 digit token within 30
    characters after it, or opening the subject; never on a List-Unsubscribe message.
