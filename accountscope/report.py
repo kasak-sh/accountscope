@@ -48,7 +48,11 @@ def write_csv(data: dict, path: Path) -> None:
                 "marketing_only": "true" if org["marketing_only"] else "false",
                 "types": "; ".join(f"{t}={n}" for t, n in org["types"].items()),
                 "writes_to": "; ".join(f"{w['address']} ({w['last'] or 'undated'})" for w in org["writes_to"]),
-                "holds": "; ".join(f"{h['fact']} {h['value']} [{h['confidence']}]" for h in org["holds"]),
+                # " (inferred)" matches the HTML's muted tag: a fact of a type whose
+                # precision fell below the bar in docs/precision.md, shown but not relied on.
+                "holds": "; ".join(f"{h['fact']} {h['value']} [{h['confidence']}]"
+                                   + (" (inferred)" if h.get("inferred") else "")
+                                   for h in org["holds"]),
                 "delete_url": delete.get("url", ""),
                 "delete_difficulty": delete.get("difficulty", ""),
                 "sender_addresses": "; ".join(org["sender_addresses"]),

@@ -19,6 +19,7 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);verti
 th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:6px}
 .tag{display:inline-block;padding:1px 7px;border-radius:999px;background:var(--soft);color:var(--accent);font-size:12px;margin:0 4px 2px 0}
+.tag-inferred{background:none;border:1px dashed var(--rule);color:var(--muted);font-style:italic}
 .dim{color:var(--muted)}a{color:var(--accent)}tr[hidden]{display:none}
 """
 
@@ -54,16 +55,29 @@ def _esc(value) -> str:
     return html.escape("" if value is None else str(value), quote=True)
 
 
+def _hold_tag(hold: dict) -> str:
+    """An inferred fact is shown, because the evidence is still worth seeing, but it is
+    labelled and muted so it is never read as something the organisation is known to
+    hold. See docs/precision.md for how a fact type comes to be inferred."""
+    label = f'{_esc(hold["fact"])} {_esc(hold["value"])}'
+    if hold.get("inferred"):
+        return f'<span class="tag tag-inferred">{label} (inferred)</span>'
+    return f'<span class="tag">{label}</span>'
+
+
 def _rows(orgs: list[dict]) -> str:
     out = []
     for o in orgs:
-        holds = " ".join(f'<span class="tag">{_esc(h["fact"])} {_esc(h["value"])}</span>' for h in o["holds"])
+        holds = " ".join(_hold_tag(h) for h in o["holds"])
         writes = "<br>".join(f'{_esc(w["address"])} <span class="dim">{_esc(w["last"] or "undated")}</span>' for w in o["writes_to"])
         delete = o.get("delete") or {}
         link = f'<a href="{_esc(delete["url"])}" rel="noopener">delete ({_esc(delete.get("difficulty", ""))})</a>' if delete.get("url") else DASH
         types = ", ".join(f"{_esc(t)} {n}" for t, n in o["types"].items())
         out.append(
-            f'<tr data-key="{_esc(o["key"])}" data-holds="{_esc(" ".join(h["fact"] for h in o["holds"]))}" '
+            # data-holds drives the "holds card"/"holds phone" chips, which are a claim
+            # that the organisation really holds it — so inferred facts stay out of it.
+            f'<tr data-key="{_esc(o["key"])}" '
+            f'data-holds="{_esc(" ".join(h["fact"] for h in o["holds"] if not h.get("inferred")))}" '
             f'data-marketing="{1 if o["marketing_only"] else 0}" data-writes="{_esc("|".join(w["address"] for w in o["writes_to"]))}">'
             f'<td><strong>{_esc(o["name"])}</strong><br><span class="dim">{_esc(o["key"])}</span></td>'
             f'<td>{writes}</td><td>{holds or DASH}</td>'

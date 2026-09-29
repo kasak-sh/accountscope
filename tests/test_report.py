@@ -105,3 +105,26 @@ def test_write_csv_leaves_ordinary_fields_alone(tmp_path):
     assert rows[0]["name"] == "Example Bank"
     assert rows[0]["first_seen"] == "2016-05-11"
     assert rows[0]["delete_url"] == "https://example.com/close"
+
+
+def with_inferred_fact():
+    """DATA plus a second held fact on the bank that the trust table calls inferred."""
+    data = json.loads(json.dumps(DATA))
+    data["organisations"][0]["holds"].append(
+        {"fact": "phone", "value": "ending 9931", "evidence": "e", "seen": "2026-09-02",
+         "confidence": "medium", "inferred": True})
+    return data
+
+
+def test_write_csv_flags_inferred_facts(tmp_path):
+    out = tmp_path / "inv.csv"
+    write_csv(with_inferred_fact(), out)
+    rows = list(csv.DictReader(out.open()))
+    assert rows[0]["holds"] == "card ending 4421 [high]; phone ending 9931 [medium] (inferred)"
+
+
+def test_write_csv_leaves_trusted_facts_unflagged(tmp_path):
+    out = tmp_path / "inv.csv"
+    write_csv(DATA, out)
+    rows = list(csv.DictReader(out.open()))
+    assert "(inferred)" not in rows[0]["holds"]
