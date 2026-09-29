@@ -155,3 +155,23 @@ def test_lint_allows_example_domains_and_at_sign_in_calendar_subjects(tmp_path):
         encoding="utf-8",
     )
     assert lint.check(good) == []
+
+
+def test_known_bad_labels_stay_corrected():
+    """Three rows whose labels were wrong on review. Pinned so a later edit of the
+    labelled file cannot quietly put them back.
+
+    - "Please verify your shipping address ..." asks the reader to verify something, so
+      it is `verify`, not a receipt that happens to mention an order.
+    - "We've verified your delivery slot ..." reports a delivery arrangement, so it is
+      `notice`; nothing is being receipted and nothing is asked of the reader.
+    - "Sydney NSW 3000" is not an address: 3000 is Melbourne, Sydney's CBD is 2000.
+    """
+    by_subject = {row["subject"]: row for row in load_rows()}
+
+    assert by_subject["Please verify your shipping address for order #5521"]["type"] == "verify"
+    assert by_subject["We've verified your delivery slot for order #7789"]["type"] == "notice"
+
+    sydney = by_subject["Your package is on its way from Northwind Traders"]
+    assert "Sydney NSW 2000" in sydney["body"] and "NSW 3000" not in sydney["body"]
+    assert sydney["facts"] == [{"fact": "address", "value": "Sydney NSW 2000"}]

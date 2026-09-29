@@ -177,9 +177,9 @@
 {"subject": "Votre reçu Example", "list_unsubscribe": false, "body": "Merci pour votre achat.", "type": "receipt", "facts": []}
 {"subject": "आपकी रसीद Example से", "list_unsubscribe": false, "body": "Example से खरीदारी के लिए धन्यवाद।", "type": "receipt", "facts": []}
 {"subject": "आपका ऑर्डर कन्फर्म हो गया", "list_unsubscribe": false, "body": "आपका ऑर्डर प्राप्त हो गया है और प्रोसेस में है।", "type": "receipt", "facts": []}
-{"subject": "Please verify your shipping address for order #5521", "list_unsubscribe": false, "body": "Before we ship your order, please verify the shipping address on file.", "type": "receipt", "facts": []}
+{"subject": "Please verify your shipping address for order #5521", "list_unsubscribe": false, "body": "Before we ship your order, please verify the shipping address on file.", "type": "verify", "facts": []}
 {"subject": "Your payment is confirmed, thank you", "list_unsubscribe": false, "body": "Your payment of $58.00 is confirmed. Your order will ship within 2 days.", "type": "receipt", "facts": []}
-{"subject": "We've verified your delivery slot for order #7789", "list_unsubscribe": false, "body": "Your delivery slot has been verified and locked in for Thursday.", "type": "receipt", "facts": []}
+{"subject": "We've verified your delivery slot for order #7789", "list_unsubscribe": false, "body": "Your delivery slot has been verified and locked in for Thursday.", "type": "notice", "facts": []}
 {"subject": "Thanks — your subscription payment is confirmed", "list_unsubscribe": false, "body": "Your subscription payment of $9.99 is confirmed for this month.", "type": "receipt", "facts": []}
 {"subject": "Your receipt from Northwind Traders", "list_unsubscribe": false, "body": "Paid with card ending 4421. Total $12.00.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 4421"}]}
 {"subject": "Your receipt from Example Store", "list_unsubscribe": false, "body": "Your Visa ending in 9876 was charged $45.50.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 9876"}]}
@@ -287,7 +287,7 @@
 {"subject": "Autopay reminder from Example Telecom", "list_unsubscribe": false, "body": "The card ending 3321 will be charged for this month's renewal.", "type": "notice", "facts": [{"fact": "card", "value": "ending 3321"}]}
 {"subject": "Autopay reminder from Harborview Insurance", "list_unsubscribe": false, "body": "Your Mastercard ending 7744 is set up for autopay.", "type": "notice", "facts": [{"fact": "card", "value": "ending 7744"}]}
 {"subject": "Your order has shipped from Example Bank", "list_unsubscribe": false, "body": "Thanks for your order!\nDelivery address:\nA Person\n221B Baker Street\nLondon NW1 6XE\nUnited Kingdom", "type": "notice", "facts": [{"fact": "address", "value": "London NW1 6XE"}]}
-{"subject": "Your package is on its way from Northwind Traders", "list_unsubscribe": false, "body": "Thanks for your order!\nShipping address:\nA Person\n1 Example Rd\nSydney NSW 3000\nAustralia", "type": "notice", "facts": [{"fact": "address", "value": "Sydney NSW 3000"}]}
+{"subject": "Your package is on its way from Northwind Traders", "list_unsubscribe": false, "body": "Thanks for your order!\nShipping address:\nA Person\n1 Example Rd\nSydney NSW 2000\nAustralia", "type": "notice", "facts": [{"fact": "address", "value": "Sydney NSW 2000"}]}
 {"subject": "Your order has shipped from Example Store", "list_unsubscribe": false, "body": "Thanks for your order!\nDelivery address:\nA Person\n8 Example Marg\nChennai 600001\nIndia", "type": "notice", "facts": [{"fact": "address", "value": "Chennai 600001"}]}
 {"subject": "Your delivery preferences were updated", "list_unsubscribe": false, "body": "We sent a code to your phone number ******5599 to confirm this update.", "type": "notice", "facts": [{"fact": "phone", "value": "ending 5599"}]}
 {"subject": "Your delivery text alerts are on", "list_unsubscribe": false, "body": "We sent a text to your mobile number 9911225599 with tracking details.", "type": "notice", "facts": [{"fact": "phone", "value": "ending 5599"}]}
