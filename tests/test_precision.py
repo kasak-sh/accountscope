@@ -26,11 +26,14 @@ TYPES = ["otp", "verify", "reset", "signup", "receipt", "statement", "notice", "
 FACT_TYPES = ["card", "phone", "address"]
 
 # Named gate thresholds (spelled out here, not inlined, so a future change to any one
-# of them shows up as a one-line diff).
-TYPE_PRECISION_THRESHOLD = 0.70
-TYPE_RECALL_THRESHOLD = 0.60
-FACT_PRECISION_THRESHOLD = 0.70
-FACT_RECALL_THRESHOLD = 0.60
+# of them shows up as a one-line diff). They are a ratchet, not a target: every type
+# and every fact type clears these today with room to spare, and the point of the bar
+# sitting close behind the real numbers is that a regression trips it instead of being
+# absorbed by headroom.
+TYPE_PRECISION_THRESHOLD = 0.85
+TYPE_RECALL_THRESHOLD = 0.75
+FACT_PRECISION_THRESHOLD = 0.85
+FACT_RECALL_THRESHOLD = 0.75
 MIN_TOTAL_ROWS = 300
 MIN_ROWS_PER_TYPE = 25
 MIN_FACTS_PER_TYPE = 15
@@ -175,3 +178,12 @@ def test_known_bad_labels_stay_corrected():
     sydney = by_subject["Your package is on its way from Northwind Traders"]
     assert "Sydney NSW 2000" in sydney["body"] and "NSW 3000" not in sydney["body"]
     assert sydney["facts"] == [{"fact": "address", "value": "Sydney NSW 2000"}]
+
+
+def test_the_gate_is_not_looser_than_the_release_bar():
+    """The thresholds are a ratchet. They may be raised, but loosening one to make a
+    regression pass is the failure mode this guard exists to make visible."""
+    assert TYPE_PRECISION_THRESHOLD >= 0.85
+    assert TYPE_RECALL_THRESHOLD >= 0.75
+    assert FACT_PRECISION_THRESHOLD >= 0.85
+    assert FACT_RECALL_THRESHOLD >= 0.75

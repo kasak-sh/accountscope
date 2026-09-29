@@ -38,7 +38,10 @@ say "verify" or "confirmed", translated subjects, masked/unmasked/malformed
 phone and card numbers, address blocks in six countries' formats, and
 lookalike non-facts such as "cardio" or a bare 7-digit order number) so that
 a regression in the rules shows up as a real number dropping, not as a test
-someone had to keep in sync with the code.
+someone had to keep in sync with the code. The two guards do different jobs:
+a regression in one keyword is caught by `tests/test_classify.py`, which names
+the subject and the type it must produce, while the gate here guards the trend
+across the whole set.
 
 Each line is one JSON object:
 `{"subject": str, "list_unsubscribe": bool, "body": str, "type": str, "facts": [{"fact": str, "value": str}]}`,
