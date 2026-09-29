@@ -28,20 +28,40 @@ def load_rules() -> dict:
     return json.loads(text)
 
 
-def _compiled(rules: dict) -> dict[str, list[re.Pattern]]:
-    """Word-boundary regexes for every rule type's trigger words (its own "any" list
-    plus its translations), compiled once per distinct rules object.
+def _trigger_pattern(word: str, stem_words: frozenset[str]) -> re.Pattern:
+    """A trigger is anchored on its left boundary always, and on its right boundary
+    unless it is listed in `stem_words`.
 
-    `(?<!\\w)...(?!\\w)` rather than `\\b` so a multi-word phrase ("confirm your",
+    `(?<!\\w)`/`(?!\\w)` rather than `\\b` so a multi-word phrase ("confirm your",
     "code de vérification") only needs its own start and end to sit on a boundary, and
     so this stays correct for non-ASCII scripts (Hindi) where `\\w` is Unicode-aware.
+
+    German, and to a lesser extent Spanish, Portuguese and French, glue a trigger to
+    the noun that follows it: "Verifizierungscode", "Versandbestätigung",
+    "Rechnungsnummer", "Passwortänderung", "Kontoauszugsbenachrichtigung",
+    "Willkommensangebot". A trailing `(?!\\w)` loses every one of those, so the stems
+    those compounds are built on drop it and match as prefixes. Everything else keeps
+    both boundaries, which is what stops "reset" firing inside "Unresettable" and
+    "confirme" inside "confirmed".
+    """
+    pattern = r"(?<!\w)" + re.escape(word)
+    if word not in stem_words:
+        pattern += r"(?!\w)"
+    return re.compile(pattern)
+
+
+def _compiled(rules: dict) -> dict[str, list[re.Pattern]]:
+    """Trigger regexes for every rule type (its own "any" list plus its translations).
+
+    Compiled once per distinct rules object.
     """
     cached = _pattern_cache.get(id(rules))
     if cached is not None and cached[0] is rules:
         return cached[1]
+    stem_words = frozenset(rules.get("stem_words", []))
     translations = rules.get("translations", {})
     patterns = {
-        rule["type"]: [re.compile(r"(?<!\w)" + re.escape(word) + r"(?!\w)")
+        rule["type"]: [_trigger_pattern(word, stem_words)
                        for word in list(rule["any"]) + list(translations.get(rule["type"], []))]
         for rule in rules.get("types", [])
     }

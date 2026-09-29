@@ -358,3 +358,14 @@
 {"subject": "About Saturday", "list_unsubscribe": false, "body": "Still on for hiking Saturday morning?", "type": "other", "facts": []}
 {"subject": "Quick heads up", "list_unsubscribe": false, "body": "Running about 10 minutes late, sorry!", "type": "other", "facts": []}
 {"subject": "Recipe you asked for", "list_unsubscribe": false, "body": "Here's the recipe I mentioned at dinner.", "type": "other", "facts": []}
+{"subject": "Ihr Verifizierungscode lautet 483920", "list_unsubscribe": false, "body": "Ihr Verifizierungscode lautet 483920. Er ist zehn Minuten gültig.", "type": "otp", "facts": []}
+{"subject": "Versandbestätigung für Ihre Bestellung", "list_unsubscribe": false, "body": "Ihre Bestellung hat unser Lager verlassen und ist jetzt unterwegs.", "type": "notice", "facts": []}
+{"subject": "Ihre Rechnungsnummer 4455 liegt bereit", "list_unsubscribe": false, "body": "Vielen Dank für Ihren Einkauf. Die Rechnung finden Sie im Anhang.", "type": "receipt", "facts": []}
+{"subject": "Passwortänderung angefordert", "list_unsubscribe": false, "body": "Wir haben für Ihr Konto eine Passwortänderung erhalten. Bitte legen Sie ein neues Passwort fest.", "type": "reset", "facts": []}
+{"subject": "Kontoauszugsbenachrichtigung für September", "list_unsubscribe": false, "body": "Ihr Kontoauszug für September steht jetzt zum Abruf bereit.", "type": "statement", "facts": []}
+{"subject": "Willkommensnachricht: Ihr Konto wurde erstellt", "list_unsubscribe": false, "body": "Schön, dass Sie da sind. Ihr Konto ist eingerichtet und einsatzbereit.", "type": "signup", "facts": []}
+{"subject": "Bestätigungslink für Ihre Mailadresse", "list_unsubscribe": false, "body": "Klicken Sie auf den Bestätigungslink, um Ihre Adresse zu prüfen.", "type": "verify", "facts": []}
+{"subject": "Versandbenachrichtigung für Ihr Paket", "list_unsubscribe": false, "body": "Ihr Paket wurde heute versendet und trifft in Kürze bei Ihnen ein.", "type": "notice", "facts": []}
+{"subject": "Rechnungsdetails für Ihren Einkauf", "list_unsubscribe": false, "body": "Hier finden Sie die Rechnungsdetails zu Ihrem Einkauf von gestern.", "type": "receipt", "facts": []}
+{"subject": "Sommerangebote und Neuheiten im Überblick", "list_unsubscribe": true, "body": "Entdecken Sie unsere Sommerangebote und die Neuheiten der Saison.", "type": "marketing", "facts": []}
+{"subject": "Lieferbestätigung für Ihr Paket", "list_unsubscribe": false, "body": "Ihr Paket wurde heute zugestellt und von einem Nachbarn angenommen.", "type": "notice", "facts": []}

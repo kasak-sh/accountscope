@@ -75,3 +75,43 @@ def test_otp_does_not_fire_on_far_away_digits_or_newsletters(subject, unsub, exp
 def test_otp_never_fires_on_a_message_with_list_unsubscribe():
     assert classify("Your verification code is 483920", False) == "otp"
     assert classify("Your verification code is 483920", True) == "verify"
+
+
+@pytest.mark.parametrize(
+    "subject,unsub,expected",
+    [
+        # German (and other) compounds glue the trigger to a following noun, so a
+        # trailing word boundary would lose them. These triggers are listed in
+        # rules.json "stem_words" and compile as prefixes.
+        ("Ihr Verifizierungscode lautet 483920", False, "otp"),
+        ("Versandbestätigung für Ihre Bestellung", False, "notice"),
+        ("Ihre Rechnungsnummer 4455", False, "receipt"),
+        ("Passwortänderung angefordert", False, "reset"),
+        ("Kontoauszugsbenachrichtigung", False, "statement"),
+        ("Willkommensangebot", True, "signup"),
+    ],
+)
+def test_compound_nouns_match_stem_triggers(subject, unsub, expected):
+    assert classify(subject, unsub) == expected
+
+
+@pytest.mark.parametrize(
+    "subject,unsub,expected",
+    [
+        # Everything not in "stem_words" keeps both boundaries: a stem list that leaked
+        # into the ordinary triggers would break exactly these two.
+        ("Unresettable widgets on sale", False, "other"),
+        ("Order #4521 confirmed", False, "receipt"),
+        ("Confirmed: your seat is booked", False, "other"),
+    ],
+)
+def test_non_stem_triggers_keep_both_word_boundaries(subject, unsub, expected):
+    assert classify(subject, unsub) == expected
+
+
+def test_stem_words_are_all_real_triggers():
+    """Every stem word must actually be a trigger somewhere, or it silently does nothing."""
+    rules = load_rules()
+    triggers = {word for rule in rules["types"] for word in rule["any"]}
+    triggers |= {word for words in rules["translations"].values() for word in words}
+    assert set(rules["stem_words"]) <= triggers
