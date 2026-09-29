@@ -149,7 +149,16 @@ outlook.com, yahoo.com, icloud.com, proton.me and the rest of `personal_mail_dom
 in `rules.json`) is not an organisation and is excluded from the inventory entirely,
 counted only as `source.personal_senders_skipped`.
 
-**Message type.** Ordered rules over subject and headers, first match wins:
+**Category.** Each category's keyword list in `rules.json` is split into `exact`
+tokens, which must equal a whole domain label or name word (or, for host-shaped and
+multi-word tokens, the registrable domain or phrase), and `stem` tokens, which may
+additionally match the tail of a domain label (the stem "bank" tags "mybank.com", but
+the exact token "wise" does not tag "otherwise.com").
+
+**Message type.** Ordered rules over subject and headers, first match wins; each
+trigger word or phrase is matched on Unicode-aware word boundaries, never as a raw
+substring (so "reset" no longer fires inside "unresettable", and "confirme" no longer
+fires inside "confirmed"):
 1. `otp`: subject contains a word from {code, OTP, verification, verify, passcode,
    one-time} — or their listed translations — with a 4-8 digit token within 30
    characters after it, or opening the subject; never on a List-Unsubscribe message.

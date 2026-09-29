@@ -23,6 +23,8 @@ from accountscope.classify import TRANSACTIONAL, classify, load_rules
         ("Bem-vindo à Loja", False, "signup"),
         ("Ihre Rechnung", False, "receipt"),
         ("आपका ओटीपी 4455 है", False, "otp"),
+        ("Confirme su cuenta", False, "verify"),
+        ("Unresettable widgets on sale", False, "other"),
     ],
 )
 def test_classify(subject, unsub, expected):

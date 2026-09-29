@@ -17,7 +17,6 @@ from accountscope.orgs import OrgIdentity
 SCHEMA = "accountscope/1"
 PASS2_CAP = 25
 CATEGORY_ORDER = ["government", "finance", "health", "utilities", "telecom", "travel", "work", "social", "shopping"]
-MIN_SUFFIX_KEYWORD = 4
 _NON_WORD = re.compile(r"[^a-z0-9]+")
 _LABEL_SEP = re.compile(r"[.\-]")
 
@@ -123,16 +122,19 @@ def load_justdeleteme() -> dict:
     return json.loads(text)
 
 
-def _keyword_matches(keyword: str, key: str, labels: set[str], words: set[str], phrase: str) -> bool:
+def _keyword_matches(keyword: str, key: str, labels: set[str], words: set[str], phrase: str, *, as_stem: bool) -> bool:
     """One category keyword against one organisation, as a token rather than a substring.
 
     A bare substring test made netflix.com social ("x.com"), gitlab.com health ("lab")
     and taxi.example finance ("tax"). So:
     - a host-shaped keyword ("x.com", "nic.in") must be the key or a parent of it;
     - a multi-word keyword ("tata power") must appear as a phrase in the name;
-    - anything else must equal a domain label or a word of the name, or be long enough
-      to stand on its own as the tail of a label ("mybank" is a bank; "gitlab" is not a
-      lab, and "Mastercard" in a display name is not a card).
+    - anything else must equal a domain label or a word of the name;
+    - and only a "stem" keyword may additionally match as the tail of a label
+      ("mybank" is a bank); an "exact" keyword never does, however long ("otherwise"
+      is not wise, "pinstripe" is not stripe), and a display-name word never counts as
+      a suffix match either way ("Mastercard" in a newsletter's display name is not a
+      card).
     """
     if "." in keyword:
         return key == keyword or key.endswith("." + keyword)
@@ -140,7 +142,7 @@ def _keyword_matches(keyword: str, key: str, labels: set[str], words: set[str], 
         return keyword in phrase
     if keyword in labels or keyword in words:
         return True
-    if len(keyword) < MIN_SUFFIX_KEYWORD:
+    if not as_stem:
         return False
     return any(label != keyword and label.endswith(keyword) for label in labels)
 
@@ -152,8 +154,12 @@ def categorise(org: Organisation, categories: dict) -> str:
     words = set(name_words)
     phrase = " ".join(name_words)
     for category in CATEGORY_ORDER:
-        keywords = categories.get(category, [])
-        if any(_keyword_matches(k.lower(), key, labels, words, phrase) for k in keywords):
+        tokens = categories.get(category, {})
+        exact = tokens.get("exact", [])
+        stem = tokens.get("stem", [])
+        if any(_keyword_matches(k.lower(), key, labels, words, phrase, as_stem=False) for k in exact):
+            return category
+        if any(_keyword_matches(k.lower(), key, labels, words, phrase, as_stem=True) for k in stem):
             return category
     if org.types.get("statement"):
         return "finance"

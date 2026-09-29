@@ -61,7 +61,9 @@ def test_fact_inferred_defaults_to_false():
 
 
 def test_categorise_prefers_government_then_finance():
-    cats = {"government": ["gov"], "finance": ["bank"], "shopping": ["shop"]}
+    cats = {"government": {"exact": ["gov"], "stem": []},
+            "finance": {"exact": [], "stem": ["bank"]},
+            "shopping": {"exact": ["shop"], "stem": []}}
     assert categorise(Organisation(key="tax.gov.in"), cats) == "government"
     assert categorise(Organisation(key="mybank.com"), cats) == "finance"
     org = Organisation(key="acme.example")
@@ -173,3 +175,26 @@ def test_categorise_matches_payment_processors_as_finance():
     assert categorise(Organisation(key="paypal.com"), load_rules()["categories"]) == "finance"
     assert categorise(Organisation(key="razorpay.com"), load_rules()["categories"]) == "finance"
     assert categorise(Organisation(key="taxi.example"), load_rules()["categories"]) != "finance"
+
+
+def test_categorise_exact_category_tokens_do_not_match_as_a_suffix():
+    cats = bundled_categories()
+    assert categorise(Organisation(key="otherwise.com"), cats) != "finance"   # "wise" is exact, not a stem
+    assert categorise(Organisation(key="pinstripe.com"), cats) != "finance"   # "stripe" is exact, not a stem
+    assert categorise(Organisation(key="paypal.com"), cats) == "finance"      # exact whole label still matches
+    assert categorise(Organisation(key="paytm.com"), cats) == "finance"       # exact whole label still matches
+
+
+def test_categorise_stem_category_tokens_match_as_a_suffix():
+    cats = bundled_categories()
+    assert categorise(Organisation(key="mybank.com"), cats) == "finance"      # "bank" is a stem
+    assert categorise(Organisation(key="taxi.example"), cats) != "finance"    # "tax" is exact, not a stem
+
+
+def test_categorise_restored_three_letter_tokens():
+    cats = bundled_categories()
+    assert categorise(Organisation(key="tax.gov.in"), cats) == "government"
+    assert categorise(Organisation(key="bescom.co.in"), cats) == "utilities"
+    assert categorise(Organisation(key="x.com"), cats) == "social"
+    assert categorise(Organisation(key="citylab.example"), cats) != "health"  # "lab" is exact, not a stem
+    assert categorise(Organisation(key="lab.example"), cats) == "health"      # exact whole label still matches
