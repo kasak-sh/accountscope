@@ -1,3 +1,5 @@
+import pytest
+
 from accountscope.facts import EVIDENCE_WIDTH, FactHit, extract_facts, merge_facts
 
 
@@ -59,6 +61,26 @@ def test_address_trailing_four_digit_postcode():
     assert hits[0].fact == "address" and hits[0].value == "Sydney NSW 2000"
 
 
+def test_merge_facts_marks_inferred_from_trust_map():
+    hits = [
+        FactHit("card", "ending 4421", "e1", "2024-01-01"),
+        FactHit("phone", "ending 1234", "e2", "2024-01-01"),
+    ]
+    facts = {(f.fact, f.value): f for f in merge_facts(hits, trust={"card": "inferred", "phone": "trusted"})}
+    assert facts[("card", "ending 4421")].inferred is True
+    assert facts[("phone", "ending 1234")].inferred is False
+
+
+def test_merge_facts_default_trust_uses_bundled_rules():
+    hits = [
+        FactHit("card", "ending 4421", "e1", "2024-01-01"),
+        FactHit("phone", "ending 1234", "e2", "2024-01-01"),
+        FactHit("address", "London SW1A 1AA", "e3", "2024-01-01"),
+    ]
+    facts = merge_facts(hits)
+    assert all(f.inferred is False for f in facts)
+
+
 def test_merge_confidence_by_distinct_dates():
     hits = [
         FactHit("card", "ending 4421", "e1", "2024-01-01"),
@@ -100,3 +122,47 @@ def test_phone_hit_with_fewer_than_four_tail_digits_is_dropped():
     assert hits == []
     hits = extract_facts("We sent a code to your phone number ******1234.", "2024-09-09")
     assert hits[0].value == "ending 1234"
+
+
+@pytest.mark.parametrize(
+    "body",
+    [
+        "We sent a text with your order number 4521987 for tracking.",
+        "We sent an sms about your account number 99887766 today.",
+        "A message with your reference number 12345678 was sent.",
+    ],
+)
+def test_order_and_account_numbers_are_not_phone_numbers(body):
+    """"order number", "account number" and friends sit in exactly the shape the phone
+    pattern looks for — a send verb, then "number", then digits — but the digits are a
+    record identifier, not a phone number."""
+    assert [h for h in extract_facts(body, "2024-01-01") if h.fact == "phone"] == []
+
+
+@pytest.mark.parametrize(
+    "body",
+    [
+        "We sent a text about your invoice number 5544332 today.",
+        "We sent an sms with your tracking number 77665544 attached.",
+        "A message with your ticket number 30112233 was sent.",
+        "We sent a text about your case number 90817263 this morning.",
+    ],
+)
+def test_the_rest_of_the_record_number_vetoes(body):
+    assert [h for h in extract_facts(body, "2024-01-01") if h.fact == "phone"] == []
+
+
+def test_a_real_phone_number_still_survives_the_veto():
+    hits = extract_facts("We sent a code to your phone number ******1234.", "2024-01-01")
+    assert [(h.fact, h.value) for h in hits] == [("phone", "ending 1234")]
+    hits = extract_facts("We sent an sms to your mobile number ending in 5550198.", "2024-01-01")
+    assert [h.fact for h in hits] == ["phone"]
+
+
+def test_merge_facts_survives_rules_without_a_fact_trust_table(monkeypatch):
+    """fact_trust is optional data; a rules file without it must not crash the run."""
+    from accountscope import facts as facts_module
+
+    monkeypatch.setattr(facts_module, "load_rules", lambda: {})
+    merged = merge_facts([FactHit("card", "ending 4421", "e", "2024-01-01")])
+    assert [(f.fact, f.inferred) for f in merged] == [("card", False)]

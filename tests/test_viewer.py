@@ -35,3 +35,28 @@ def test_write_html(tmp_path):
     out = tmp_path / "accountscope.html"
     write_html(DATA, out)
     assert out.read_text(encoding="utf-8").lstrip().startswith("<!doctype html>")
+
+
+def test_html_flags_inferred_facts_in_the_holds_tag():
+    from tests.test_report import with_inferred_fact
+
+    html = render_html(with_inferred_fact())
+    assert '<span class="tag">card ending 4421</span>' in html
+    assert '<span class="tag tag-inferred">phone ending 9931 (inferred)</span>' in html
+    assert ".tag-inferred{" in html
+
+
+def test_inferred_facts_are_left_out_of_the_holds_filter():
+    """The "holds phone" chip is a claim about what an organisation really has, so an
+    inferred fact must not make a row answer it."""
+    from tests.test_report import with_inferred_fact
+
+    html = render_html(with_inferred_fact())
+    m = re.search(r'<tr data-key="example\.com" data-holds="([^"]*)"', html)
+    assert m and m.group(1) == "card"
+
+
+def test_trusted_facts_still_reach_the_holds_filter():
+    html = render_html(DATA)
+    m = re.search(r'<tr data-key="example\.com" data-holds="([^"]*)"', html)
+    assert m and m.group(1) == "card"

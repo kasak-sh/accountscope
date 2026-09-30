@@ -14,3 +14,358 @@
 {"subject": "Bem-vindo à Loja", "list_unsubscribe": false, "body": "Obrigado por se registar.", "type": "signup", "facts": []}
 {"subject": "Ihre Rechnung", "list_unsubscribe": false, "body": "Vielen Dank für Ihre Bestellung.", "type": "receipt", "facts": []}
 {"subject": "Re: lunch tomorrow?", "list_unsubscribe": false, "body": "Sure, 1pm works. See you at the usual place.", "type": "other", "facts": []}
+{"subject": "481932 is your verification code", "list_unsubscribe": false, "body": "Enter 481932 to finish signing in. It expires in 10 minutes.", "type": "otp", "facts": []}
+{"subject": "Your one-time code is 482069", "list_unsubscribe": false, "body": "Use 482069 to complete your login at Northwind Traders. Do not share this code.", "type": "otp", "facts": []}
+{"subject": "Use code 482206 to sign in to Example Store", "list_unsubscribe": false, "body": "Your code is 482206. It will expire shortly.", "type": "otp", "facts": []}
+{"subject": "482343 is your OTP for Riverside Utilities", "list_unsubscribe": false, "body": "Please enter 482343 within 5 minutes to continue.", "type": "otp", "facts": []}
+{"subject": "Your Example Telecom passcode: 482480", "list_unsubscribe": false, "body": "Passcode 482480 was requested for your account just now.", "type": "otp", "facts": []}
+{"subject": "One-time code for Harborview Insurance: 482617", "list_unsubscribe": false, "body": "482617 is your one-time code. Never share it with anyone.", "type": "otp", "facts": []}
+{"subject": "482754 is your verification code", "list_unsubscribe": false, "body": "Enter 482754 to finish signing in. It expires in 10 minutes.", "type": "otp", "facts": []}
+{"subject": "Your one-time code is 482891", "list_unsubscribe": false, "body": "Use 482891 to complete your login at Meridian Travel. Do not share this code.", "type": "otp", "facts": []}
+{"subject": "Use code 483028 to sign in to Example Health", "list_unsubscribe": false, "body": "Your code is 483028. It will expire shortly.", "type": "otp", "facts": []}
+{"subject": "483165 is your OTP for Cedar Subscriptions", "list_unsubscribe": false, "body": "Please enter 483165 within 5 minutes to continue.", "type": "otp", "facts": []}
+{"subject": "Your Example Bank passcode: 483302", "list_unsubscribe": false, "body": "Passcode 483302 was requested for your account just now.", "type": "otp", "facts": []}
+{"subject": "One-time code for Northwind Traders: 483439", "list_unsubscribe": false, "body": "483439 is your one-time code. Never share it with anyone.", "type": "otp", "facts": []}
+{"subject": "Su código es 224488", "list_unsubscribe": false, "body": "Su código de verificación es 224488. Caduca en 10 minutos.", "type": "otp", "facts": []}
+{"subject": "998877 es tu código", "list_unsubscribe": false, "body": "Usa 998877 para iniciar sesión en tu cuenta.", "type": "otp", "facts": []}
+{"subject": "Seu código é 334455", "list_unsubscribe": false, "body": "Use 334455 para confirmar seu acesso. Expira em 10 minutos.", "type": "otp", "facts": []}
+{"subject": "Seu código de acesso é 776655", "list_unsubscribe": false, "body": "Informe 776655 para continuar.", "type": "otp", "facts": []}
+{"subject": "Ihre Verifizierung: 665544", "list_unsubscribe": false, "body": "Geben Sie 665544 ein, um sich anzumelden.", "type": "otp", "facts": []}
+{"subject": "665544 ist Ihr Code für Example", "list_unsubscribe": false, "body": "Ihr Code 665544 läuft in 10 Minuten ab.", "type": "otp", "facts": []}
+{"subject": "Voici votre code de vérification : 221100", "list_unsubscribe": false, "body": "Utilisez 221100 pour vous connecter.", "type": "otp", "facts": []}
+{"subject": "221100 est votre code Example", "list_unsubscribe": false, "body": "Ce code expire dans 10 minutes.", "type": "otp", "facts": []}
+{"subject": "आपका ओटीपी 4455 है", "list_unsubscribe": false, "body": "साइन इन करने के लिए 4455 दर्ज करें।", "type": "otp", "facts": []}
+{"subject": "आपका कोड 665544 है", "list_unsubscribe": false, "body": "जारी रखने के लिए 665544 का उपयोग करें।", "type": "otp", "facts": []}
+{"subject": "112233 is your OTP", "list_unsubscribe": false, "body": "We sent a code to your phone number ******1233. Enter it to continue.", "type": "otp", "facts": [{"fact": "phone", "value": "ending 1233"}]}
+{"subject": "Your Example verification code is 556677", "list_unsubscribe": false, "body": "We texted a code to your mobile number 9876556677 to verify your identity.", "type": "otp", "facts": [{"fact": "phone", "value": "ending 6677"}]}
+{"subject": "998811 is your one-time passcode", "list_unsubscribe": false, "body": "A code was sent by sms to your phone number **********8811 just now.", "type": "otp", "facts": [{"fact": "phone", "value": "ending 8811"}]}
+{"subject": "Your login code is 553311", "list_unsubscribe": false, "body": "We sent a code to your phone number +91 98765 3311 to verify your identity.", "type": "otp", "facts": [{"fact": "phone", "value": "ending 3311"}]}
+{"subject": "774411 is your verification code", "list_unsubscribe": false, "body": "A code was texted to your mobile ending in ****-4411 to confirm your login.", "type": "otp", "facts": [{"fact": "phone", "value": "ending 4411"}]}
+{"subject": "Use code SAVE30 before 2026 ends", "list_unsubscribe": true, "body": "Get 30% off with code SAVE30 on your next order.", "type": "marketing", "facts": []}
+{"subject": "Order 88991234 shipped, use code later", "list_unsubscribe": false, "body": "Your order has shipped. Use code THANKS10 on your next visit.", "type": "notice", "facts": []}
+{"subject": "Save 25% in 2026 with code SPRING", "list_unsubscribe": false, "body": "Use code SPRING for 25% off. Offer ends soon.", "type": "other", "facts": []}
+{"subject": "998877 is your login code", "list_unsubscribe": false, "body": "Enter 998877 to sign in to your account.", "type": "otp", "facts": []}
+{"subject": "Your Example Cloud code is 776622", "list_unsubscribe": false, "body": "Use 776622 to finish signing in. It expires in 10 minutes.", "type": "otp", "facts": []}
+{"subject": "665511 is your sign-in code", "list_unsubscribe": false, "body": "Enter 665511 within 5 minutes to continue.", "type": "otp", "facts": []}
+{"subject": "887744 is your one-time passcode for Meridian Travel", "list_unsubscribe": false, "body": "Use 887744 to complete your booking login.", "type": "otp", "facts": []}
+{"subject": "Verification code: 224466", "list_unsubscribe": false, "body": "Your Example verification code is 224466.", "type": "otp", "facts": []}
+{"subject": "665522 is your OTP", "list_unsubscribe": false, "body": "We sent a code to your phone number ******5522 to verify your identity.", "type": "otp", "facts": [{"fact": "phone", "value": "ending 5522"}]}
+{"subject": "Your Example Bank code is 331177", "list_unsubscribe": false, "body": "A code was sent by sms to your phone number **********1177 just now.", "type": "otp", "facts": [{"fact": "phone", "value": "ending 1177"}]}
+{"subject": "442288 is your one-time code", "list_unsubscribe": false, "body": "We texted a code to your mobile number 9900112288 to verify your identity.", "type": "otp", "facts": [{"fact": "phone", "value": "ending 2288"}]}
+{"subject": "Your login code is 990033", "list_unsubscribe": false, "body": "A code was sent by text message to your phone number ****990033.", "type": "otp", "facts": [{"fact": "phone", "value": "ending 0033"}]}
+{"subject": "Verify your email to activate your account", "list_unsubscribe": false, "body": "Click the link below to verify your email address for Example Bank.", "type": "verify", "facts": []}
+{"subject": "Please confirm your account for Northwind Traders", "list_unsubscribe": false, "body": "Click the link below to verify your email address for Northwind Traders.", "type": "verify", "facts": []}
+{"subject": "Confirm email address for Example Store", "list_unsubscribe": false, "body": "Click the link below to verify your email address for Example Store.", "type": "verify", "facts": []}
+{"subject": "Activate your new Riverside Utilities account", "list_unsubscribe": false, "body": "Click the link below to verify your email address for Riverside Utilities.", "type": "verify", "facts": []}
+{"subject": "Validate your email to continue", "list_unsubscribe": false, "body": "Click the link below to verify your email address for Example Telecom.", "type": "verify", "facts": []}
+{"subject": "Please verify your identity for Harborview Insurance security", "list_unsubscribe": false, "body": "Click the link below to verify your email address for Harborview Insurance.", "type": "verify", "facts": []}
+{"subject": "Confirm your account to start using Example Cloud", "list_unsubscribe": false, "body": "Click the link below to verify your email address for Example Cloud.", "type": "verify", "facts": []}
+{"subject": "Verify your new email address", "list_unsubscribe": false, "body": "Click the link below to verify your email address for Meridian Travel.", "type": "verify", "facts": []}
+{"subject": "Activate your account before it expires", "list_unsubscribe": false, "body": "Click the link below to verify your email address for Example Health.", "type": "verify", "facts": []}
+{"subject": "One more step: confirm your email", "list_unsubscribe": false, "body": "Click the link below to verify your email address for Cedar Subscriptions.", "type": "verify", "facts": []}
+{"subject": "Please validate your Example Bank account", "list_unsubscribe": false, "body": "Click the link below to verify your email address for Example Bank.", "type": "verify", "facts": []}
+{"subject": "Confirm your email to unlock Northwind Traders", "list_unsubscribe": false, "body": "Click the link below to verify your email address for Northwind Traders.", "type": "verify", "facts": []}
+{"subject": "Confirme su cuenta de Example", "list_unsubscribe": false, "body": "Haga clic para confirmar su cuenta.", "type": "verify", "facts": []}
+{"subject": "Verifique su correo electrónico", "list_unsubscribe": false, "body": "Confirme su correo para continuar.", "type": "verify", "facts": []}
+{"subject": "Confirmez votre compte Example", "list_unsubscribe": false, "body": "Cliquez ici pour confirmer votre compte.", "type": "verify", "facts": []}
+{"subject": "Confirmez votre adresse e-mail", "list_unsubscribe": false, "body": "Validez votre e-mail pour continuer.", "type": "verify", "facts": []}
+{"subject": "Bitte bestätigen Sie Ihr Konto", "list_unsubscribe": false, "body": "Bestätigen Sie Ihr Konto über den Link.", "type": "verify", "facts": []}
+{"subject": "Bitte bestätigen Sie Ihre E-Mail-Adresse", "list_unsubscribe": false, "body": "Bitte bestätigen Sie Ihre Adresse.", "type": "verify", "facts": []}
+{"subject": "Verifique sua conta Example", "list_unsubscribe": false, "body": "Confirme sua conta para continuar.", "type": "verify", "facts": []}
+{"subject": "Confirme seu endereço de e-mail", "list_unsubscribe": false, "body": "Clique para confirmar seu e-mail.", "type": "verify", "facts": []}
+{"subject": "अपना खाता सत्यापित करें", "list_unsubscribe": false, "body": "जारी रखने के लिए अपना खाता सत्यापित करें।", "type": "verify", "facts": []}
+{"subject": "अपना ईमेल सत्यापित करें", "list_unsubscribe": false, "body": "लिंक पर क्लिक करके सत्यापित करें।", "type": "verify", "facts": []}
+{"subject": "Please verify your phone number", "list_unsubscribe": false, "body": "We sent a code to your phone number ******2244 to verify your account.", "type": "verify", "facts": [{"fact": "phone", "value": "ending 2244"}]}
+{"subject": "Confirm your mobile number for Example", "list_unsubscribe": false, "body": "A code was sent by text to your mobile number 9988772244 for verification.", "type": "verify", "facts": [{"fact": "phone", "value": "ending 2244"}]}
+{"subject": "Validate your registered phone", "list_unsubscribe": false, "body": "We sent a code to your phone (555) 244-2244 to verify.", "type": "verify", "facts": [{"fact": "phone", "value": "ending 2244"}]}
+{"subject": "Confirm your mobile number on file", "list_unsubscribe": false, "body": "We sent a code to your phone number ******6633 to verify this change.", "type": "verify", "facts": [{"fact": "phone", "value": "ending 6633"}]}
+{"subject": "Verify your card to enable autopay", "list_unsubscribe": false, "body": "Your Visa ending 5511 must be verified before autopay can start.", "type": "verify", "facts": [{"fact": "card", "value": "ending 5511"}]}
+{"subject": "Confirm your account details", "list_unsubscribe": false, "body": "Please follow the link to verify your account details.", "type": "verify", "facts": []}
+{"subject": "Verify to keep your account active", "list_unsubscribe": false, "body": "Please follow the link to verify your account details.", "type": "verify", "facts": []}
+{"subject": "Activate your subscription to Harborview Insurance", "list_unsubscribe": false, "body": "Please follow the link to verify your account details.", "type": "verify", "facts": []}
+{"subject": "Please confirm your email", "list_unsubscribe": false, "body": "Please follow the link to verify your account details.", "type": "verify", "facts": []}
+{"subject": "Verify your identity to continue", "list_unsubscribe": false, "body": "Please follow the link to verify your account details.", "type": "verify", "facts": []}
+{"subject": "Confirm your account before it locks", "list_unsubscribe": false, "body": "Please follow the link to verify your account details.", "type": "verify", "facts": []}
+{"subject": "Activate two-factor verification", "list_unsubscribe": false, "body": "Please follow the link to verify your account details.", "type": "verify", "facts": []}
+{"subject": "Please verify your new device", "list_unsubscribe": false, "body": "Please follow the link to verify your account details.", "type": "verify", "facts": []}
+{"subject": "Confirm your account recovery email", "list_unsubscribe": false, "body": "Please follow the link to verify your account details.", "type": "verify", "facts": []}
+{"subject": "Validate your account for Example Store", "list_unsubscribe": false, "body": "Please follow the link to verify your account details.", "type": "verify", "facts": []}
+{"subject": "Verify to finish setting up Riverside Utilities", "list_unsubscribe": false, "body": "Please follow the link to verify your account details.", "type": "verify", "facts": []}
+{"subject": "One last step — verify your email", "list_unsubscribe": false, "body": "Please follow the link to verify your account details.", "type": "verify", "facts": []}
+{"subject": "Reset your password", "list_unsubscribe": false, "body": "We received a request to reset your password. Click below to choose a new one.", "type": "reset", "facts": []}
+{"subject": "You requested a new password", "list_unsubscribe": false, "body": "We received a request to reset your password. Click below to choose a new one.", "type": "reset", "facts": []}
+{"subject": "Forgot your password? Reset it here", "list_unsubscribe": false, "body": "We received a request to reset your password. Click below to choose a new one.", "type": "reset", "facts": []}
+{"subject": "Change your password for Riverside Utilities", "list_unsubscribe": false, "body": "We received a request to reset your password. Click below to choose a new one.", "type": "reset", "facts": []}
+{"subject": "Your password reset link inside", "list_unsubscribe": false, "body": "We received a request to reset your password. Click below to choose a new one.", "type": "reset", "facts": []}
+{"subject": "Reset your Harborview Insurance password now", "list_unsubscribe": false, "body": "We received a request to reset your password. Click below to choose a new one.", "type": "reset", "facts": []}
+{"subject": "Password reset requested", "list_unsubscribe": false, "body": "We received a request to reset your password. Click below to choose a new one.", "type": "reset", "facts": []}
+{"subject": "Create a new password for Meridian Travel", "list_unsubscribe": false, "body": "We received a request to reset your password. Click below to choose a new one.", "type": "reset", "facts": []}
+{"subject": "Trouble signing in? Reset your password", "list_unsubscribe": false, "body": "We received a request to reset your password. Click below to choose a new one.", "type": "reset", "facts": []}
+{"subject": "Your Cedar Subscriptions account needs a new password", "list_unsubscribe": false, "body": "We received a request to reset your password. Click below to choose a new one.", "type": "reset", "facts": []}
+{"subject": "Reset your password to regain access", "list_unsubscribe": false, "body": "We received a request to reset your password. Click below to choose a new one.", "type": "reset", "facts": []}
+{"subject": "A password reset was requested for Northwind Traders", "list_unsubscribe": false, "body": "We received a request to reset your password. Click below to choose a new one.", "type": "reset", "facts": []}
+{"subject": "Restablece tu contraseña", "list_unsubscribe": false, "body": "Haz clic para restablecer tu contraseña.", "type": "reset", "facts": []}
+{"subject": "¿Olvidaste tu contraseña?", "list_unsubscribe": false, "body": "Solicita una nueva contraseña aquí.", "type": "reset", "facts": []}
+{"subject": "Redefina sua senha", "list_unsubscribe": false, "body": "Clique para redefinir sua senha agora.", "type": "reset", "facts": []}
+{"subject": "Esqueceu sua senha? Redefina aqui", "list_unsubscribe": false, "body": "Crie uma nova senha para continuar.", "type": "reset", "facts": []}
+{"subject": "Setzen Sie Ihr Passwort zurück", "list_unsubscribe": false, "body": "Klicken Sie hier, um Ihr Passwort zurückzusetzen.", "type": "reset", "facts": []}
+{"subject": "Neues Passwort für Ihr Konto", "list_unsubscribe": false, "body": "Bitte legen Sie ein neues Passwort fest.", "type": "reset", "facts": []}
+{"subject": "Réinitialisez votre mot de passe", "list_unsubscribe": false, "body": "Cliquez ici pour créer un nouveau mot de passe.", "type": "reset", "facts": []}
+{"subject": "Mot de passe oublié ?", "list_unsubscribe": false, "body": "Réinitialisez votre mot de passe Example.", "type": "reset", "facts": []}
+{"subject": "अपना पासवर्ड रीसेट करें", "list_unsubscribe": false, "body": "नया पासवर्ड सेट करने के लिए क्लिक करें।", "type": "reset", "facts": []}
+{"subject": "पासवर्ड बदलने का अनुरोध", "list_unsubscribe": false, "body": "अपना पासवर्ड बदलने के लिए यहाँ क्लिक करें।", "type": "reset", "facts": []}
+{"subject": "Choose a new password for Example Telecom", "list_unsubscribe": false, "body": "Use the secure link to set a new password for your account.", "type": "reset", "facts": []}
+{"subject": "Please set a new password to continue", "list_unsubscribe": false, "body": "Use the secure link to set a new password for your account.", "type": "reset", "facts": []}
+{"subject": "Reset link for your Example Cloud account", "list_unsubscribe": false, "body": "Use the secure link to set a new password for your account.", "type": "reset", "facts": []}
+{"subject": "Your Meridian Travel password expires soon, reset now", "list_unsubscribe": false, "body": "Use the secure link to set a new password for your account.", "type": "reset", "facts": []}
+{"subject": "Change your password for Example Health", "list_unsubscribe": false, "body": "Use the secure link to set a new password for your account.", "type": "reset", "facts": []}
+{"subject": "Security alert: reset your password", "list_unsubscribe": false, "body": "Use the secure link to set a new password for your account.", "type": "reset", "facts": []}
+{"subject": "Reset your password in 3 easy steps", "list_unsubscribe": false, "body": "Use the secure link to set a new password for your account.", "type": "reset", "facts": []}
+{"subject": "Your temporary password is ready to reset", "list_unsubscribe": false, "body": "Use the secure link to set a new password for your account.", "type": "reset", "facts": []}
+{"subject": "We noticed you forgot your password", "list_unsubscribe": false, "body": "Use the secure link to set a new password for your account.", "type": "reset", "facts": []}
+{"subject": "Reset your Riverside Utilities login credentials", "list_unsubscribe": false, "body": "Use the secure link to set a new password for your account.", "type": "reset", "facts": []}
+{"subject": "Password reset for your account", "list_unsubscribe": false, "body": "Use the secure link to set a new password for your account.", "type": "reset", "facts": []}
+{"subject": "Please reset your password to continue", "list_unsubscribe": false, "body": "Use the secure link to set a new password for your account.", "type": "reset", "facts": []}
+{"subject": "Reset your password with the code we texted you", "list_unsubscribe": false, "body": "We sent a code to your phone number ******7711 to reset your password.", "type": "reset", "facts": [{"fact": "phone", "value": "ending 7711"}]}
+{"subject": "Welcome to Example Bank!", "list_unsubscribe": false, "body": "Thanks for signing up. Here's how to get started with Example Bank.", "type": "signup", "facts": []}
+{"subject": "Thanks for signing up with Northwind Traders", "list_unsubscribe": false, "body": "Thanks for signing up. Here's how to get started with Northwind Traders.", "type": "signup", "facts": []}
+{"subject": "Your Example Store account created", "list_unsubscribe": false, "body": "Thanks for signing up. Here's how to get started with Example Store.", "type": "signup", "facts": []}
+{"subject": "You're in! Welcome to Riverside Utilities", "list_unsubscribe": false, "body": "Thanks for signing up. Here's how to get started with Riverside Utilities.", "type": "signup", "facts": []}
+{"subject": "Get started with your new Example Telecom account", "list_unsubscribe": false, "body": "Thanks for signing up. Here's how to get started with Example Telecom.", "type": "signup", "facts": []}
+{"subject": "Registration complete for Harborview Insurance", "list_unsubscribe": false, "body": "Thanks for signing up. Here's how to get started with Harborview Insurance.", "type": "signup", "facts": []}
+{"subject": "Welcome aboard, your Example Cloud account is ready", "list_unsubscribe": false, "body": "Thanks for signing up. Here's how to get started with Example Cloud.", "type": "signup", "facts": []}
+{"subject": "Thank you for signing up", "list_unsubscribe": false, "body": "Thanks for signing up. Here's how to get started with Meridian Travel.", "type": "signup", "facts": []}
+{"subject": "Your account is ready — welcome to Example Health", "list_unsubscribe": false, "body": "Thanks for signing up. Here's how to get started with Example Health.", "type": "signup", "facts": []}
+{"subject": "Welcome! Let's get you started with Cedar Subscriptions", "list_unsubscribe": false, "body": "Thanks for signing up. Here's how to get started with Cedar Subscriptions.", "type": "signup", "facts": []}
+{"subject": "Thanks for signing up with Example Bank today", "list_unsubscribe": false, "body": "Thanks for signing up. Here's how to get started with Example Bank.", "type": "signup", "facts": []}
+{"subject": "Bienvenido a Example", "list_unsubscribe": false, "body": "Gracias por registrarte. Aquí tienes cómo empezar.", "type": "signup", "facts": []}
+{"subject": "¡Bienvenido! Tu cuenta ha sido creada", "list_unsubscribe": false, "body": "Gracias por unirte a Example.", "type": "signup", "facts": []}
+{"subject": "Bem-vindo ao Example", "list_unsubscribe": false, "body": "Obrigado por se cadastrar. Vamos começar.", "type": "signup", "facts": []}
+{"subject": "Bem-vindo à Example, sua conta está pronta", "list_unsubscribe": false, "body": "Sua conta foi criada com sucesso.", "type": "signup", "facts": []}
+{"subject": "Willkommen bei Example", "list_unsubscribe": false, "body": "Danke für Ihre Registrierung. So geht es los.", "type": "signup", "facts": []}
+{"subject": "Willkommen! Ihr Konto ist bereit", "list_unsubscribe": false, "body": "Vielen Dank, dass Sie sich angemeldet haben.", "type": "signup", "facts": []}
+{"subject": "Bienvenue chez Example", "list_unsubscribe": false, "body": "Merci de votre inscription. Voici comment commencer.", "type": "signup", "facts": []}
+{"subject": "Bienvenue ! Votre compte est prêt", "list_unsubscribe": false, "body": "Merci de nous avoir rejoints.", "type": "signup", "facts": []}
+{"subject": "Example में आपका स्वागत है", "list_unsubscribe": false, "body": "साइन अप करने के लिए धन्यवाद। शुरू करें।", "type": "signup", "facts": []}
+{"subject": "आपका स्वागत है! खाता बन गया है", "list_unsubscribe": false, "body": "पंजीकरण सफल रहा। आगे बढ़ें।", "type": "signup", "facts": []}
+{"subject": "Welcome to the Harborview Insurance community", "list_unsubscribe": false, "body": "Thanks for creating an account. Here's a quick tour to get you started.", "type": "signup", "facts": []}
+{"subject": "Your Example Cloud account created successfully", "list_unsubscribe": false, "body": "Thanks for creating an account. Here's a quick tour to get you started.", "type": "signup", "facts": []}
+{"subject": "Thanks for signing up for Meridian Travel", "list_unsubscribe": false, "body": "Thanks for creating an account. Here's a quick tour to get you started.", "type": "signup", "facts": []}
+{"subject": "You're in! Your Example Health account is ready", "list_unsubscribe": false, "body": "Thanks for creating an account. Here's a quick tour to get you started.", "type": "signup", "facts": []}
+{"subject": "Registration complete — welcome to Cedar Subscriptions", "list_unsubscribe": false, "body": "Thanks for creating an account. Here's a quick tour to get you started.", "type": "signup", "facts": []}
+{"subject": "Get started with Example Bank today", "list_unsubscribe": false, "body": "Thanks for creating an account. Here's a quick tour to get you started.", "type": "signup", "facts": []}
+{"subject": "Welcome! Here's your Northwind Traders account summary", "list_unsubscribe": false, "body": "Thanks for creating an account. Here's a quick tour to get you started.", "type": "signup", "facts": []}
+{"subject": "Thank you for signing up for Example Store", "list_unsubscribe": false, "body": "Thanks for creating an account. Here's a quick tour to get you started.", "type": "signup", "facts": []}
+{"subject": "Your Riverside Utilities registration is complete", "list_unsubscribe": false, "body": "Thanks for creating an account. Here's a quick tour to get you started.", "type": "signup", "facts": []}
+{"subject": "You're in — Example Telecom account created", "list_unsubscribe": false, "body": "Thanks for creating an account. Here's a quick tour to get you started.", "type": "signup", "facts": []}
+{"subject": "Get started: your Harborview Insurance account is live", "list_unsubscribe": false, "body": "Thanks for creating an account. Here's a quick tour to get you started.", "type": "signup", "facts": []}
+{"subject": "Your Example Cloud registration confirmation", "list_unsubscribe": false, "body": "Thanks for creating an account. Here's a quick tour to get you started.", "type": "signup", "facts": []}
+{"subject": "Your receipt from Example Bank", "list_unsubscribe": false, "body": "Thank you for your purchase at Example Bank. Order total: $12.00.", "type": "receipt", "facts": []}
+{"subject": "Order #4517 confirmed", "list_unsubscribe": false, "body": "Thank you for your purchase at Northwind Traders. Order total: $13.00.", "type": "receipt", "facts": []}
+{"subject": "Invoice from Example Store", "list_unsubscribe": false, "body": "Thank you for your purchase at Example Store. Order total: $14.00.", "type": "receipt", "facts": []}
+{"subject": "Thank you for your purchase at Riverside Utilities", "list_unsubscribe": false, "body": "Thank you for your purchase at Riverside Utilities. Order total: $15.00.", "type": "receipt", "facts": []}
+{"subject": "Payment confirmation: Example Telecom", "list_unsubscribe": false, "body": "Thank you for your purchase at Example Telecom. Order total: $16.00.", "type": "receipt", "facts": []}
+{"subject": "Your Harborview Insurance order receipt", "list_unsubscribe": false, "body": "Thank you for your purchase at Harborview Insurance. Order total: $17.00.", "type": "receipt", "facts": []}
+{"subject": "Your order 4602 has been placed", "list_unsubscribe": false, "body": "Thank you for your purchase at Example Cloud. Order total: $18.00.", "type": "receipt", "facts": []}
+{"subject": "Thanks for your order at Meridian Travel", "list_unsubscribe": false, "body": "Thank you for your purchase at Meridian Travel. Order total: $19.00.", "type": "receipt", "facts": []}
+{"subject": "Your invoice #4636 is ready", "list_unsubscribe": false, "body": "Thank you for your purchase at Example Health. Order total: $20.00.", "type": "receipt", "facts": []}
+{"subject": "Su recibo de Example", "list_unsubscribe": false, "body": "Gracias por su compra en Example.", "type": "receipt", "facts": []}
+{"subject": "Su pedido ha sido confirmado", "list_unsubscribe": false, "body": "Su pedido fue recibido y está en proceso.", "type": "receipt", "facts": []}
+{"subject": "Seu pedido foi confirmado", "list_unsubscribe": false, "body": "Obrigado pela sua compra. Seu pedido foi confirmado.", "type": "receipt", "facts": []}
+{"subject": "Ihre Rechnung von Example", "list_unsubscribe": false, "body": "Vielen Dank für Ihre Bestellung.", "type": "receipt", "facts": []}
+{"subject": "Votre commande Example", "list_unsubscribe": false, "body": "Merci pour votre commande chez Example.", "type": "receipt", "facts": []}
+{"subject": "Votre reçu Example", "list_unsubscribe": false, "body": "Merci pour votre achat.", "type": "receipt", "facts": []}
+{"subject": "आपकी रसीद Example से", "list_unsubscribe": false, "body": "Example से खरीदारी के लिए धन्यवाद।", "type": "receipt", "facts": []}
+{"subject": "आपका ऑर्डर कन्फर्म हो गया", "list_unsubscribe": false, "body": "आपका ऑर्डर प्राप्त हो गया है और प्रोसेस में है।", "type": "receipt", "facts": []}
+{"subject": "Please verify your shipping address for order #5521", "list_unsubscribe": false, "body": "Before we ship your order, please verify the shipping address on file.", "type": "verify", "facts": []}
+{"subject": "Your payment is confirmed, thank you", "list_unsubscribe": false, "body": "Your payment of $58.00 is confirmed. Your order will ship within 2 days.", "type": "receipt", "facts": []}
+{"subject": "We've verified your delivery slot for order #7789", "list_unsubscribe": false, "body": "Your delivery slot has been verified and locked in for Thursday.", "type": "notice", "facts": []}
+{"subject": "Thanks — your subscription payment is confirmed", "list_unsubscribe": false, "body": "Your subscription payment of $9.99 is confirmed for this month.", "type": "receipt", "facts": []}
+{"subject": "Your receipt from Northwind Traders", "list_unsubscribe": false, "body": "Paid with card ending 4421. Total $12.00.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 4421"}]}
+{"subject": "Your receipt from Example Store", "list_unsubscribe": false, "body": "Your Visa ending in 9876 was charged $45.50.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 9876"}]}
+{"subject": "Your receipt from Riverside Utilities", "list_unsubscribe": false, "body": "We charged the card with last 4 digits 1122.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 1122"}]}
+{"subject": "Your receipt from Example Telecom", "list_unsubscribe": false, "body": "Your Mastercard ending 5566 was used for this order.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 5566"}]}
+{"subject": "Your receipt from Harborview Insurance", "list_unsubscribe": false, "body": "Your Amex card, ending with 3345, was charged for this order.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 3345"}]}
+{"subject": "Your receipt from Example Cloud", "list_unsubscribe": false, "body": "Paid using your debit card ending 7788.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 7788"}]}
+{"subject": "Order #6000 confirmed", "list_unsubscribe": false, "body": "Thanks for your order!\nShipping address:\nA Person\n12 High St\nLondon SW1A 1AA\nUnited Kingdom", "type": "receipt", "facts": [{"fact": "address", "value": "London SW1A 1AA"}]}
+{"subject": "Order #6001 confirmed", "list_unsubscribe": false, "body": "Thanks for your order!\nDelivery address:\nA Person\n742 Evergreen Terrace\nSpringfield IL 62704\nUSA", "type": "receipt", "facts": [{"fact": "address", "value": "Springfield IL 62704"}]}
+{"subject": "Order #6002 confirmed", "list_unsubscribe": false, "body": "Thanks for your order!\nShipping address:\nA Person\n12 MG Road\nBengaluru 560001\nIndia", "type": "receipt", "facts": [{"fact": "address", "value": "Bengaluru 560001"}]}
+{"subject": "Order #6003 confirmed", "list_unsubscribe": false, "body": "Thanks for your order!\nDelivery address:\nA Person\nHauptstrasse 5\n1010 Wien\nAustria", "type": "receipt", "facts": [{"fact": "address", "value": "1010 Wien"}]}
+{"subject": "Order #6004 confirmed", "list_unsubscribe": false, "body": "Thanks for your order!\nBilling address:\nA Person\n5 Example Rd\nSydney NSW 2000\nAustralia", "type": "receipt", "facts": [{"fact": "address", "value": "Sydney NSW 2000"}]}
+{"subject": "Order #6005 confirmed", "list_unsubscribe": false, "body": "Thanks for your order!\nShipping address:\nA Person\nMusterstraße 1\n10115 Berlin\nGermany", "type": "receipt", "facts": [{"fact": "address", "value": "10115 Berlin"}]}
+{"subject": "Your receipt from Example Telecom", "list_unsubscribe": false, "body": "Your Visa ending 6600 was charged for this purchase.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 6600"}]}
+{"subject": "Your receipt from Harborview Insurance", "list_unsubscribe": false, "body": "We charged the card with last four digits 1200.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 1200"}]}
+{"subject": "Your receipt from Example Cloud", "list_unsubscribe": false, "body": "Your debit card ending 3400 was used for this order.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 3400"}]}
+{"subject": "Your receipt from Meridian Travel", "list_unsubscribe": false, "body": "Your credit card ending in 8800 was charged $67.00.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 8800"}]}
+{"subject": "Your Visa was charged for your purchase", "list_unsubscribe": false, "body": "Your Visa, digits 4421 at the end, was used for this purchase.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 4421"}]}
+{"subject": "Order #6100 confirmed", "list_unsubscribe": false, "body": "Thanks for your order!\nShipping address:\nA Person\n45 Example Lane\nManchester M1 1AE\nUnited Kingdom", "type": "receipt", "facts": [{"fact": "address", "value": "Manchester M1 1AE"}]}
+{"subject": "Order #6101 confirmed", "list_unsubscribe": false, "body": "Thanks for your order!\nDelivery address:\nA Person\n900 Example Blvd\nSeattle WA 98101\nUSA", "type": "receipt", "facts": [{"fact": "address", "value": "Seattle WA 98101"}]}
+{"subject": "Order #6102 confirmed", "list_unsubscribe": false, "body": "Thanks for your order!\nShipping address:\nA Person\n7 Example Marg\nMumbai 400001\nIndia", "type": "receipt", "facts": [{"fact": "address", "value": "Mumbai 400001"}]}
+{"subject": "Order #6103 confirmed", "list_unsubscribe": false, "body": "Thanks for your order!\nBilling address:\nA Person\nBeispielweg 3\n80331 München\nGermany", "type": "receipt", "facts": [{"fact": "address", "value": "80331 München"}]}
+{"subject": "Your receipt from Riverside Utilities", "list_unsubscribe": false, "body": "Your Mastercard ending 2299 was charged for this month's usage.", "type": "receipt", "facts": [{"fact": "card", "value": "ending 2299"}]}
+{"subject": "Order #6200 confirmed", "list_unsubscribe": false, "body": "Thanks for your order!\nShipping address:\nA Person\n3 Example Close\nLeeds LS1 4AP\nUnited Kingdom", "type": "receipt", "facts": [{"fact": "address", "value": "Leeds LS1 4AP"}]}
+{"subject": "Order #6201 confirmed", "list_unsubscribe": false, "body": "Thanks for your order!\nDelivery address:\nA Person\n77 Example Street\nPune 411001\nIndia", "type": "receipt", "facts": [{"fact": "address", "value": "Pune 411001"}]}
+{"subject": "556699 is your OTP for Example Health", "list_unsubscribe": false, "body": "We sent a code to your phone number ******6699 to verify your identity.", "type": "otp", "facts": [{"fact": "phone", "value": "ending 6699"}]}
+{"subject": "Your receipt from Northwind Traders", "list_unsubscribe": false, "body": "Your cardio equipment order was placed. We encode your receipt number for tracking.", "type": "receipt", "facts": []}
+{"subject": "Your order number 4521987 has been received", "list_unsubscribe": false, "body": "Thank you for shopping with us. Your order number 4521987 has been received.", "type": "receipt", "facts": []}
+{"subject": "Order 3348219 has been placed", "list_unsubscribe": false, "body": "Order 3348219 has been placed and will ship soon.", "type": "receipt", "facts": []}
+{"subject": "We sent a text with your order number", "list_unsubscribe": false, "body": "We sent a text with your order number 4521987 for tracking.", "type": "receipt", "facts": []}
+{"subject": "Your statement is ready", "list_unsubscribe": false, "body": "Your statement from Example Bank for this period is now available online.", "type": "statement", "facts": []}
+{"subject": "Your Northwind Traders statement is available", "list_unsubscribe": false, "body": "Your statement from Northwind Traders for this period is now available online.", "type": "statement", "facts": []}
+{"subject": "Your monthly statement from Example Store", "list_unsubscribe": false, "body": "Your statement from Example Store for this period is now available online.", "type": "statement", "facts": []}
+{"subject": "Your bill is ready", "list_unsubscribe": false, "body": "Your statement from Riverside Utilities for this period is now available online.", "type": "statement", "facts": []}
+{"subject": "Your e-statement is now available", "list_unsubscribe": false, "body": "Your statement from Example Telecom for this period is now available online.", "type": "statement", "facts": []}
+{"subject": "Your Harborview Insurance bill is ready to view", "list_unsubscribe": false, "body": "Your statement from Harborview Insurance for this period is now available online.", "type": "statement", "facts": []}
+{"subject": "Monthly summary for your Example Cloud account", "list_unsubscribe": false, "body": "Your statement from Example Cloud for this period is now available online.", "type": "statement", "facts": []}
+{"subject": "Your payslip is available", "list_unsubscribe": false, "body": "Your statement from Meridian Travel for this period is now available online.", "type": "statement", "facts": []}
+{"subject": "Your Example Health account statement", "list_unsubscribe": false, "body": "Your statement from Example Health for this period is now available online.", "type": "statement", "facts": []}
+{"subject": "Your bill is ready — Cedar Subscriptions", "list_unsubscribe": false, "body": "Your statement from Cedar Subscriptions for this period is now available online.", "type": "statement", "facts": []}
+{"subject": "Your latest e-statement from Example Bank", "list_unsubscribe": false, "body": "Your statement from Example Bank for this period is now available online.", "type": "statement", "facts": []}
+{"subject": "Su extracto ya está disponible", "list_unsubscribe": false, "body": "Su extracto mensual ya está disponible.", "type": "statement", "facts": []}
+{"subject": "Su extracto ya está listo", "list_unsubscribe": false, "body": "Ya puede consultar su extracto en línea.", "type": "statement", "facts": []}
+{"subject": "Seu extrato está pronto", "list_unsubscribe": false, "body": "Seu extrato mensal já está disponível.", "type": "statement", "facts": []}
+{"subject": "Ihr Kontoauszug ist da", "list_unsubscribe": false, "body": "Ihr monatlicher Kontoauszug ist jetzt verfügbar.", "type": "statement", "facts": []}
+{"subject": "Ihr Kontoauszug ist jetzt verfügbar", "list_unsubscribe": false, "body": "Ihr Kontoauszug steht online bereit.", "type": "statement", "facts": []}
+{"subject": "Votre relevé est disponible", "list_unsubscribe": false, "body": "Votre relevé mensuel est maintenant disponible.", "type": "statement", "facts": []}
+{"subject": "Votre relevé de compte Example", "list_unsubscribe": false, "body": "Consultez votre relevé en ligne dès maintenant.", "type": "statement", "facts": []}
+{"subject": "आपका स्टेटमेंट तैयार है", "list_unsubscribe": false, "body": "आपका मासिक स्टेटमेंट अब उपलब्ध है।", "type": "statement", "facts": []}
+{"subject": "आपका मासिक स्टेटमेंट उपलब्ध है", "list_unsubscribe": false, "body": "अपना स्टेटमेंट ऑनलाइन देखें।", "type": "statement", "facts": []}
+{"subject": "Your Example Cloud statement for this quarter", "list_unsubscribe": false, "body": "Your statement for this billing period is now available to view online.", "type": "statement", "facts": []}
+{"subject": "Your annual statement is ready", "list_unsubscribe": false, "body": "Your statement for this billing period is now available to view online.", "type": "statement", "facts": []}
+{"subject": "Your Example Health e-statement has arrived", "list_unsubscribe": false, "body": "Your statement for this billing period is now available to view online.", "type": "statement", "facts": []}
+{"subject": "This month's statement from Cedar Subscriptions", "list_unsubscribe": false, "body": "Your statement for this billing period is now available to view online.", "type": "statement", "facts": []}
+{"subject": "Your billing statement is available", "list_unsubscribe": false, "body": "Your statement for this billing period is now available to view online.", "type": "statement", "facts": []}
+{"subject": "Your Northwind Traders statement summary is ready", "list_unsubscribe": false, "body": "Your statement for this billing period is now available to view online.", "type": "statement", "facts": []}
+{"subject": "View your latest statement online", "list_unsubscribe": false, "body": "Your statement for this billing period is now available to view online.", "type": "statement", "facts": []}
+{"subject": "Your Riverside Utilities monthly bill is ready", "list_unsubscribe": false, "body": "Your statement for this billing period is now available to view online.", "type": "statement", "facts": []}
+{"subject": "Your statement and payslip are ready", "list_unsubscribe": false, "body": "Your statement for this billing period is now available to view online.", "type": "statement", "facts": []}
+{"subject": "Your Harborview Insurance monthly summary is available", "list_unsubscribe": false, "body": "Your statement for this billing period is now available to view online.", "type": "statement", "facts": []}
+{"subject": "Your quarterly statement from Example Cloud", "list_unsubscribe": false, "body": "Your statement for this billing period is now available to view online.", "type": "statement", "facts": []}
+{"subject": "Your Meridian Travel statement is now online", "list_unsubscribe": false, "body": "Your statement for this billing period is now available to view online.", "type": "statement", "facts": []}
+{"subject": "Your Example Store statement is ready", "list_unsubscribe": false, "body": "Your card ending 2233 was billed $120.00 this cycle.", "type": "statement", "facts": [{"fact": "card", "value": "ending 2233"}]}
+{"subject": "Your Riverside Utilities statement is ready", "list_unsubscribe": false, "body": "Charges to your Visa ending in 4488 appear on this statement.", "type": "statement", "facts": [{"fact": "card", "value": "ending 4488"}]}
+{"subject": "Your Example Telecom statement is ready", "list_unsubscribe": false, "body": "Your credit card ending in 6611 shows a balance of $88.20.", "type": "statement", "facts": [{"fact": "card", "value": "ending 6611"}]}
+{"subject": "Your bill is ready with billing address on file", "list_unsubscribe": false, "body": "Billing address:\nA Person\n221B Baker Street\nLondon NW1 6XE\nUnited Kingdom", "type": "statement", "facts": [{"fact": "address", "value": "London NW1 6XE"}]}
+{"subject": "Your statement and billing address confirmation", "list_unsubscribe": false, "body": "Billing address:\nA Person\n400 Example Ave\nAustin TX 73301\nUSA", "type": "statement", "facts": [{"fact": "address", "value": "Austin TX 73301"}]}
+{"subject": "Your Example Telecom statement is ready", "list_unsubscribe": false, "body": "Your Visa ending in 9012 shows a new charge this cycle.", "type": "statement", "facts": [{"fact": "card", "value": "ending 9012"}]}
+{"subject": "Your Harborview Insurance statement is ready", "list_unsubscribe": false, "body": "The card ending 4560 was billed automatically this month.", "type": "statement", "facts": [{"fact": "card", "value": "ending 4560"}]}
+{"subject": "Your Cedar Subscriptions bill is ready, billing address on file", "list_unsubscribe": false, "body": "Billing address:\nA Person\n12 Example Marg\nDelhi 110001\nIndia", "type": "statement", "facts": [{"fact": "address", "value": "Delhi 110001"}]}
+{"subject": "Your statement mentions a discount code", "list_unsubscribe": false, "body": "Your statement is ready. Use discount code SAVE10 on your next payment for cardio gear.", "type": "statement", "facts": []}
+{"subject": "Your order has shipped", "list_unsubscribe": false, "body": "Your Example Bank account has an update: your order is on its way.", "type": "notice", "facts": []}
+{"subject": "Autopay reminder", "list_unsubscribe": false, "body": "Your Northwind Traders account has an update: your order is on its way.", "type": "notice", "facts": []}
+{"subject": "Your package is on its way", "list_unsubscribe": false, "body": "Your Example Store account has an update: your order is on its way.", "type": "notice", "facts": []}
+{"subject": "Billing update for your Riverside Utilities account", "list_unsubscribe": false, "body": "Your Riverside Utilities account has an update: your order is on its way.", "type": "notice", "facts": []}
+{"subject": "Your subscription renewal is coming up", "list_unsubscribe": false, "body": "Your Example Telecom account has an update: your order is on its way.", "type": "notice", "facts": []}
+{"subject": "Payment due for your Harborview Insurance account", "list_unsubscribe": false, "body": "Your Harborview Insurance account has an update: your order is on its way.", "type": "notice", "facts": []}
+{"subject": "Your Example Cloud order has been delivered", "list_unsubscribe": false, "body": "Your Example Cloud account has an update: your order is on its way.", "type": "notice", "facts": []}
+{"subject": "Your Meridian Travel subscription renews soon", "list_unsubscribe": false, "body": "Your Meridian Travel account has an update: your order is on its way.", "type": "notice", "facts": []}
+{"subject": "Your package has been delivered", "list_unsubscribe": false, "body": "Your Example Health account has an update: your order is on its way.", "type": "notice", "facts": []}
+{"subject": "Autopay scheduled for your Cedar Subscriptions account", "list_unsubscribe": false, "body": "Your Cedar Subscriptions account has an update: your order is on its way.", "type": "notice", "facts": []}
+{"subject": "Su pedido ha sido enviado", "list_unsubscribe": false, "body": "Su pedido está en camino y llegará pronto.", "type": "notice", "facts": []}
+{"subject": "Recordatorio de entrega", "list_unsubscribe": false, "body": "Su pedido llegará mañana; entrega confirmada.", "type": "notice", "facts": []}
+{"subject": "Seu pedido saiu para entrega", "list_unsubscribe": false, "body": "Seu pacote saiu para entrega hoje.", "type": "notice", "facts": []}
+{"subject": "Confirmação de entrega em andamento", "list_unsubscribe": false, "body": "Sua entrega está a caminho e chegará em breve.", "type": "notice", "facts": []}
+{"subject": "Ihre Versand-Bestätigung", "list_unsubscribe": false, "body": "Ihre Bestellung ist unterwegs zu Ihnen.", "type": "notice", "facts": []}
+{"subject": "Erinnerung: Ihre Rechnung wird bald fällig", "list_unsubscribe": false, "body": "Ihre Zahlung ist bald fällig.", "type": "notice", "facts": []}
+{"subject": "Votre livraison est en route", "list_unsubscribe": false, "body": "Votre colis arrivera bientôt.", "type": "notice", "facts": []}
+{"subject": "Confirmation de livraison en cours", "list_unsubscribe": false, "body": "Votre livraison est en cours et arrivera bientôt.", "type": "notice", "facts": []}
+{"subject": "आपकी डिलीवरी आज होगी", "list_unsubscribe": false, "body": "आपका पैकेज आज डिलीवर हो जाएगा।", "type": "notice", "facts": []}
+{"subject": "आपके ऑर्डर की डिलीवरी जल्द होगी", "list_unsubscribe": false, "body": "आपकी डिलीवरी जल्द होने वाली है।", "type": "notice", "facts": []}
+{"subject": "Your Meridian Travel renewal is due next week", "list_unsubscribe": false, "body": "Here is an update on your account and upcoming delivery.", "type": "notice", "facts": []}
+{"subject": "Your delivery is on its way", "list_unsubscribe": false, "body": "Here is an update on your account and upcoming delivery.", "type": "notice", "facts": []}
+{"subject": "Your Cedar Subscriptions subscription payment is due", "list_unsubscribe": false, "body": "Here is an update on your account and upcoming delivery.", "type": "notice", "facts": []}
+{"subject": "Your package will be delivered tomorrow", "list_unsubscribe": false, "body": "Here is an update on your account and upcoming delivery.", "type": "notice", "facts": []}
+{"subject": "Your Northwind Traders billing update for this month", "list_unsubscribe": false, "body": "Here is an update on your account and upcoming delivery.", "type": "notice", "facts": []}
+{"subject": "Your autopay was processed for Example Store", "list_unsubscribe": false, "body": "Here is an update on your account and upcoming delivery.", "type": "notice", "facts": []}
+{"subject": "Your order from Riverside Utilities has shipped", "list_unsubscribe": false, "body": "Here is an update on your account and upcoming delivery.", "type": "notice", "facts": []}
+{"subject": "Your Example Telecom account: payment due soon", "list_unsubscribe": false, "body": "Here is an update on your account and upcoming delivery.", "type": "notice", "facts": []}
+{"subject": "Your subscription with Harborview Insurance renews tomorrow", "list_unsubscribe": false, "body": "Here is an update on your account and upcoming delivery.", "type": "notice", "facts": []}
+{"subject": "Your package has shipped from the warehouse", "list_unsubscribe": false, "body": "Here is an update on your account and upcoming delivery.", "type": "notice", "facts": []}
+{"subject": "Your Meridian Travel delivery update", "list_unsubscribe": false, "body": "Here is an update on your account and upcoming delivery.", "type": "notice", "facts": []}
+{"subject": "Your account renewal notice from Example Health", "list_unsubscribe": false, "body": "Here is an update on your account and upcoming delivery.", "type": "notice", "facts": []}
+{"subject": "Autopay reminder from Riverside Utilities", "list_unsubscribe": false, "body": "Your autopay of $40 is scheduled from the card ending in 9876.", "type": "notice", "facts": [{"fact": "card", "value": "ending 9876"}]}
+{"subject": "Autopay reminder from Example Telecom", "list_unsubscribe": false, "body": "The card ending 3321 will be charged for this month's renewal.", "type": "notice", "facts": [{"fact": "card", "value": "ending 3321"}]}
+{"subject": "Autopay reminder from Harborview Insurance", "list_unsubscribe": false, "body": "Your Mastercard ending 7744 is set up for autopay.", "type": "notice", "facts": [{"fact": "card", "value": "ending 7744"}]}
+{"subject": "Your order has shipped from Example Bank", "list_unsubscribe": false, "body": "Thanks for your order!\nDelivery address:\nA Person\n221B Baker Street\nLondon NW1 6XE\nUnited Kingdom", "type": "notice", "facts": [{"fact": "address", "value": "London NW1 6XE"}]}
+{"subject": "Your package is on its way from Northwind Traders", "list_unsubscribe": false, "body": "Thanks for your order!\nShipping address:\nA Person\n1 Example Rd\nSydney NSW 2000\nAustralia", "type": "notice", "facts": [{"fact": "address", "value": "Sydney NSW 2000"}]}
+{"subject": "Your order has shipped from Example Store", "list_unsubscribe": false, "body": "Thanks for your order!\nDelivery address:\nA Person\n8 Example Marg\nChennai 600001\nIndia", "type": "notice", "facts": [{"fact": "address", "value": "Chennai 600001"}]}
+{"subject": "Your delivery preferences were updated", "list_unsubscribe": false, "body": "We sent a code to your phone number ******5599 to confirm this update.", "type": "notice", "facts": [{"fact": "phone", "value": "ending 5599"}]}
+{"subject": "Your delivery text alerts are on", "list_unsubscribe": false, "body": "We sent a text to your mobile number 9911225599 with tracking details.", "type": "notice", "facts": [{"fact": "phone", "value": "ending 5599"}]}
+{"subject": "Your package is on its way, almost there", "list_unsubscribe": false, "body": "Your package is heading to 12 High St, London SW1A 1AA soon. No action needed.", "type": "notice", "facts": []}
+{"subject": "Your delivery will arrive soon", "list_unsubscribe": false, "body": "We'll deliver to your usual place, 221B Baker Street, London, this week.", "type": "notice", "facts": []}
+{"subject": "Big spring sale, up to 40% off", "list_unsubscribe": true, "body": "Check out this week's top picks and offers.", "type": "marketing", "facts": []}
+{"subject": "Weekly digest: top stories for you", "list_unsubscribe": true, "body": "Check out this week's top picks and offers.", "type": "marketing", "facts": []}
+{"subject": "Flash sale ends tonight", "list_unsubscribe": true, "body": "Check out this week's top picks and offers.", "type": "marketing", "facts": []}
+{"subject": "New arrivals just for you", "list_unsubscribe": true, "body": "Check out this week's top picks and offers.", "type": "marketing", "facts": []}
+{"subject": "Don't miss this weekend's deals", "list_unsubscribe": true, "body": "Check out this week's top picks and offers.", "type": "marketing", "facts": []}
+{"subject": "Your weekly newsletter is here", "list_unsubscribe": true, "body": "Check out this week's top picks and offers.", "type": "marketing", "facts": []}
+{"subject": "Top picks curated for you this week", "list_unsubscribe": true, "body": "Check out this week's top picks and offers.", "type": "marketing", "facts": []}
+{"subject": "Limited time offer inside", "list_unsubscribe": true, "body": "Check out this week's top picks and offers.", "type": "marketing", "facts": []}
+{"subject": "Use code SAVE20 before 2026 ends", "list_unsubscribe": true, "body": "Get 20% off with code SAVE20 on orders over $50.", "type": "marketing", "facts": []}
+{"subject": "20% off orders over $50", "list_unsubscribe": true, "body": "Free shipping on orders over $50 this week only.", "type": "marketing", "facts": []}
+{"subject": "Your 2025 wrapped", "list_unsubscribe": true, "body": "Here's your year in review for 2025.", "type": "marketing", "facts": []}
+{"subject": "Enter code FALL10, offer ends 2026", "list_unsubscribe": true, "body": "Use FALL10 for 10% off before the year ends.", "type": "marketing", "facts": []}
+{"subject": "Orders over $100 ship free this week", "list_unsubscribe": true, "body": "Free shipping on all orders over $100.", "type": "marketing", "facts": []}
+{"subject": "Your 2026 year in review", "list_unsubscribe": true, "body": "Take a look back at your favorite moments from 2026.", "type": "marketing", "facts": []}
+{"subject": "Code FESTIVE25 valid until 2026-12-31", "list_unsubscribe": true, "body": "Save 25% storewide with code FESTIVE25.", "type": "marketing", "facts": []}
+{"subject": "Order early for the 2026 holidays and save", "list_unsubscribe": true, "body": "Shop early to save on 2026 holiday gifts.", "type": "marketing", "facts": []}
+{"subject": "Your statement of style: new arrivals inside", "list_unsubscribe": true, "body": "Discover our new statement pieces this season.", "type": "marketing", "facts": []}
+{"subject": "Your invoice for the season: shop the drop", "list_unsubscribe": true, "body": "Our new invoice-style lookbook is here.", "type": "marketing", "facts": []}
+{"subject": "New arrivals: renewal of your favorite styles", "list_unsubscribe": true, "body": "See the renewal of classic styles this season.", "type": "marketing", "facts": []}
+{"subject": "This week only: activate savings on your next order", "list_unsubscribe": true, "body": "Activate savings with our new loyalty perks.", "type": "marketing", "facts": []}
+{"subject": "Your subscription: confirm your preferences today", "list_unsubscribe": true, "body": "Confirm your preferences to get better picks.", "type": "marketing", "facts": []}
+{"subject": "Example Bank Newsletter: your March billing update and savings tips", "list_unsubscribe": true, "body": "Read this month's savings tips and a billing update from Example Bank.", "type": "marketing", "facts": []}
+{"subject": "Example Bank Monthly Insights", "list_unsubscribe": true, "body": "Tips on saving more this quarter from Example Bank.", "type": "marketing", "facts": []}
+{"subject": "Your Example Bank money tips for this month", "list_unsubscribe": true, "body": "This month's budgeting tips from Example Bank.", "type": "marketing", "facts": []}
+{"subject": "5 tips to reset your password habits this year", "list_unsubscribe": true, "body": "Better password habits start here. Read our tips.", "type": "marketing", "facts": []}
+{"subject": "Password tips: keep your accounts safe", "list_unsubscribe": true, "body": "Our security team shares tips to keep accounts safe.", "type": "marketing", "facts": []}
+{"subject": "Your monthly security digest: password tips inside", "list_unsubscribe": true, "body": "This month's digest covers password hygiene.", "type": "marketing", "facts": []}
+{"subject": "Gran oferta de primavera, hasta 40% de descuento", "list_unsubscribe": true, "body": "No te pierdas las ofertas de esta semana.", "type": "marketing", "facts": []}
+{"subject": "Grande promoção de primavera", "list_unsubscribe": true, "body": "Não perca as ofertas desta semana.", "type": "marketing", "facts": []}
+{"subject": "Großer Frühlingsschlussverkauf", "list_unsubscribe": true, "body": "Verpassen Sie nicht die Angebote dieser Woche.", "type": "marketing", "facts": []}
+{"subject": "Grande vente de printemps", "list_unsubscribe": true, "body": "Ne manquez pas les offres de cette semaine.", "type": "marketing", "facts": []}
+{"subject": "इस हफ्ते के टॉप ऑफर्स", "list_unsubscribe": true, "body": "इस हफ्ते के बेहतरीन ऑफर्स न चूकें।", "type": "marketing", "facts": []}
+{"subject": "Re: lunch tomorrow?", "list_unsubscribe": false, "body": "Sure, 1pm works. See you at the usual place.", "type": "other", "facts": []}
+{"subject": "Re: quick question", "list_unsubscribe": false, "body": "Yes, that works for me. Talk soon.", "type": "other", "facts": []}
+{"subject": "Re: are you free this weekend?", "list_unsubscribe": false, "body": "I think so! Let's confirm on Friday.", "type": "other", "facts": []}
+{"subject": "Re: photos from the trip", "list_unsubscribe": false, "body": "These turned out great, thanks for sending them.", "type": "other", "facts": []}
+{"subject": "Re: catching up soon?", "list_unsubscribe": false, "body": "Would love to! Let me know what works.", "type": "other", "facts": []}
+{"subject": "Re: dinner plans this weekend?", "list_unsubscribe": false, "body": "Sounds good, see you then.", "type": "other", "facts": []}
+{"subject": "Invitation: Team sync @ Thu Oct 2, 2026 3pm - 4pm", "list_unsubscribe": false, "body": "You have been invited to a meeting.", "type": "other", "facts": []}
+{"subject": "Accepted: Weekly Standup", "list_unsubscribe": false, "body": "This event has been accepted on your calendar.", "type": "other", "facts": []}
+{"subject": "Updated invitation: Project Review", "list_unsubscribe": false, "body": "The meeting time has been updated.", "type": "other", "facts": []}
+{"subject": "Invitation: Coffee catch-up @ Fri 10am", "list_unsubscribe": false, "body": "You have been invited to a calendar event.", "type": "other", "facts": []}
+{"subject": "Declined: Budget Review", "list_unsubscribe": false, "body": "This invitation has been declined.", "type": "other", "facts": []}
+{"subject": "Invitation: Book club @ Sat 5pm", "list_unsubscribe": false, "body": "Join us for this month's book club meeting.", "type": "other", "facts": []}
+{"subject": "Order of service: Sunday community gathering", "list_unsubscribe": false, "body": "Please find this week's order of service attached.", "type": "other", "facts": []}
+{"subject": "This week's community potluck order of service", "list_unsubscribe": false, "body": "Here is the schedule for Saturday's potluck.", "type": "other", "facts": []}
+{"subject": "PTA meeting notes and next steps", "list_unsubscribe": false, "body": "Thanks to everyone who joined the PTA meeting.", "type": "other", "facts": []}
+{"subject": "Quick favor?", "list_unsubscribe": false, "body": "Could you send me that file when you get a chance?", "type": "other", "facts": []}
+{"subject": "Following up", "list_unsubscribe": false, "body": "Just checking in on where things stand.", "type": "other", "facts": []}
+{"subject": "Notes from today", "list_unsubscribe": false, "body": "Here's a quick summary of what we discussed.", "type": "other", "facts": []}
+{"subject": "Draft for your review", "list_unsubscribe": false, "body": "Attached is the draft we talked about.", "type": "other", "facts": []}
+{"subject": "Thanks again!", "list_unsubscribe": false, "body": "Really appreciate your help with this.", "type": "other", "facts": []}
+{"subject": "Question about the schedule", "list_unsubscribe": false, "body": "Are we still on for Tuesday?", "type": "other", "facts": []}
+{"subject": "Can we reschedule?", "list_unsubscribe": false, "body": "Something came up, can we move our call?", "type": "other", "facts": []}
+{"subject": "Your thoughts?", "list_unsubscribe": false, "body": "Let me know what you think when you have a moment.", "type": "other", "facts": []}
+{"subject": "Long time no talk", "list_unsubscribe": false, "body": "How have you been? Would love to catch up.", "type": "other", "facts": []}
+{"subject": "¿Hablamos mañana?", "list_unsubscribe": false, "body": "Avísame si tienes tiempo mañana por la tarde.", "type": "other", "facts": []}
+{"subject": "Podemos conversar amanhã?", "list_unsubscribe": false, "body": "Me avise se tiver um tempo amanhã.", "type": "other", "facts": []}
+{"subject": "Können wir morgen sprechen?", "list_unsubscribe": false, "body": "Sag mir Bescheid, ob du Zeit hast.", "type": "other", "facts": []}
+{"subject": "On se parle demain ?", "list_unsubscribe": false, "body": "Dis-moi si tu es disponible demain.", "type": "other", "facts": []}
+{"subject": "क्या हम कल बात कर सकते हैं?", "list_unsubscribe": false, "body": "मुझे बताएं अगर आप कल फ्री हैं।", "type": "other", "facts": []}
+{"subject": "Loved catching up", "list_unsubscribe": false, "body": "It was great seeing you last week, let's do it again soon.", "type": "other", "facts": []}
+{"subject": "About Saturday", "list_unsubscribe": false, "body": "Still on for hiking Saturday morning?", "type": "other", "facts": []}
+{"subject": "Quick heads up", "list_unsubscribe": false, "body": "Running about 10 minutes late, sorry!", "type": "other", "facts": []}
+{"subject": "Recipe you asked for", "list_unsubscribe": false, "body": "Here's the recipe I mentioned at dinner.", "type": "other", "facts": []}
+{"subject": "Ihr Verifizierungscode lautet 483920", "list_unsubscribe": false, "body": "Ihr Verifizierungscode lautet 483920. Er ist zehn Minuten gültig.", "type": "otp", "facts": []}
+{"subject": "Versandbestätigung für Ihre Bestellung", "list_unsubscribe": false, "body": "Ihre Bestellung hat unser Lager verlassen und ist jetzt unterwegs.", "type": "notice", "facts": []}
+{"subject": "Ihre Rechnungsnummer 4455 liegt bereit", "list_unsubscribe": false, "body": "Vielen Dank für Ihren Einkauf. Die Rechnung finden Sie im Anhang.", "type": "receipt", "facts": []}
+{"subject": "Passwortänderung angefordert", "list_unsubscribe": false, "body": "Wir haben für Ihr Konto eine Passwortänderung erhalten. Bitte legen Sie ein neues Passwort fest.", "type": "reset", "facts": []}
+{"subject": "Kontoauszugsbenachrichtigung für September", "list_unsubscribe": false, "body": "Ihr Kontoauszug für September steht jetzt zum Abruf bereit.", "type": "statement", "facts": []}
+{"subject": "Willkommensnachricht: Ihr Konto wurde erstellt", "list_unsubscribe": false, "body": "Schön, dass Sie da sind. Ihr Konto ist eingerichtet und einsatzbereit.", "type": "signup", "facts": []}
+{"subject": "Bestätigungslink für Ihre Mailadresse", "list_unsubscribe": false, "body": "Klicken Sie auf den Bestätigungslink, um Ihre Adresse zu prüfen.", "type": "verify", "facts": []}
+{"subject": "Versandbenachrichtigung für Ihr Paket", "list_unsubscribe": false, "body": "Ihr Paket wurde heute versendet und trifft in Kürze bei Ihnen ein.", "type": "notice", "facts": []}
+{"subject": "Rechnungsdetails für Ihren Einkauf", "list_unsubscribe": false, "body": "Hier finden Sie die Rechnungsdetails zu Ihrem Einkauf von gestern.", "type": "receipt", "facts": []}
+{"subject": "Sommerangebote und Neuheiten im Überblick", "list_unsubscribe": true, "body": "Entdecken Sie unsere Sommerangebote und die Neuheiten der Saison.", "type": "marketing", "facts": []}
+{"subject": "Lieferbestätigung für Ihr Paket", "list_unsubscribe": false, "body": "Ihr Paket wurde heute zugestellt und von einem Nachbarn angenommen.", "type": "notice", "facts": []}

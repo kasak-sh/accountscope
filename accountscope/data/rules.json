@@ -24,22 +24,54 @@
   ],
   "translations": {
     "otp": ["código", "codigo", "कोड", "ओटीपी", "verifizierung", "code de vérification"],
-    "verify": ["confirmez", "bestätigen", "verifique", "सत्यापित"],
+    "verify": ["confirme", "confirmez", "bestätig", "verifique", "सत्यापित"],
     "reset": ["contraseña", "senha", "passwort", "mot de passe", "पासवर्ड"],
     "signup": ["bienvenido", "bem-vindo", "willkommen", "bienvenue", "स्वागत"],
     "receipt": ["recibo", "pedido", "rechnung", "reçu", "commande", "रसीद", "ऑर्डर"],
     "statement": ["extracto", "extrato", "kontoauszug", "relevé", "स्टेटमेंट"],
     "notice": ["enviado", "livraison", "versand", "entrega", "डिलीवरी"]
   },
+  "stem_words": [
+    "verifizierung", "versand", "rechnung", "passwort", "kontoauszug", "willkommen", "bestätig",
+    "código", "contraseña", "senha", "recibo", "extracto", "extrato", "livraison", "commande"
+  ],
+  "fact_trust": {"card": "trusted", "phone": "trusted", "address": "trusted"},
   "categories": {
-    "government": ["gov", "nic.in", "hmrc", "irs.", "passport", "council", "dmv", "electoral", "municipal", "uidai", "incometax"],
-    "finance": ["bank", "card", "credit", "pay", "wallet", "invest", "fund", "insurance", "loan", "upi", "capital", "finance", "mutual", "pension", "tax", "zerodha", "groww", "paytm", "phonepe", "paypal", "razorpay", "payu", "stripe", "payoneer", "wise"],
-    "health": ["health", "clinic", "hospital", "pharmacy", "doctor", "dental", "medical", "lab", "apollo", "practo"],
-    "utilities": ["electric", "power", "gas", "water", "energy", "broadband", "fiber", "utility", "bescom", "tata power"],
-    "telecom": ["mobile", "telecom", "airtel", "jio", "vodafone", "verizon", "t-mobile", "att.com", "sim", "vi.com"],
-    "travel": ["airline", "airways", "flight", "hotel", "booking", "rail", "train", "travel", "uber", "ola", "irctc", "makemytrip", "indigo"],
-    "work": ["payroll", "workday", "slack", "github", "atlassian", "jira", "notion", "zoom", "deel", "linkedin"],
-    "social": ["facebook", "instagram", "twitter", "x.com", "reddit", "discord", "meta", "snapchat", "tiktok"],
-    "shopping": ["shop", "store", "amazon", "flipkart", "market", "mall", "cart", "myntra", "swiggy", "zomato", "bigbasket"]
+    "government": {
+      "exact": ["gov", "nic.in", "hmrc", "irs.gov", "passport", "council", "dmv", "electoral", "municipal", "uidai", "incometax"],
+      "stem": []
+    },
+    "finance": {
+      "exact": ["pay", "fund", "loan", "upi", "capital", "mutual", "tax", "zerodha", "groww", "paytm", "phonepe", "paypal", "razorpay", "payu", "stripe", "payoneer", "wise"],
+      "stem": ["bank", "card", "credit", "wallet", "invest", "insurance", "finance", "pension"]
+    },
+    "health": {
+      "exact": ["doctor", "lab", "apollo", "practo"],
+      "stem": ["health", "clinic", "hospital", "pharmacy", "dental", "medical"]
+    },
+    "utilities": {
+      "exact": ["gas", "water", "fiber", "utility", "bescom", "tata power"],
+      "stem": ["power", "electric", "energy", "broadband"]
+    },
+    "telecom": {
+      "exact": ["airtel", "jio", "vodafone", "verizon", "t-mobile", "att.com", "sim", "vi.com"],
+      "stem": ["mobile", "telecom"]
+    },
+    "travel": {
+      "exact": ["rail", "train", "uber", "ola", "irctc", "makemytrip", "indigo"],
+      "stem": ["booking", "airline", "airways", "flight", "hotel", "travel"]
+    },
+    "work": {
+      "exact": ["payroll", "workday", "slack", "github", "atlassian", "jira", "notion", "zoom", "deel", "linkedin"],
+      "stem": []
+    },
+    "social": {
+      "exact": ["facebook", "instagram", "twitter", "x.com", "reddit", "discord", "meta", "snapchat", "tiktok"],
+      "stem": []
+    },
+    "shopping": {
+      "exact": ["amazon", "flipkart", "mall", "cart", "myntra", "swiggy", "zomato", "bigbasket"],
+      "stem": ["shop", "store", "market"]
+    }
   }
 }

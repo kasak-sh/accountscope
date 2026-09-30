@@ -6,6 +6,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from typing import Iterable
 
+from accountscope.classify import load_rules
 from accountscope.inventory import Fact
 
 EVIDENCE_WIDTH = 120
@@ -19,6 +20,14 @@ CARD = re.compile(
 )
 PHONE = re.compile(
     r"\b(?:code|text|sms|message)\b[^.\n]{0,60}?(?:phone|mobile|number)[^0-9*x•\n]{0,20}([0-9*x•]{6,})",
+    re.IGNORECASE,
+)
+# "We sent a text with your order number 4521987" has the exact shape PHONE looks for —
+# a send verb, then "number", then a long digit run — but those digits identify a
+# record, not a person. Checked against the text PHONE matched between its trigger and
+# its capture, so it only fires when the record word sits immediately before the digits.
+RECORD_NUMBER = re.compile(
+    r"\b(?:order|account|reference|invoice|tracking|ticket|case)\s+number\W*$",
     re.IGNORECASE,
 )
 ADDRESS_CUE = re.compile(r"(?:ship(?:ping)?|deliver(?:y)?|billing)\s+address\s*:?", re.IGNORECASE)
@@ -63,6 +72,8 @@ def extract_facts(text: str, seen: str) -> list[FactHit]:
     for m in CARD.finditer(text):
         hits.append(FactHit("card", f"ending {m.group(1)}", _snippet(text, m.start(), m.end()), seen))
     for m in PHONE.finditer(text):
+        if RECORD_NUMBER.search(text[m.start():m.start(1)]):
+            continue
         digits = re.sub(r"\D", "", m.group(1))
         if len(digits) < MIN_TAIL_DIGITS:
             continue
@@ -84,7 +95,8 @@ def extract_facts(text: str, seen: str) -> list[FactHit]:
     return hits
 
 
-def merge_facts(hits: Iterable[FactHit]) -> list[Fact]:
+def merge_facts(hits: Iterable[FactHit], trust: dict | None = None) -> list[Fact]:
+    trust = trust if trust is not None else load_rules().get("fact_trust", {})
     grouped: dict[tuple[str, str], list[FactHit]] = defaultdict(list)
     for hit in hits:
         grouped[(hit.fact, hit.value)].append(hit)
@@ -93,6 +105,7 @@ def merge_facts(hits: Iterable[FactHit]) -> list[Fact]:
         latest = max(group, key=lambda h: h.seen)
         distinct_dates = {h.seen for h in group}
         confidence = "high" if len(distinct_dates) >= 2 else "medium"
-        facts.append(Fact(fact, value, latest.evidence, latest.seen, confidence))
+        inferred = trust.get(fact, "trusted") == "inferred"
+        facts.append(Fact(fact, value, latest.evidence, latest.seen, confidence, inferred))
     facts.sort(key=lambda f: (f.fact, f.value))
     return facts

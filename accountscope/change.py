@@ -61,8 +61,9 @@ def _holds(row: "Row") -> str:
 
 
 def _row(org: dict, last: str | None, reason: str) -> Row:
+    holds = [f"{h['fact']} {h['value']}" + (" (inferred)" if h.get("inferred") else "") for h in org["holds"]]
     return Row(name=org["name"], key=org["key"], category=org["category"], tier=_tier(org["category"]), last=last,
-               holds=[f"{h['fact']} {h['value']}" for h in org["holds"]], link=_link(org), reason=reason,
+               holds=holds, link=_link(org), reason=reason,
                marketing_only=bool(org["marketing_only"]))
 
 
@@ -85,7 +86,7 @@ def build_checklist(data: dict, kind: str, old: str | None, new: str | None = No
         if old and kind in ("phone", "card") and len(tail) < 4:
             raise ValueError(f"{kind} change needs at least the last 4 digits of the old value")
         for org in data["organisations"]:
-            facts = [h for h in org["holds"] if h["fact"] == kind]
+            facts = [h for h in org["holds"] if h["fact"] == kind and not h.get("inferred")]
             if old:
                 if kind == "address":
                     facts = [h for h in facts if old.lower() in h["value"].lower()]
